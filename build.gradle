@@ -1,0 +1,94 @@
+plugins {
+    id 'net.fabricmc.fabric-loom' version '1.15-SNAPSHOT'
+    id 'maven-publish'
+    id "me.modmuss50.mod-publish-plugin" version "0.5.1"
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+repositories {
+    mavenLocal()
+    maven { url = "https://maven.fabricmc.net/" }
+    mavenCentral()
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+
+    implementation "net.fabricmc:fabric-loader:${project.fabric_loader_version}"
+    implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    
+    // Standalone Library (No JiJ)
+    implementation "net.dasik.social:dasik-library:${project.dasik_library_version}"
+}
+
+processResources {
+    inputs.property "version", project.version
+    inputs.property "loader_version", project.fabric_loader_version
+    inputs.property "minecraft_version", project.minecraft_version
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version,
+               "loader_version": project.fabric_loader_version,
+               "minecraft_version": project.minecraft_version
+    }
+}
+
+loom {
+    mixin {
+        defaultRefmapName = "item-clumps-refmap.json"
+    }
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(25)
+    }
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 25
+}
+
+jar {
+    from("LICENSE") {
+        rename { String name -> name + "_" + project.archives_base_name }
+    }
+}
+
+// Mod Publish Plugin Block (Only triggers if tokens are present and user asks to publish)
+afterEvaluate {
+    publishMods {
+        file = file("build/libs/${project.archives_base_name}-${project.mod_version}.jar")
+        type = STABLE
+        modLoaders.add("fabric")
+
+        modrinth {
+            accessToken = providers.environmentVariable("MODRINTH_TOKEN")
+            projectId = "item-clumps"
+            minecraftVersions.add("26.1.2")
+            requires {
+                slug = "fabric-api"
+            }
+            requires {
+                slug = "dasik-library"
+            }
+        }
+
+        curseforge {
+            accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
+            projectId = "item-clumps"
+            minecraftVersions.add("26.1.2")
+            requires {
+                slug = "fabric-api"
+            }
+            requires {
+                slug = "dasik-library"
+            }
+        }
+    }
+}

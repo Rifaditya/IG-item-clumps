@@ -1,0 +1,15 @@
+{
+    "required": true,
+    "package": "net.instantgratification.item_clumps.mixin",
+    "compatibilityLevel": "JAVA_25",
+    "mixins": [
+        "HopperBlockEntityMixin",
+        "ItemEntityMixin"
+    ],
+    "client": [
+        "ItemEntityRendererMixin"
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}
