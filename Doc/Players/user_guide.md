@@ -42,8 +42,8 @@ To hide holographic labels:
 
 ### 1. The 5-Minute Despawn Timer
 * **Concept**: In vanilla Minecraft, items despawn after 5 minutes (6000 ticks) of existence.
-* **Clump Behavior**: When items merge into a clump, the clump retains the despawn timer of the oldest item in the merge. Even if the stack size continues to increase because new items are constantly added, **the despawn timer does not refresh**.
-* **Rationale**: This prevents items from remaining in the world indefinitely. If a fast farm continues dropping items, the entire clump will safely despawn together once the original 5 minutes are up. This guarantees that uncollected items will not accumulate forever.
+* **Clump Behavior**: When items merge, the mod inherits the age of the **youngest** item (the smallest age value, since Minecraft's age ticks upwards from 0 to 6000). 
+* **Rationale**: This extends the lifetime of the clump to match the newest item, exactly mimicking vanilla merging behavior. This guarantees you do not lose newly dropped items prematurely when they merge into an older stack.
 
 ### 2. Player Pickups
 * **Smart Intake**: When you walk over a clump containing hundreds of items, the mod calculates how much space you have in your inventory.
