@@ -34,6 +34,7 @@ public abstract class ItemEntityMixin extends Entity implements MegaCountData {
     @Shadow private int age;
 
     private static final EntityDataAccessor<Integer> MEGA_COUNT = SynchedEntityData.defineId(ItemEntity.class, EntityDataSerializers.INT);
+    private static final EntityDataAccessor<Boolean> SYNCED_RENDER_LABELS = SynchedEntityData.defineId(ItemEntity.class, EntityDataSerializers.BOOLEAN);
 
     public ItemEntityMixin(EntityType<?> type, Level level) {
         super(type, level);
@@ -42,11 +43,17 @@ public abstract class ItemEntityMixin extends Entity implements MegaCountData {
     @Inject(method = "defineSynchedData", at = @At("TAIL"))
     private void item_clumps$defineMegaCount(SynchedEntityData.Builder builder, CallbackInfo ci) {
         builder.define(MEGA_COUNT, 1);
+        builder.define(SYNCED_RENDER_LABELS, true);
     }
 
     @Override
     public int item_clumps$getMegaCount() {
         return this.getEntityData().get(MEGA_COUNT);
+    }
+
+    @Override
+    public boolean item_clumps$shouldRenderLabels() {
+        return this.getEntityData().get(SYNCED_RENDER_LABELS);
     }
 
     @Override
@@ -76,6 +83,16 @@ public abstract class ItemEntityMixin extends Entity implements MegaCountData {
     private void item_clumps$readMegaCount(ValueInput input, CallbackInfo ci) {
         int loadedCount = input.getIntOr("mega_count", 1);
         this.item_clumps$setMegaCount(loadedCount);
+    }
+
+    @Inject(method = "tick", at = @At("HEAD"))
+    private void item_clumps$tickRenderLabelsSync(CallbackInfo ci) {
+        if (this.level() != null && !this.level().isClientSide()) {
+            boolean currentVal = DynamicGameRuleManager.getBoolean(this.level(), ItemClumpsFabric.RENDER_LABELS);
+            if (this.getEntityData().get(SYNCED_RENDER_LABELS) != currentVal) {
+                this.getEntityData().set(SYNCED_RENDER_LABELS, currentVal);
+            }
+        }
     }
 
     @Inject(method = "setItem", at = @At("HEAD"))
@@ -165,20 +182,18 @@ public abstract class ItemEntityMixin extends Entity implements MegaCountData {
                 ItemStack chunk = baseItem.copy();
                 chunk.setCount(toTake);
 
-                if (player.getInventory().add(chunk)) {
-                    // Full chunk absorbed
-                    megaCount -= toTake;
-                    player.take(this, toTake);
-                    player.awardStat(net.minecraft.stats.Stats.ITEM_PICKED_UP.get(baseItem.getItem()), toTake);
-                } else if (chunk.getCount() < toTake) {
-                    // Partial chunk absorbed (inventory became full midway)
-                    int taken = toTake - chunk.getCount();
-                    megaCount -= taken;
-                    player.take(this, taken);
-                    player.awardStat(net.minecraft.stats.Stats.ITEM_PICKED_UP.get(baseItem.getItem()), taken);
-                    break; // Inventory full
-                } else {
-                    break; // Inventory full
+                player.getInventory().add(chunk);
+                int added = toTake - chunk.getCount();
+
+                if (added > 0) {
+                    megaCount -= added;
+                    player.take(this, added);
+                    player.awardStat(net.minecraft.stats.Stats.ITEM_PICKED_UP.get(baseItem.getItem()), added);
+                }
+
+                if (!chunk.isEmpty()) {
+                    // Player inventory is full, cannot pick up any more items in this chunk
+                    break;
                 }
             }
 

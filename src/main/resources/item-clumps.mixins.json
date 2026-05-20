@@ -2,12 +2,14 @@
     "required": true,
     "package": "net.instantgratification.item_clumps.mixin",
     "compatibilityLevel": "JAVA_25",
+    "refmap": "item-clumps-refmap.json",
     "mixins": [
         "HopperBlockEntityMixin",
         "ItemEntityMixin"
     ],
     "client": [
-        "ItemEntityRendererMixin"
+        "ItemEntityRendererMixin",
+        "ClientPacketListenerMixin"
     ],
     "injectors": {
         "defaultRequire": 1

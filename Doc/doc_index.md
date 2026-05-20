@@ -1,24 +1,24 @@
 # item-clumps: Documentation Index
 
-Welcome to the central documentation hub for **item-clumps**. This project follows the **Zenith Protocol v2.1** documentation standard.
+Welcome to the central documentation hub for **item-clumps**.
 
-## ?? Navigation
+## 📖 Navigation
 
-### [Core Concepts](Concept/)
-*   **[Original Design Document](Concept/concept_item-clumps.md)**
+### 💡 Core Concepts
+* **[Original Design Document](Concept/concept_item_clumps.md)**
 
-### [Development](Develop/)
-*   **[Architecture](Develop/Architecture/)**
-*   **[Changelogs](Develop/Changelogs/History.md)**
-*   **[Audit Logs](Develop/Audit/)**
+### 🛠️ Development & Architecture
+* **[System Architecture](Develop/Architecture/architecture.md)**
+* **[Changelog History](Develop/Changelogs/History.md)**
 
-### [Player Guide](Players/)
+### 🎮 Player Guide
+* **[User & Admin Guide](Players/user_guide.md)**
 
-### [Platform Pages](Platform%20Pages/)
-
----
-
-## ??? Media & Assets
-*   Explore the **[Media folder](Media/)**
+### 🌐 Platform Listings
+* **[Modrinth Description](Platform%20Pages/modrinth_description.md)**
+* **[CurseForge Description](Platform%20Pages/curseforge_description.md)**
 
 ---
+
+## 🎨 Media & Assets
+* Explore the **[Media folder](Media/)**

@@ -47,7 +47,7 @@ public class ItemClumpsFabric implements ModInitializer {
 
         MERGE_RADIUS = DynamicGameRuleManager.integerRule(MOD_ID + ":merge_radius", CUSTOM_CATEGORY, 1)
             .name("Merge Radius")
-            .description("The block radius items will search to merge with identical items. Vanilla is ~0.5. Default: 1")
+            .description("The horizontal block radius items will search to merge with identical items. To match vanilla behavior, items will not merge if one is 1 block above or below the other. Default: 1")
             .range(1, 10)
             .register();
     }

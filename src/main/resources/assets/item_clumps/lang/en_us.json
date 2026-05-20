@@ -1,0 +1,11 @@
+{
+  "gamerule.category.item_clumps.item_clumps": "Item Clumps",
+  "gamerule.item_clumps.enable_clumping": "Enable Clumping",
+  "gamerule.item_clumps.enable_clumping.description": "When true, ground items will aggressively merge into mega-stacks to reduce entity lag. Default: true",
+  "gamerule.item_clumps.max_clump_size": "Max Clump Size",
+  "gamerule.item_clumps.max_clump_size.description": "The hard cap on how many items can merge into a single entity. Prevents overflow issues. Default: 9999",
+  "gamerule.item_clumps.render_labels": "Render Labels",
+  "gamerule.item_clumps.render_labels.description": "When true, renders a holographic count above item clumps larger than a normal stack. Default: true",
+  "gamerule.item_clumps.merge_radius": "Merge Radius",
+  "gamerule.item_clumps.merge_radius.description": "The horizontal block radius items will search to merge with identical items. To match vanilla behavior, items will not merge if one is 1 block above or below the other. Default: 1"
+}

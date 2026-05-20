@@ -1,0 +1,59 @@
+# User Guide - Item Clumping
+
+This guide covers everything you need to know about item clumping, config rules, and how to manage clumps as a player or administrator.
+
+---
+
+## 📖 Overview
+
+By default, Minecraft merges items of the same type in the world only if the stack size is below its max stack size (typically 64). When many items are dropped (e.g., from mob farms, quarries, or explosions), hundreds of individual item entities float in the world, causing severe client-side and server-side lag.
+
+This mod solves this issue by allowing item entities to merge **infinitely** (up to a configurable limit) into a single entity. The single entity renders as one item, but tracks a virtual count (e.g., `x500`). 
+
+---
+
+## ⚙️ Configuration & GameRules
+
+Administrators can control all clumping behavior in real-time using in-game GameRules.
+
+| GameRule | Default Value | Description |
+|---|---|---|
+| `item_clumps:enable_clumping` | `true` | When true, item clumping is enabled. When false, the mod reverts to vanilla merging behavior. |
+| `item_clumps:max_clump_size` | `9999` | The maximum virtual count of items allowed in a single clump. |
+| `item_clumps:render_labels` | `true` | When true, renders a holographic count label above item clumps. |
+| `item_clumps:merge_radius` | `1` | The horizontal block radius items will search to merge with identical items. |
+
+To change a value, use the standard command:
+```text
+/gamerule <rule_name> <value>
+```
+For example, to change the merge radius:
+```text
+/gamerule item_clumps:merge_radius 2
+```
+To hide holographic labels:
+```text
+/gamerule item_clumps:render_labels false
+```
+
+---
+
+## 🛠️ Mechanics in Detail
+
+### 1. The 5-Minute Despawn Timer
+* **Concept**: In vanilla Minecraft, items despawn after 5 minutes (6000 ticks) of existence.
+* **Clump Behavior**: When items merge into a clump, the clump retains the despawn timer of the oldest item in the merge. Even if the stack size continues to increase because new items are constantly added, **the despawn timer does not refresh**.
+* **Rationale**: This prevents items from remaining in the world indefinitely. If a fast farm continues dropping items, the entire clump will safely despawn together once the original 5 minutes are up. This guarantees that uncollected items will not accumulate forever.
+
+### 2. Player Pickups
+* **Smart Intake**: When you walk over a clump containing hundreds of items, the mod calculates how much space you have in your inventory.
+* **Auto-Stacking**: It automatically gives you items in full stacks (e.g., 64 at a time) or smaller chunks depending on your inventory space. 
+* **Partial Pickups**: If your inventory fills up halfway through, you will pick up only what fits, and the remaining count will stay in the clump on the ground.
+
+### 3. Hopper & Automation Integration
+* **Drip Extraction**: Hoppers extract items from clumps one by one, matching the speed of vanilla hopper intake. A clump containing 1000 items will sit on top of a hopper and be absorbed gradually without clogging or bypassing normal container speeds.
+
+### 4. Visuals (Name Tags)
+* **Count Indicators**: To help you see how many items are on the ground without opening your inventory, a custom name tag (e.g., `Stone x450`) will appear above any clump whose count exceeds its maximum native stack size (typically 64).
+* **Toggleable Display**: Renders dynamically on the client, and can be completely toggled off or back on via `/gamerule item_clumps:render_labels`.
+* **Render Range**: Name tags are only displayed when you are within 64 blocks of the clump to minimize visual clutter.

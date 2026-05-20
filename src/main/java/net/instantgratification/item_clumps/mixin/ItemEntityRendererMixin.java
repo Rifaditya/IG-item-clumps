@@ -18,6 +18,9 @@ public abstract class ItemEntityRendererMixin {
     @Inject(method = "extractRenderState(Lnet/minecraft/world/entity/item/ItemEntity;Lnet/minecraft/client/renderer/entity/state/ItemEntityRenderState;F)V", at = @At("TAIL"))
     private void item_clumps$injectCustomNameTag(ItemEntity entity, ItemEntityRenderState state, float partialTicks, CallbackInfo ci) {
         if (entity instanceof MegaCountData data) {
+            if (!data.item_clumps$shouldRenderLabels()) {
+                return;
+            }
             int megaCount = data.item_clumps$getMegaCount();
             int maxStack = entity.getItem().getMaxStackSize();
             if (megaCount > maxStack) {

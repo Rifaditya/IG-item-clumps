@@ -17,9 +17,6 @@
     "entrypoints": {
         "main": [
             "net.instantgratification.item_clumps.ItemClumpsFabric"
-        ],
-        "client": [
-            "net.instantgratification.item_clumps.ItemClumpsFabricClient"
         ]
     },
     "mixins": [

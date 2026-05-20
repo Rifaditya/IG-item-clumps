@@ -1,4 +1,4 @@
-# Concept: Item Clumps (Zenith Protocol v2.1)
+# Concept: Item Clumps
 
 > **Philosophy**: Instant Gratification (IG) - "Performance First. Friction Zero."
 > **Category**: Optimization / Quality of Life
@@ -35,5 +35,5 @@ Mod uses `DasikLibrary`'s `DynamicGameRuleManager` under custom `GameRuleCategor
 
 ## Edge Cases & Safety
 - **Hopper/Dropper Interactions**: Hoppers must extract 1 (or 8) items at a time from Mega-Stack without deleting whole entity. Mixins into `HopperBlockEntity` collision logic required.
-- **Despawn Timers**: When new item merges into existing Mega-Stack, despawn timer (`age`) resets or averages. Prevents sudden deletion of valuable items.
+- **Despawn Timers**: When a new item merges into an existing Mega-Stack, the despawn timer (`age`) resets to the minimum age of the merging entities (which is typically `0` for newly dropped items). This prevents the sudden deletion of valuable items as long as new items are constantly merging. However, if the stack sits idle without new items merging, the entire clump will despawn at once when the surviving entity reaches 5 minutes (6000 ticks) of age.
 - **Physics**: Larger clumps receive slight visual scale bump. Collision boxes remain vanilla. Prevents getting stuck in blocks.
