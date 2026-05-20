@@ -17,6 +17,14 @@ Part of the **Instant Gratification Collection** — mods that refine the vanill
 
 ---
 
+## 🎥 Showcase Video
+
+[![Item Clumps Showcase Video](https://img.youtube.com/vi/2e9tHTHidfo/maxresdefault.jpg)](https://youtu.be/2e9tHTHidfo)
+
+*Click the image above to watch the mod showcase in action!*
+
+---
+
 ## ✨ Features
 
 * 🚀 **Infinite Stack Size Virtualization**: Minecraft normally limits ground items to a stack size of 64. When hundreds of items are dropped, the game has to process physics, collision checks, and rendering for each individual entity, causing severe lag. This mod bypasses the 64-stack limit, allowing identical ground items to merge into a single entity tracking a virtual count of up to **9,999 items**.
