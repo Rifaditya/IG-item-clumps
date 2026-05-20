@@ -19,7 +19,7 @@ Part of the **Instant Gratification Collection** — mods that refine the vanill
 
 ## 🎥 Showcase Video
 
-[![Item Clumps Showcase Video](https://img.youtube.com/vi/2e9tHTHidfo/maxresdefault.jpg)](https://youtu.be/2e9tHTHidfo)
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/2e9tHTHidfo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 *Click the image above to watch the mod showcase in action!*
 

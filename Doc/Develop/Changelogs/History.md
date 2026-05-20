@@ -4,6 +4,14 @@ All notable changes to the item clumping mod are documented below.
 
 ---
 
+## 1.0.0+build.11
+*Released: May 20, 2026*
+
+### Changed
+- **Modrinth Showcase Video**: Updated `modrinth_description.md` to embed YouTube video using iframe HTML block code recommended by Modrinth.
+
+---
+
 ## 1.0.0+build.10
 *Released: May 20, 2026*
 
