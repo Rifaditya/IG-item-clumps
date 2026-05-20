@@ -31,7 +31,7 @@ Mod uses `DasikLibrary`'s `DynamicGameRuleManager` under custom `GameRuleCategor
 - `item_clumps:enable_clumping` (Boolean, Default: `true`): Master toggle.
 - `item_clumps:max_clump_size` (Integer, Default: `9999`): Hard cap on items per clump. Prevents integer overflow.
 - `item_clumps:render_labels` (Boolean, Default: `true`): Toggles floating text for performance purists.
-- `item_clumps:merge_radius` (Double, Default: `1.5`): Block radius items search to merge.
+- `item_clumps:merge_radius` (Integer, Default: `1`): Block radius items search to merge.
 
 ## Edge Cases & Safety
 - **Hopper/Dropper Interactions**: Hoppers must extract 1 (or 8) items at a time from Mega-Stack without deleting whole entity. Mixins into `HopperBlockEntity` collision logic required.

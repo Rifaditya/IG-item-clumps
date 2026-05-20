@@ -4,6 +4,20 @@ All notable changes to the item clumping mod are documented below.
 
 ---
 
+## 1.0.0+build.10
+*Released: May 20, 2026*
+
+### Added
+- **Root README & License**: Created missing GPLv3 license and comprehensive project README at root featuring badges, installation, configuration reference, and guide indexes.
+
+### Changed
+- **Documentation Parity**: Updated `concept_item_clumps.md` config type definitions and `architecture.md` sequence diagrams to match actual codebase implementations (optimized larger-absorbs-smaller clumping, age inheritance, and integer merge radius).
+
+### Fixed
+- **Source Verification & Imports**: Cleaned up unused imports in all Mixin classes and added required Source Verification Protocol citations referencing decompiled Mojang-mapped classes (`ItemEntity.java`, `HopperBlockEntity.java`, and `ItemEntityRenderer.java`).
+
+---
+
 ## 1.0.0+build.9
 *Released: May 20, 2026*
 

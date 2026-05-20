@@ -35,9 +35,19 @@ sequenceDiagram
     end
     
     alt Combined count <= maxClumpSize
-        A->>A: addMegaCount(Count of B)
-        A->>B: discard()
-        Note over A: Complete Merge Successful
+        alt B's count < A's count
+            A->>A: addMegaCount(Count of B)
+            A->>A: age = Math.min(age, B.age)
+            A->>A: pickupDelay = Math.max(pickupDelay, B.pickupDelay)
+            A->>B: discard()
+            Note over A: A absorbs B (Complete Merge)
+        else B's count >= A's count
+            B->>B: addMegaCount(Count of A)
+            B->>B: age = Math.min(age, A.age)
+            B->>B: pickupDelay = Math.max(pickupDelay, A.pickupDelay)
+            B->>A: discard()
+            Note over B: B absorbs A (Complete Merge)
+        end
     else Combined count > maxClumpSize
         A->>A: Fill up to maxClumpSize
         B->>B: Shrink count by space absorbed
@@ -66,7 +76,7 @@ graph TD
 - `defineSynchedData`: Registers the custom `MEGA_COUNT` data tracker.
 - `setItem`: Intercepts stack sets. If a stack is natively spawned with size > 1, the mod converts the overflow into the virtual `megaCount` and sets the native stack size to 1.
 - `mergeWithNeighbours`: Modifies the arguments of the search bounding box to match the `item_clumps:merge_radius` GameRule.
-- `tryToMerge`: Intercepts the merging logic. Calculates the combined count, clamps it to `max_clump_size`, and disposes of the merged entity.
+- `tryToMerge`: Intercepts the merging logic. Calculates the combined count, clamps it to `max_clump_size`, and disposes of the merged entity. Performs optimized larger-absorbs-smaller count transfers, inheriting the youngest despawn age (`Math.min(age, other.age)`) and the maximum pickup delay (`Math.max(pickupDelay, other.pickupDelay)`) to match vanilla rules.
 - `playerTouch`: Intercepts the player pickup event. Distributes the virtual count into the player's inventory as maximum-sized stacks.
 - `addAdditionalSaveData`/`readAdditionalSaveData`: Handles saving and loading the `"mega_count"` integer to/from NBT.
 

@@ -1,6 +1,5 @@
 package net.instantgratification.item_clumps.mixin;
 
-import net.instantgratification.item_clumps.ItemClumpsFabric;
 import net.instantgratification.item_clumps.MegaCountData;
 import net.minecraft.client.renderer.entity.ItemEntityRenderer;
 import net.minecraft.client.renderer.entity.state.ItemEntityRenderState;
@@ -12,6 +11,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
+// Verified against: E:\Minecraft Project\Minecraft Decomplide code for reference only\26.1 .2 releast decompile\client\src\net\minecraft\client\renderer\entity\ItemEntityRenderer.java
 @Mixin(ItemEntityRenderer.class)
 public abstract class ItemEntityRendererMixin {
 

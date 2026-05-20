@@ -1,6 +1,5 @@
 package net.instantgratification.item_clumps.mixin;
 
-import net.instantgratification.item_clumps.ItemClumpsFabric;
 import net.instantgratification.item_clumps.MegaCountData;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -11,6 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+// Verified against: E:\Minecraft Project\Minecraft Decomplide code for reference only\26.1 .2 releast decompile\client\src\net\minecraft\world\level\block\entity\HopperBlockEntity.java
 @Mixin(HopperBlockEntity.class)
 public abstract class HopperBlockEntityMixin {
 
