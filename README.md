@@ -37,6 +37,8 @@ No config files are needed. All settings are native GameRules in the **"Item Clu
 * `item_clumps:render_labels` (Default: `true`) - Toggles rendering of floating custom count tags.
 * `item_clumps:merge_radius` (Default: `1`) - The horizontal block radius searched for merging.
 
+![Item Clumps Game Rules Screenshot](Doc/Media/Gamerule%20Screen.png)
+
 ---
 
 ## 📖 Navigation & Documentation

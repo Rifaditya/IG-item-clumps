@@ -49,6 +49,8 @@ No messy config files. Item Clumps uses the **Native Minecraft Game Rules** syst
 * `item_clumps:render_labels` (Default: `true`) - Toggles the rendering of the floating custom count tag above virtual clumps.
 * `item_clumps:merge_radius` (Default: `1`) - The horizontal block radius items will search to find matching items to merge.
 
+![Item Clumps Game Rules Screenshot](https://raw.githubusercontent.com/Rifaditya/IG-item-clumps/main/Doc/Media/Gamerule%20Screen.png)
+
 ---
 
 ## ☕ Support
