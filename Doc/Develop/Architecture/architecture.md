@@ -12,6 +12,7 @@ The mod uses a virtual stack representation to bypass Minecraft's hardcoded stac
 1. **Interface Injection**: The interface `MegaCountData` is injected onto `ItemEntity` via Mixin.
 2. **Network Synced Data**: The virtual count is tracked using Minecraft's `SynchedEntityData` system via a `MEGA_COUNT` data accessor. This ensures the count is automatically synchronized between the server and all watching clients.
 3. **NBT Persistence**: The virtual count is serialized to and deserialized from NBT using the tag key `"mega_count"` in `ItemEntity` save/load methods.
+4. **Clean ItemStacks (No Stacking Issues)**: The underlying `ItemStack` associated with the `ItemEntity` is **never modified** with custom name tags or extra NBT data components. This ensures that when items are picked up by players or extracted by hoppers, they are returned as standard vanilla items, preventing any inventory stacking, sorting, or storage issues.
 
 ---
 

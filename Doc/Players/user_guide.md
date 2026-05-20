@@ -49,11 +49,13 @@ To hide holographic labels:
 * **Smart Intake**: When you walk over a clump containing hundreds of items, the mod calculates how much space you have in your inventory.
 * **Auto-Stacking**: It automatically gives you items in full stacks (e.g., 64 at a time) or smaller chunks depending on your inventory space. 
 * **Partial Pickups**: If your inventory fills up halfway through, you will pick up only what fits, and the remaining count will stay in the clump on the ground.
+* **Perfect Stacking (NBT Clean)**: Picked-up items are completely clean vanilla items. The mod does NOT write any custom NBT, Data Components, or custom names to the items, ensuring they stack perfectly with normal items in your inventory and chests.
 
 ### 3. Hopper & Automation Integration
 * **Drip Extraction**: Hoppers extract items from clumps one by one, matching the speed of vanilla hopper intake. A clump containing 1000 items will sit on top of a hopper and be absorbed gradually without clogging or bypassing normal container speeds.
 
 ### 4. Visuals (Name Tags)
 * **Count Indicators**: To help you see how many items are on the ground without opening your inventory, a custom name tag (e.g., `Stone x450`) will appear above any clump whose count exceeds its maximum native stack size (typically 64).
+* **Client-Side Only Rendering**: This label is rendered dynamically on the client utilizing `ItemEntityRenderState` and does **NOT** write to the item's display name or components. The item entity remains a standard item.
 * **Toggleable Display**: Renders dynamically on the client, and can be completely toggled off or back on via `/gamerule item_clumps:render_labels`.
 * **Render Range**: Name tags are only displayed when you are within 64 blocks of the clump to minimize visual clutter.
