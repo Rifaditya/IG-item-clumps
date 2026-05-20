@@ -13,6 +13,9 @@
 
 Tired of frame drops when mining huge ore veins, detonating large areas, or running high-efficiency mob farms? **Item Clumps** completely redesigns how dropped item entities behave in the world, combining them into lightweight, virtual mega-stacks to maximize both server performance and client-side frame rates.
 
+> [!IMPORTANT]
+> **Environment Requirement**: This mod is required on **both the client and the server**. Mismatched installations will result in connection errors or desynchronization due to the custom data tracker registrations.
+
 Part of the **Instant Gratification Collection** — mods that refine the vanilla experience with modern standards.
 
 ---

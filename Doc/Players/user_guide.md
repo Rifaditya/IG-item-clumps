@@ -8,6 +8,9 @@ This guide covers everything you need to know about item clumping, config rules,
 
 By default, Minecraft merges items of the same type in the world only if the stack size is below its max stack size (typically 64). When many items are dropped (e.g., from mob farms, quarries, or explosions), hundreds of individual item entities float in the world, causing severe client-side and server-side lag.
 
+> [!IMPORTANT]
+> **Environment Requirement**: This mod is required on **both the client and the server**. Because the mod registers custom network synced data trackers (mismatching trackers will cause desynchronization or join connection issues), clients will not be able to join servers without this mod installed.
+
 This mod solves this issue by allowing item entities to merge **infinitely** (up to a configurable limit) into a single entity. The single entity renders as one item, but tracks a virtual count (e.g., `x500`). 
 
 ---

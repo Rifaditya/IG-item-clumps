@@ -7,6 +7,9 @@
 
 **Item Clumps** is an aggressive performance optimization mod designed to solve entity lag caused by massive item drops (from mob farms, large explosions, or quarries). It removes the vanilla 64-item stack limit for ground entities, allowing thousands of identical items to merge into a single entity tracking a virtual count.
 
+> [!IMPORTANT]
+> **Environment Requirement**: This mod is required on **both the client and the server**. Mismatched installations will result in connection errors or desynchronization due to the custom data tracker registrations.
+
 ---
 
 ## 🎥 Showcase Video
