@@ -22,7 +22,9 @@ Part of the **Instant Gratification Collection** — mods that refine the vanill
 
 ## 🎥 Showcase Video
 
-<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/2e9tHTHidfo" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<p align="center">
+    <a href="https://youtu.be/2e9tHTHidfo"><img src="https://img.youtube.com/vi/2e9tHTHidfo/maxresdefault.jpg" alt="Item Clumps Showcase Video" width="560"></a>
+</p>
 
 *Click the image above to watch the mod showcase in action!*
 
@@ -30,7 +32,7 @@ Part of the **Instant Gratification Collection** — mods that refine the vanill
 
 ## ✨ Features
 
-* 🚀 **Infinite Stack Size Virtualization**: Minecraft normally limits ground items to a stack size of 64. When hundreds of items are dropped, the game has to process physics, collision checks, and rendering for each individual entity, causing severe lag. This mod bypasses the 64-stack limit, allowing identical ground items to merge into a single entity tracking a virtual count of up to **9,999 items** by default (configurable up to **999,999,999** in the GameRules screen due to GUI limits, or the full 32-bit integer limit of **2,147,483,647** via commands).
+* 🚀 **Infinite Stack Size Virtualization**: Minecraft normally limits ground items to a stack size of 64. When hundreds of items are dropped, the game has to process physics, collision checks, and rendering for each individual entity, causing severe lag. This mod bypasses the 64-stack limit, allowing identical ground items to merge into a single entity tracking a virtual count of up to **9,999 items** by default (configurable up to the full 32-bit integer limit of **2,147,483,647** both in the GameRules screen and via commands).
 * 🏷️ **Real-Time Synced Count Tags**: When a clump's count exceeds a normal stack, it renders a floating, client-side custom name tag (e.g., `Oak Log x450`). This tag is synced dynamically using network packet listeners, ensuring that the count changes instantly on your screen when you pick up a portion of the stack.
 * ⏱️ **Vanilla Despawn Timer Rules**: To match vanilla merging logic, when two stacks merge, the resulting clump inherits the age of the **youngest** item in the merge (taking the smaller age value, as age ticks upwards). This extends/resets the despawn window for the combined clump exactly like vanilla, ensuring you don't lose items prematurely.
 * 📦 **Smart Inventory Integration**: Walking over a clump smoothly transfers items to your inventory in max stack chunks. The mod dynamically calculates the exact amount of free space in your inventory and takes only what fits, keeping the remainder safely in the ground clump instead of deleting or de-syncing them.

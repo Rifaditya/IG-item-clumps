@@ -22,7 +22,7 @@ Administrators can control all clumping behavior in real-time using in-game Game
 | GameRule | Default Value | Description |
 |---|---|---|
 | `item_clumps:enable_clumping` | `true` | When true, item clumping is enabled. When false, the mod reverts to vanilla merging behavior. |
-| `item_clumps:max_clump_size` | `9999` | The maximum virtual count of items allowed in a single clump. Configurable up to **999,999,999** in the GameRules screen (due to 9-digit GUI limits), or up to **2,147,483,647** (32-bit integer maximum) via chat commands. |
+| `item_clumps:max_clump_size` | `9999` | The maximum virtual count of items allowed in a single clump. Configurable all the way up to the 32-bit integer limit of **2,147,483,647** (both in the GameRules screen and via chat commands). |
 | `item_clumps:render_labels` | `true` | When true, renders a holographic count label above item clumps. |
 | `item_clumps:merge_radius` | `1` | The horizontal block radius items will search to merge with identical items. |
 

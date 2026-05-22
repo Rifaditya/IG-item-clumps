@@ -22,7 +22,7 @@
 
 ## ✨ Features
 
-* 🚀 **Infinite Stack Size Virtualization**: Ground items merge into a single entity tracking a virtual count of up to **9,999 items** by default (configurable up to **999,999,999** in the GameRules screen due to GUI limits, or the full 32-bit integer limit of **2,147,483,647** via commands).
+* 🚀 **Infinite Stack Size Virtualization**: Ground items merge into a single entity tracking a virtual count of up to **9,999 items** by default (configurable up to the full 32-bit integer limit of **2,147,483,647** both in the GameRules screen and via commands).
 * 🏷️ **Real-Time Synced Count Tags**: Floating client-side custom name tags (e.g., `Oak Log x450`) appear when clump sizes exceed a normal stack. Synced dynamically via packet listeners to update instantly.
 * ⏱️ **Vanilla Despawn Timer Rules**: Matches vanilla merging logic by inheriting the age of the **youngest** item (taking the smaller age value, since age ticks upwards). This extends the despawn window safely.
 * 📦 **Smart Inventory Integration**: Transfers items to your inventory in max stack chunks depending on available space. Keeps the remainder safely on the ground instead of dropping or losing it.
