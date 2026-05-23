@@ -17,7 +17,7 @@ public class ItemClumpsFabric implements ModInitializer {
     public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
 
     public static final GameRuleCategory CUSTOM_CATEGORY = DynamicGameRuleManager.registerCategory(
-        Identifier.parse(MOD_ID + ":" + MOD_ID)
+        Identifier.fromNamespaceAndPath(MOD_ID, MOD_ID)
     );
 
     public static GameRule<Boolean> ENABLE_CLUMPING;

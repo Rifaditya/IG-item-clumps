@@ -4,6 +4,20 @@ All notable changes to the item clumping mod are documented below.
 
 ---
 
+## 1.0.2+A-26.1.2
+*Released: May 23, 2026*
+
+### Changed
+- **Unified Server-Side Codebase**: Consolidated the client/server split architecture into a single, 100% server-side only mod. Standardized on the single `item_clumps` mod ID.
+- **Removed Client Files**: Deleted client entrypoint, client packet listener mixin, client renderer mixin, and the `MegaCountData` interface.
+- **Consolidated Merging Logic**: Refactored `ItemEntityMixin` and `HopperBlockEntityMixin` to manipulate and query standard `ItemStack` counts directly, utilizing 26.x VarInt count serialization for client-side syncing without custom packets.
+- **Custom Name Tag Display**: Implemented server-side formatting of vanilla custom name tags (`setCustomName`/`setCustomNameVisible`) to render floating item count labels above virtual clumps.
+
+### Fixed
+- **Identifier Compliance**: Migrated namespace registrations to use `Identifier.fromNamespaceAndPath` to strictly match updated platforms API requirements.
+
+---
+
 ## 1.0.1+A-26.1.2
 *Released: May 23, 2026*
 

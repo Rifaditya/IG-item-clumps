@@ -3,7 +3,7 @@
     "id": "item_clumps",
     "version": "${version}",
     "name": "Item Clumps",
-    "description": "Aggressive ground item optimization. Combines dropped items into mega-stacks.",
+    "description": "Aggressive server-side ground item optimization. Combines dropped items into mega-stacks, compatible with vanilla clients.",
     "authors": [
         "Dasik (Rifaditya)"
     ],

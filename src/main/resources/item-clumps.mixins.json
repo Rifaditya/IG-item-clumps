@@ -7,10 +7,6 @@
         "HopperBlockEntityMixin",
         "ItemEntityMixin"
     ],
-    "client": [
-        "ItemEntityRendererMixin",
-        "ClientPacketListenerMixin"
-    ],
     "injectors": {
         "defaultRequire": 1
     }

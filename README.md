@@ -1,14 +1,13 @@
-# 📦 Item Clumps (Instant Gratification Mod)
+# 📦 Item Clumps (Server-Side Only)
 
 [![Minecraft Version](https://img.shields.io/badge/Minecraft-26.1%20Snapshot%2011%2B-blue?style=for-the-badge&logo=minecraft&logoColor=white)](https://www.minecraft.net/)
 [![Fabric API](https://img.shields.io/badge/Fabric-Loader-yellow?style=for-the-badge&logo=fabric&logoColor=white)](https://fabricmc.net/)
 [![License](https://img.shields.io/badge/License-GPLv3-green?style=for-the-badge)](LICENSE)
-[![GitHub Repository](https://img.shields.io/badge/GitHub-Repository-black?style=for-the-badge&logo=github)](https://github.com/Rifaditya/IG-item-clumps)
 
-**Item Clumps** is an aggressive performance optimization mod designed to solve entity lag caused by massive item drops (from mob farms, large explosions, or quarries). It removes the vanilla 64-item stack limit for ground entities, allowing thousands of identical items to merge into a single entity tracking a virtual count.
+**Item Clumps** is an aggressive performance optimization mod designed to solve entity lag caused by massive item drops. It allows thousands of identical ground items to merge into a single entity tracking a virtual count directly inside the standard item stack count.
 
-> [!IMPORTANT]
-> **Environment Requirement**: This mod is required on **both the client and the server**. Mismatched installations will result in connection errors or desynchronization due to the custom data tracker registrations.
+> [!NOTE]
+> **Environment Requirement**: This mod is **server-side only** (runs on the logical server). It is fully compatible with vanilla clients—players do not need to install it to connect to your server. It also runs automatically on the integrated server when playing in singleplayer!
 
 ---
 
@@ -22,12 +21,12 @@
 
 ## ✨ Features
 
-* 🚀 **Infinite Stack Size Virtualization**: Ground items merge into a single entity tracking a virtual count of up to **9,999 items** by default (configurable up to the full 32-bit integer limit of **2,147,483,647** both in the GameRules screen and via commands).
-* 🏷️ **Real-Time Synced Count Tags**: Floating client-side custom name tags (e.g., `Oak Log x450`) appear when clump sizes exceed a normal stack. Synced dynamically via packet listeners to update instantly.
-* ⏱️ **Vanilla Despawn Timer Rules**: Matches vanilla merging logic by inheriting the age of the **youngest** item (taking the smaller age value, since age ticks upwards). This extends the despawn window safely.
-* 📦 **Smart Inventory Integration**: Transfers items to your inventory in max stack chunks depending on available space. Keeps the remainder safely on the ground instead of dropping or losing it.
-* ⚙️ **Hopper Drip-Feeding**: Hoppers extract items from virtual clumps one by one at standard vanilla transfer speeds, keeping redstone and sorting automation functional.
-* 📐 **Vanilla Physics Alignment**: Respects vertical space. Items will **not** merge if they are separated vertically by 1 block or more.
+* 🚀 **Server-Side Stack Size Virtualization**: Bypasses the 64-item ground stack cap. Identical items merge into single entities containing up to **9,999 items** by default (configurable up the full 32-bit integer limit of **2,147,483,647** both in the GameRules screen and via commands).
+* 🏷️ **Vanilla-Compatible Count Tags**: Uses vanilla's built-in entity custom names (`setCustomName`) to render floating text count indicators above clumps larger than a normal stack (e.g. `Oak Log x450`). No client-side mod required!
+* ⏱️ **Vanilla Despawn Timer Rules**: Inherits the age of the youngest item in a merge to protect newly dropped items, matching vanilla's despawn window logic.
+* 📦 **Smart Inventory Intake**: Transfers items to the player's inventory in clean vanilla stack sizes according to available space, updating the remainder on the ground using standard server-side packets.
+* ⚙️ **Hopper Drip-Feeding**: Restricts hopper intake to exactly 1 item per pull from clumps, preserving vanilla sorting and automation balance.
+* 📐 **Vanilla Physics Alignment**: Respects vertical spacing. Items will not merge if separated vertically by 1 block or more.
 
 ---
 
@@ -37,17 +36,15 @@ No config files are needed. All settings are native GameRules in the **"Item Clu
 
 * `item_clumps:enable_clumping` (Default: `true`) - Toggles the clumping mechanic.
 * `item_clumps:max_clump_size` (Default: `9999`) - The maximum quantity of items a single clump can contain.
-* `item_clumps:render_labels` (Default: `true`) - Toggles rendering of floating custom count tags.
+* `item_clumps:render_labels` (Default: `true`) - Toggles rendering of floating custom name tags.
 * `item_clumps:merge_radius` (Default: `1`) - The horizontal block radius searched for merging.
-
-![Item Clumps Game Rules Screenshot](Doc/Media/Gamerule%20Screen.png)
 
 ---
 
 ## 📖 Navigation & Documentation
 
 * 🎮 **[User & Admin Guide](Doc/Players/user_guide.md)**: Configuration reference, gamerules, and commands.
-* 🛠️ **[System Architecture](Doc/Develop/Architecture/architecture.md)**: Network protocols, sequence diagrams, and mixin targets.
+* 🛠_ **[System Architecture](Doc/Develop/Architecture/architecture.md)**: Server-side mechanics and mixin targets.
 * 💡 **[Original Design Concept](Doc/Concept/concept_item_clumps.md)**: Philosophy, problem statements, and edge cases.
 * 📜 **[Changelog History](Doc/Develop/Changelogs/History.md)**: Detailed version changes.
 
