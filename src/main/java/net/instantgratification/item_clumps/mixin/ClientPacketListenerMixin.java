@@ -28,7 +28,9 @@ public abstract class ClientPacketListenerMixin {
         Entity from = this.level.getEntity(packet.getItemId());
         if (from instanceof ItemEntity itemEntity && itemEntity instanceof MegaCountData data) {
             int megaCount = data.item_clumps$getMegaCount();
-            if (megaCount > 0) {
+            // Only override if the megaCount tracker has been synchronized/updated by a client-server modded host
+            // (on a vanilla or server-only host, megaCount remains at its default value of 1, while stack count is the true count).
+            if (megaCount > 1 && megaCount > itemEntity.getItem().getCount()) {
                 ItemStack itemStack = itemEntity.getItem();
                 if (!itemStack.isEmpty()) {
                     // Temporarily set the client-side item stack count so that
@@ -45,11 +47,15 @@ public abstract class ClientPacketListenerMixin {
             return;
         }
         Entity from = this.level.getEntity(packet.getItemId());
-        if (from instanceof ItemEntity itemEntity && itemEntity instanceof MegaCountData) {
-            ItemStack itemStack = itemEntity.getItem();
-            if (!itemStack.isEmpty() && itemStack.getCount() > 1) {
-                // Restore the base count to 1 for rendering/logic consistency
-                itemStack.setCount(1);
+        if (from instanceof ItemEntity itemEntity && itemEntity instanceof MegaCountData data) {
+            int megaCount = data.item_clumps$getMegaCount();
+            // Only restore the base count to 1 if we actually performed the count override (client-server connection)
+            if (megaCount > 1) {
+                ItemStack itemStack = itemEntity.getItem();
+                if (!itemStack.isEmpty() && itemStack.getCount() > 1) {
+                    // Restore the base count to 1 for rendering/logic consistency
+                    itemStack.setCount(1);
+                }
             }
         }
     }

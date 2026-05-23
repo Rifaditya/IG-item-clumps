@@ -4,6 +4,14 @@ All notable changes to the item clumping mod are documented below.
 
 ---
 
+## 1.0.1+A-26.1.2
+*Released: May 23, 2026*
+
+### Fixed
+- **Server-Side Compatibility**: Added dynamic compatibility checks in `ClientPacketListenerMixin` to bypass client-side count overrides when connected to a server-side only mod host (`item_clumps_server`) or vanilla host. This resolves entity display visual jittering and flickering for modded clients connecting to server-only networks.
+
+---
+
 ## 1.0.0+build.11
 *Released: May 20, 2026*
 
