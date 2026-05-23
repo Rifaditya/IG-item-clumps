@@ -7,5 +7,12 @@
   "gamerule.item_clumps.render_labels": "Render Labels",
   "gamerule.item_clumps.render_labels.description": "When true, renders a holographic count above item clumps larger than a normal stack. Default: true",
   "gamerule.item_clumps.merge_radius": "Merge Radius",
-  "gamerule.item_clumps.merge_radius.description": "The horizontal block radius items will search to merge with identical items. To match vanilla behavior, items will not merge if one is 1 block above or below the other. Default: 1"
+  "gamerule.item_clumps.merge_radius.description": "The horizontal block radius items will search to merge with identical items. To match vanilla behavior, items will not merge if one is 1 block above or below the other. Default: 1",
+  "config.item_clumps.title": "Item Clumps Configuration",
+  "config.item_clumps.warning": "WARNING: Changes here only affect the baseline defaults for NEW worlds. To configure your active/existing world, use the Game Rules screen or /gamerule in-game.",
+  "config.item_clumps.category.general": "General Settings",
+  "config.item_clumps.enableClumping": "Enable Clumping",
+  "config.item_clumps.maxClumpSize": "Max Clump Size",
+  "config.item_clumps.renderLabels": "Render Labels",
+  "config.item_clumps.mergeRadius": "Merge Radius"
 }

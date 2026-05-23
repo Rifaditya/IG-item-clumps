@@ -17,6 +17,9 @@
     "entrypoints": {
         "main": [
             "net.instantgratification.item_clumps.ItemClumpsFabric"
+        ],
+        "modmenu": [
+            "net.instantgratification.item_clumps.config.ModMenuIntegration"
         ]
     },
     "mixins": [
@@ -28,5 +31,9 @@
         "java": ">=25",
         "fabric-api": ">=0.145.4+26.1.2",
         "dasik-library": ">=1.6.9+build.22"
+    },
+    "suggests": {
+        "cloth-config": "*",
+        "modmenu": "*"
     }
 }

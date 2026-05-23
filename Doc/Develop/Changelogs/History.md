@@ -4,6 +4,17 @@ All notable changes to the item clumping mod are documented below.
 
 ---
 
+## 1.0.3+A-26.1.2
+*Released: May 23, 2026*
+
+### Added
+- **Optional GUI Configuration**: Added optional integration with **Cloth Config** and **ModMenu** for clients that have these mods installed. Allows players to customize baseline defaults for new worlds via a graphical config menu.
+
+### Changed
+- **Metadata Suggestions**: Updated `fabric.mod.json` to suggest `cloth-config` and `modmenu` instead of strictly requiring them.
+
+---
+
 ## 1.0.2+A-26.1.2
 *Released: May 23, 2026*
 

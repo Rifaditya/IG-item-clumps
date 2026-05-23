@@ -24,3 +24,8 @@ run/
 # OS
 .DS_Store
 Thumbs.db
+
+# Marketing
+Doc/Marketing/
+hype_*.md
+
