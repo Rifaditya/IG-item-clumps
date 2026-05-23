@@ -4,7 +4,7 @@ All notable changes to the item clumping mod are documented below.
 
 ---
 
-## 1.0.3+A-26.1.2
+## 1.0.3+R-26.1.2
 *Released: May 23, 2026*
 
 ### Added
@@ -12,6 +12,7 @@ All notable changes to the item clumping mod are documented below.
 
 ### Changed
 - **Metadata Suggestions**: Updated `fabric.mod.json` to suggest `cloth-config` and `modmenu` instead of strictly requiring them.
+- **Production Release**: Released the optional GUI configuration alongside standard namespaced GameRules in a stable production build.
 
 ---
 
