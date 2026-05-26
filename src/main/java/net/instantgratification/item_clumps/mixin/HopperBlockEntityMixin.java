@@ -25,7 +25,7 @@ public abstract class HopperBlockEntityMixin {
             ItemStack result = HopperBlockEntity.addItem(null, container, baseItem, null);
             if (result.isEmpty()) {
                 // Hopper successfully absorbed the 1 item. Shrink entity stack.
-                ItemStack originalStack = entity.getItem();
+                ItemStack originalStack = entity.getItem().copy();
                 originalStack.shrink(1);
                 entity.setItem(originalStack); // Updates standard item tracker and custom name
                 cir.setReturnValue(true);

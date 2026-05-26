@@ -4,6 +4,18 @@ All notable changes to the item clumping mod are documented below.
 
 ---
 
+## 1.0.4+A-26.1.2
+*Released: May 26, 2026*
+
+### Fixed
+- **Client-Server Count Desync**: Added stack copying before count modifications in entity merging (`tryToMerge`), player pickups (`playerTouch`), and hopper collections. This ensures that the mutated `ItemStack` has a different object reference, forcing Minecraft's `SyncedEntityData` to register the change and broadcast metadata packets to all tracking clients.
+
+### Changed
+- **Library Version Bump**: Updated project dependencies to require `dasik-library` version `1.7.2` or later.
+- **Dual-Side Game Rule Lookup Parity**: Updated integration to support the new dual-side query helpers in `DynamicGameRuleManager` from DasikLibrary.
+
+---
+
 ## 1.0.3+R-26.1.2
 *Released: May 23, 2026*
 

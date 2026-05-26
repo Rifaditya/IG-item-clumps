@@ -112,10 +112,13 @@ public abstract class ItemEntityMixin extends Entity {
         if (thisCount + otherCount > maxClump) {
             int spaceLeft = maxClump - thisCount;
             if (spaceLeft > 0) {
-                thisStack.setCount(maxClump);
-                this.setItem(thisStack);
-                otherStack.setCount(otherCount - spaceLeft);
-                other.setItem(otherStack);
+                ItemStack thisCopy = thisStack.copy();
+                thisCopy.setCount(maxClump);
+                this.setItem(thisCopy);
+                
+                ItemStack otherCopy = otherStack.copy();
+                otherCopy.setCount(otherCount - spaceLeft);
+                other.setItem(otherCopy);
             }
             ci.cancel();
             return;
@@ -123,14 +126,16 @@ public abstract class ItemEntityMixin extends Entity {
 
         // Full Merge: larger stack absorbs the smaller stack
         if (otherCount < thisCount) {
-            thisStack.setCount(thisCount + otherCount);
-            this.setItem(thisStack);
+            ItemStack thisCopy = thisStack.copy();
+            thisCopy.setCount(thisCount + otherCount);
+            this.setItem(thisCopy);
             this.pickupDelay = Math.max(this.pickupDelay, ((ItemEntityMixin)(Object)other).pickupDelay);
             this.age = Math.min(this.age, ((ItemEntityMixin)(Object)other).age);
             other.discard();
         } else {
-            otherStack.setCount(thisCount + otherCount);
-            other.setItem(otherStack);
+            ItemStack otherCopy = otherStack.copy();
+            otherCopy.setCount(thisCount + otherCount);
+            other.setItem(otherCopy);
             ((ItemEntityMixin)(Object)other).pickupDelay = Math.max(((ItemEntityMixin)(Object)other).pickupDelay, this.pickupDelay);
             ((ItemEntityMixin)(Object)other).age = Math.min(((ItemEntityMixin)(Object)other).age, this.age);
             this.discard();
@@ -173,7 +178,7 @@ public abstract class ItemEntityMixin extends Entity {
             }
 
             if (count != originalCount) {
-                ItemStack stack = this.getItem();
+                ItemStack stack = this.getItem().copy();
                 stack.setCount(count);
                 this.setItem(stack);
                 if (count <= 0) {
