@@ -30,6 +30,7 @@ public class ClothConfigScreenHelper {
 
         // --- GENERAL CATEGORY ---
         ConfigCategory general = builder.getOrCreateCategory(Component.translatable("config.item_clumps.category.general"));
+        general.addEntry(entryBuilder.startTextDescription(Component.translatable("config.item_clumps.warning")).build());
         
         general.addEntry(entryBuilder.startBooleanToggle(Component.translatable("config.item_clumps.enableClumping"), config.enableClumping)
                 .setDefaultValue(true)

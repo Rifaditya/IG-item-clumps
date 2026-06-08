@@ -50,9 +50,20 @@ No config files are needed. All settings are native GameRules in the **"Item Clu
 
 ---
 
-## ☕ Support
+## 💖 Support the Project
 
-If you enjoy the **Instant Gratification** collection, consider supporting development!
+Keeping this mod open-source, up-to-date, and completely free takes a massive amount of time and dedication. If you like the mod, please support me! Even if you build and use the latest code straight from this repository, downloading the mod on Modrinth or CurseForge generates crucial support that keeps this project alive.
+
+You can also donate directly to help cover hosting and development costs. Every single download, share, and donation really helps me keep this mod open-source and active!
+
+* **Download on Modrinth**: [Modrinth Page](https://modrinth.com/mod/ig-item-clumps)
+* **Download on CurseForge**: [CurseForge Page](https://www.curseforge.com/minecraft/mc-mods/vo-item-clumps)
+
+---
+
+## ☕ Support Options
+
+If you enjoy the **Instant Gratification** collection, consider supporting development directly:
 
 [![Ko-fi](https://img.shields.io/badge/Ko--fi-Support%20Me-FF5E5B?style=for-the-badge&logo=ko-fi&logoColor=white)](https://ko-fi.com/dasikigaijin/tip)
 [![SocioBuzz](https://img.shields.io/badge/SocioBuzz-Local_Support-7BB32E?style=for-the-badge)](https://sociabuzz.com/dasikigaijin/tribe)

@@ -29,6 +29,14 @@ public class ItemClumpsFabric implements ModInitializer {
     
     @Override
     public void onInitialize() {
+        // Verify Library Version compatibility
+        try {
+            Class.forName("net.dasik.social.api.config.ConfigHelper");
+        } catch (ClassNotFoundException e) {
+            net.minecraft.CrashReport report = net.minecraft.CrashReport.forThrowable(e, "Item Clumps: DasikLibrary version mismatch! Requires version 1.7.4 or higher. Please update your mods.");
+            throw new net.minecraft.ReportedException(report);
+        }
+
         LOGGER.info("Instant Gratification: Item Clumps Initialized");
         
         // Load configuration defaults

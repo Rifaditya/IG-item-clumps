@@ -47,6 +47,7 @@ To hide holographic labels:
 * **Concept**: In vanilla Minecraft, items despawn after 5 minutes (6000 ticks) of existence.
 * **Clump Behavior**: When items merge, the mod inherits the age of the **youngest** item (the smallest age value, since Minecraft's age ticks upwards from 0 to 6000). 
 * **Rationale**: This extends the lifetime of the clump to match the newest item, exactly mimicking vanilla merging behavior. This guarantees you do not lose newly dropped items prematurely when they merge into an older stack.
+* **Active Farm Infinite Lifespan**: Because clumps can grow up to the configured limit (e.g., 9,999) rather than capping at 64, a high-output farm that continuously drops items will repeatedly reset the age of the entire mega clump back to 0. This is an intentional design choice: it acts as a safeguard to ensure that items in active farms are never lost to despawning during active production cycles. Once the farm stops producing and the clump sits idle, the standard 5-minute despawn timer counts down normally and deletes the entire clump.
 
 ### 2. Player Pickups
 * **Smart Intake**: When you walk over a clump containing hundreds of items, the mod calculates how much space you have in your inventory.

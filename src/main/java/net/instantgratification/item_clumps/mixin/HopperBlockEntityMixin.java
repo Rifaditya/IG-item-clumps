@@ -19,8 +19,7 @@ public abstract class HopperBlockEntityMixin {
         int count = itemStack.getCount();
         if (count > 1) {
             // Entity is a clump. Extract exactly 1 item.
-            ItemStack baseItem = itemStack.copy();
-            baseItem.setCount(1);
+            ItemStack baseItem = itemStack.copyWithCount(1);
             
             ItemStack result = HopperBlockEntity.addItem(null, container, baseItem, null);
             if (result.isEmpty()) {
