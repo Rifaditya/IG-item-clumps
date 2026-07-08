@@ -1,4 +1,4 @@
-<p align="center">
+﻿<p align="center">
     <a href="https://modrinth.com/mod/fabric-api"><img src="https://img.shields.io/badge/Requires-Fabric_API-blue?style=for-the-badge&logo=fabric" alt="Requires Fabric API"></a>
     <img src="https://img.shields.io/badge/Language-Java-orange?style=for-the-badge&logo=java" alt="Java">
     <img src="https://img.shields.io/badge/License-GPLv3-green?style=for-the-badge" alt="License">
@@ -50,6 +50,11 @@ To match vanilla merging rules and prevent glitches, clumping operates on a conf
 
 ## ⚙️ Config
 
+
+> [!IMPORTANT]
+> **Config vs. In-Game GameRules:**
+> The global configuration file only defines **default values for new worlds** at creation time.
+> If you have **already created/opened a world**, changing the config file will have no effect. You must change the settings in-game using the **Edit Game Rules** UI screen or the /gamerule command.
 The mod works out of the box with zero setup. All parameters are managed in-game using the **Native Minecraft Game Rules** system.
 
 * **In-Game**: Use `/gamerule item_clumps:` for core settings.
