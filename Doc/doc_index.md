@@ -1,4 +1,4 @@
-# item-clumps: Documentation Index
+﻿# item-clumps: Documentation Index
 
 Welcome to the central documentation hub for **item-clumps**.
 
@@ -22,3 +22,7 @@ Welcome to the central documentation hub for **item-clumps**.
 
 ## 🎨 Media & Assets
 * Explore the **[Media folder](Media/)**
+
+---
+## 🧭 Navigation
+- [⬆ Back to Collection](../../../../philosophy.md)

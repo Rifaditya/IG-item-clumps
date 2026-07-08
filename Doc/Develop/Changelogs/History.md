@@ -4,6 +4,22 @@ All notable changes to the item clumping mod are documented below.
 
 ---
 
+## 1.0.16+26.2
+*Released: July 6, 2026*
+
+### Added
+* **What**: Added `label_min_count` Config setting and `item_clumps:label_min_count` dynamic GameRule.
+* **Why**: The player wants to specify exactly at what count threshold the ground item clump label pops up. By default, it falls back to the vanilla max stack size, but can be set to any positive integer value.
+* **How**: Mapped the config variable `labelMinCount` (default `-1`) to Cloth Config GUI and the `item_clumps:label_min_count` GameRule. In `ItemEntityMixin.java`, if the rule value is `-1` it falls back to checking the vanilla `MAX_STACK_SIZE` component, otherwise it checks if count exceeds the custom configured value.
+
+## 1.0.15+26.2
+*Released: July 6, 2026*
+
+### Fixed
+* **What**: Fixed missing ground item count labels when used alongside Stack Size Adjuster.
+* **Why**: The Stack Size Adjuster mod overrides `getMaxStackSize()` to return custom larger limits (e.g. 640). Item Clumps was checking `stack.getMaxStackSize()` to determine if count was above limit, which failed because the count (e.g., 100) was less than 640.
+* **How**: Modified `ItemEntityMixin.java` to fetch default max stack size from components (`stack.getOrDefault(DataComponents.MAX_STACK_SIZE, 1)`) bypassing the overridden `getMaxStackSize()`.
+
 ## 1.0.14+R-26.2
 *Released: June 6, 2026*
 
