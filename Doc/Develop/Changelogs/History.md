@@ -4,6 +4,46 @@ All notable changes to the item clumping mod are documented below.
 
 ---
 
+## 1.0.21+26.2
+*Released: July 15, 2026*
+
+### Magnet Mod Compatibility & Partial Merge Delay Fix
+* **What**: Fixed compatibility with Magnet mod version 26.2 by checking the new `ig_magnet$isMagnetized` method signature. Additionally, copied the `pickupDelay` and `age` fields during partial item merging.
+* **Why**: The Magnet mod renamed its helper method from `ig$isMagnetized` to `ig_magnet$isMagnetized` in 26.2, breaking reflection detection. The partial merge did not sync entity age/pickup delay, allowing players to bypass pickup delay or cause despawn desync.
+* **How**: Updated reflection in `ItemEntityMixin.java` to search for `ig_magnet$isMagnetized` and fall back to `ig$isMagnetized`. Added assignment statements (`this.pickupDelay = Math.max(...)`, `this.age = Math.min(...)`) inside the partial merge check block.
+
+## 1.0.20+26.2
+*Released: July 14, 2026*
+
+### ModMenu YACL Screen Factory Fix
+* **What**: Restored ModMenu configuration screen registration by updating the screen factory helper class and method references.
+* **Why**: The YACL migration in version 1.0.18 deleted the old `ClothConfigScreenHelper` but did not update the `ModMenuIntegration` entrypoint, leaving it referencing a non-existent class and failing to load the configuration screen.
+* **How**: Modified `ModMenuIntegration.java` to use `GuiHelper.getOptionalYaclFactory` pointing to `YaclScreenHelper` and its `createScreen` method, resolving the reflection-based classloading failure.
+
+## 1.0.19+26.2
+*Released: July 11, 2026*
+
+### Remove Live Config Sync & Standardized Warning Notice
+* **What**: Removed live GameRule sync block from the YACL configuration save handler. Appended `§6Notice:§r` warning text into new config-specific option descriptions.
+* **Why**: To keep GameRule settings isolated on a per-world basis so each world has different settings, and clearly warn the user to use `/gamerule` for existing worlds.
+* **How**: Updated `YaclScreenHelper.java` save block to only save config files. Created config option descriptions in `en_us.json` containing the notice.
+
+## 1.0.18+26.2
+*Released: July 7, 2026*
+
+### YACL Migration & Dynamic Limit Sync
+* **What**: Migrated client configuration GUI screen from Cloth Config to YetAnotherConfigLib (YACL). Automatically align merging limits with Stack Size Adjuster's custom limits when both are installed.
+* **Why**: Modernize user GUI config and prevent ground clumping limit conflicts with custom stack sizes.
+* **How**: Replaced Cloth Config helper with `YaclScreenHelper.java`. Added reflection-based checks to hide the redundant "Max Clump Size" setting if Stack Size Adjuster is loaded.
+
+## 1.0.17+26.2
+*Released: July 7, 2026*
+
+### Math Integer Overflow Fix
+* **What**: Fixed integer overflow when merging ground item entities under massive stack sizes.
+* **Why**: Prevents infinite merging loops and game crashes when ground item counts reach near 2.14B.
+* **How**: Implemented bounds checks and safe additions using long arithmetic inside `tryToMerge`.
+
 ## 1.0.16+26.2
 *Released: July 6, 2026*
 

@@ -2,12 +2,12 @@
     <a href="https://modrinth.com/mod/fabric-api"><img src="https://img.shields.io/badge/Requires-Fabric_API-blue?style=for-the-badge&logo=fabric" alt="Requires Fabric API"></a>
     <img src="https://img.shields.io/badge/Language-Java-orange?style=for-the-badge&logo=java" alt="Java">
     <img src="https://img.shields.io/badge/License-GPLv3-green?style=for-the-badge" alt="License">
-    <img src="https://img.shields.io/badge/Minecraft-26.1.2+-brightgreen?style=for-the-badge" alt="Minecraft 26.1.2+">
+    <img src="https://img.shields.io/badge/Minecraft-26.2+-brightgreen?style=for-the-badge" alt="Minecraft 26.2+">
 </p>
 
 # 📦 Item Clumps (Server Only): The "Instant Gratification" Update
 
-**No Backports:** I will **NOT** backport this mod to older Minecraft versions (1.21, 1.20, etc.). Please do not ask.
+**Active Version Policy:** I build **1 JAR for 1 Version**. I only update and maintain the latest active Minecraft version (e.g. when 26.3 is released, 26.2 is retired). No backports or legacy version maintenance. Please do not ask.
 
 In vanilla Minecraft, dropped items merge, but they strictly cap at a maximum stack size of 64. If a high-efficiency mob farm, automated quarry, or massive TNT explosion drops thousands of items, the game is forced to tick and render hundreds of individual ground entities. This leads to heavy client-side frame drops, rendering lag, and severe server TPS decay.
 
@@ -59,9 +59,10 @@ The mod works out of the box with zero setup. All parameters are managed in-game
 
 * **In-Game**: Use `/gamerule item_clumps:` for core settings.
   * `item_clumps:enable_clumping` (Default: `true`) - Toggles the clumping mechanic. When disabled, items behave exactly like vanilla.
-  * `item_clumps:max_clump_size` (Default: `9999`) - The maximum quantity of items a single clumped entity can contain.
+  * `item_clumps:max_clump_size` (Default: `9999`) - The maximum quantity of items a single clumped entity can contain. (Disabled automatically if Stack Size Adjuster is loaded).
   * `item_clumps:render_labels` (Default: `true`) - Toggles the rendering of the floating custom count tag above virtual clumps.
   * `item_clumps:merge_radius` (Default: `1`) - The horizontal block radius items will search to find matching items to merge.
+  * `item_clumps:label_min_count` (Default: `-1`) - Minimum item count before the clump label displays. Set to `-1` to use the default vanilla stack limit.
 
 ![Item Clumps Game Rules Screenshot](https://raw.githubusercontent.com/Rifaditya/IG-item-clumps/main/Doc/Media/Gamerule%20Screen.png)
 
@@ -84,11 +85,15 @@ The mod works out of the box with zero setup. All parameters are managed in-game
 
 ## 🧩 Compatibility
 
-| Feature | Fabric (26.1+) |
+| Feature | Fabric (26.2+) |
 | :--- | :---: |
 | Singleplayer | ✅ |
 | Multiplayer (LAN/Server) | ✅ |
 | Empty Dimensions | ✅ |
+
+### 🎮 Version Compatibility & Support
+* **Minecraft 26.2+**: Current public release — Active & Supported.
+* **Minecraft 26.1.2**: **Discontinued**
 
 ---
 
@@ -109,6 +114,12 @@ If you enjoy the **Instant Gratification** collection, consider fueling the next
 | **Creator** | Rifaditya (Dasik) |
 | **Collection** | Instant Gratification |
 | **License** | GNU GPLv3 |
+
+> [!IMPORTANT]
+> **📦 Modpack Permissions & Distribution:** You are free to include this mod in any modpack on any platform. However, the mod itself must be downloaded from its official distribution pages on **Modrinth** or **CurseForge**. Re-uploading or redistributing the mod jar file to third-party sites is strictly prohibited unless explicitly permitted by the creator.
+> 
+> **License & Forks:** Since the source code is licensed under **GNU GPLv3**, you are fully permitted to fork the repository, make modifications, build your own versions, and distribute them under the terms of the GPLv3. The prohibition on third-party redistribution applies exclusively to the official compiled releases/jars published by the original creator (Dasik/Rifaditya). Forks must be published as distinct projects, not direct re-uploads of official builds.
+
 
 ---
 

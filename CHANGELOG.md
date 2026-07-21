@@ -1,5 +1,48 @@
 # Changelog
 
+## [1.0.21+26.2] - 2026-07-15
+
+### Fixed
+- Fixed compatibility mismatch with Magnet mod version 26.2. The reflection helper now queries for the new `ig_magnet$isMagnetized` method signature first, falling back to the 26.1 `ig$isMagnetized` signature, preventing items from clumping while in magnet flight.
+- Fixed properties synchronization during partial merges. The target item entity now inherits `pickupDelay` and `age` from the merged entity, preventing items from bypassing pickup delays or despawning prematurely.
+
+## [1.0.20+26.2] - 2026-07-14
+
+### Fixed
+- Fixed ModMenu configuration screen factory initialization. Replaced the obsolete `ClothConfigScreenHelper` reference (which was deleted in 1.0.18 during YACL migration) with `YaclScreenHelper` and updated the initialization helper to `GuiHelper.getOptionalYaclFactory`, restoring functionality to the client-side config screen when ModMenu is installed.
+
+## [1.0.19+26.2] - 2026-07-11
+
+### Removed
+- Removed live GameRule sync on config save. Changing config values now only defines default settings for new worlds, allowing each world to maintain independent GameRule settings.
+- Switched config screen Option descriptions to use dedicated config-specific translation keys with the `§6Notice:§r` warning notice.
+
+## [1.0.18+26.2] - 2026-07-07
+
+### Added
+
+- Migrated client configuration GUI screen from **Cloth Config** to **YetAnotherConfigLib (YACL)**.
+- Aligned ground clumping limits dynamically to match Stack Size Adjuster's custom limits when both mods are installed.
+- Hidden/disabled the redundant "Max Clump Size" GameRule and config options when Stack Size Adjuster is loaded.
+
+## [1.0.17+26.2] - 2026-07-07
+
+### Fixed
+
+- Fixed a math integer overflow bug in `tryToMerge` where merging ground item entities under massive stack sizes (millions/billions) could overflow to negative stack counts, causing infinite loops and game crashes.
+
+## [1.0.16+26.2] - 2026-07-06
+
+### Added
+
+- Added `label_min_count` Config and dynamic GameRule setting. Default value is `-1` which uses vanilla default stackable limits. If set to a positive integer, clump labels will only render when the stack size is larger than that number.
+
+## [1.0.15+26.2] - 2026-07-06
+
+### Fixed
+
+- Resolved compatibility issue with Stack Size Adjuster where ground entity count tags would be hidden. The mod now checks the original vanilla `DataComponents.MAX_STACK_SIZE` on the item rather than the overridden dynamic `getMaxStackSize()`.
+
 ## [1.0.14+R-26.2] - 2026-06-06
 ### Summary
 The production **Release** refactoring the optional GUI loading and adding configuration warning details.
