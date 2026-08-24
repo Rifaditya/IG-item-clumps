@@ -29,3 +29,8 @@ Thumbs.db
 Doc/Marketing/
 hype_*.md
 
+
+bin/
+Archive/
+Archive Jar of all versions/
+*.jar

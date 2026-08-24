@@ -1,9 +1,26 @@
+/*
+ * Copyright (C) 2026 Rifaditya (Dasik)
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
 package net.instantgratification.item_clumps.mixin;
 
 import net.instantgratification.item_clumps.ItemClumpsFabric;
 import net.dasik.social.api.gamerule.DynamicGameRuleManager;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
@@ -42,7 +59,8 @@ public abstract class ItemEntityMixin extends Entity {
         }
 
         int count = stack.getCount();
-        int maxStack = stack.getMaxStackSize();
+        int labelMin = DynamicGameRuleManager.getInt(this.level(), ItemClumpsFabric.LABEL_MIN_COUNT);
+        int maxStack = (labelMin == -1) ? stack.getOrDefault(DataComponents.MAX_STACK_SIZE, 1) : labelMin;
         if (DynamicGameRuleManager.getBoolean(this.level(), ItemClumpsFabric.RENDER_LABELS) && count > maxStack) {
             Component name = stack.getItemName().copy().append(" x" + count);
             if (!this.hasCustomName() || !this.getCustomName().getString().equals(name.getString())) {
@@ -67,7 +85,12 @@ public abstract class ItemEntityMixin extends Entity {
     @Inject(method = "isMergable", at = @At("HEAD"), cancellable = true)
     private void item_clumps$customIsMergable(CallbackInfoReturnable<Boolean> cir) {
         if (DynamicGameRuleManager.getBoolean(this.level(), ItemClumpsFabric.ENABLE_CLUMPING)) {
-            int maxClump = DynamicGameRuleManager.getInt(this.level(), ItemClumpsFabric.MAX_CLUMP_SIZE);
+            int maxClump;
+            if (net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("stack-size-adjuster") || ItemClumpsFabric.MAX_CLUMP_SIZE == null) {
+                maxClump = this.getItem().getMaxStackSize();
+            } else {
+                maxClump = DynamicGameRuleManager.getInt(this.level(), ItemClumpsFabric.MAX_CLUMP_SIZE);
+            }
             boolean mergable = this.isAlive() 
                 && this.pickupDelay != Short.MAX_VALUE 
                 && this.age != Short.MIN_VALUE 
@@ -99,7 +122,12 @@ public abstract class ItemEntityMixin extends Entity {
 
         if (net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("magnet")) {
             try {
-                java.lang.reflect.Method isMagnetizedMethod = this.getClass().getMethod("ig$isMagnetized");
+                java.lang.reflect.Method isMagnetizedMethod;
+                try {
+                    isMagnetizedMethod = this.getClass().getMethod("ig_magnet$isMagnetized");
+                } catch (NoSuchMethodException e) {
+                    isMagnetizedMethod = this.getClass().getMethod("ig$isMagnetized");
+                }
                 if ((boolean) isMagnetizedMethod.invoke(this) || (boolean) isMagnetizedMethod.invoke(other)) {
                     ci.cancel();
                     return;
@@ -109,9 +137,15 @@ public abstract class ItemEntityMixin extends Entity {
 
         int thisCount = thisStack.getCount();
         int otherCount = otherStack.getCount();
-        int maxClump = DynamicGameRuleManager.getInt(this.level(), ItemClumpsFabric.MAX_CLUMP_SIZE);
+        int maxClump;
+        if (net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("stack-size-adjuster") || ItemClumpsFabric.MAX_CLUMP_SIZE == null) {
+            maxClump = thisStack.getMaxStackSize();
+        } else {
+            maxClump = DynamicGameRuleManager.getInt(this.level(), ItemClumpsFabric.MAX_CLUMP_SIZE);
+        }
 
-        if (thisCount + otherCount > maxClump) {
+        long sum = (long) thisCount + (long) otherCount;
+        if (sum > (long) maxClump) {
             int spaceLeft = maxClump - thisCount;
             if (spaceLeft > 0) {
                 ItemStack thisCopy = thisStack.copyWithCount(maxClump);
@@ -119,6 +153,9 @@ public abstract class ItemEntityMixin extends Entity {
                 
                 ItemStack otherCopy = otherStack.copyWithCount(otherCount - spaceLeft);
                 other.setItem(otherCopy);
+
+                this.pickupDelay = Math.max(this.pickupDelay, ((ItemEntityMixin)(Object)other).pickupDelay);
+                this.age = Math.min(this.age, ((ItemEntityMixin)(Object)other).age);
             }
             ci.cancel();
             return;
@@ -126,13 +163,13 @@ public abstract class ItemEntityMixin extends Entity {
 
         // Full Merge: larger stack absorbs the smaller stack
         if (otherCount < thisCount) {
-            ItemStack thisCopy = thisStack.copyWithCount(thisCount + otherCount);
+            ItemStack thisCopy = thisStack.copyWithCount((int) sum);
             this.setItem(thisCopy);
             this.pickupDelay = Math.max(this.pickupDelay, ((ItemEntityMixin)(Object)other).pickupDelay);
             this.age = Math.min(this.age, ((ItemEntityMixin)(Object)other).age);
             other.discard();
         } else {
-            ItemStack otherCopy = otherStack.copyWithCount(thisCount + otherCount);
+            ItemStack otherCopy = otherStack.copyWithCount((int) sum);
             other.setItem(otherCopy);
             ((ItemEntityMixin)(Object)other).pickupDelay = Math.max(((ItemEntityMixin)(Object)other).pickupDelay, this.pickupDelay);
             ((ItemEntityMixin)(Object)other).age = Math.min(((ItemEntityMixin)(Object)other).age, this.age);

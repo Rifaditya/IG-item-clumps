@@ -1,4 +1,23 @@
-# Changelog
+## [1.0.23+26.2] - 2026-07-22
+
+### ⚠️ Version Guard Notice
+- Includes zero-dependency ModVersionGuard pre-release protection. Halts startup with an explicit warning banner if run on incompatible Minecraft drops or missing core dependencies to prevent world save corruption.
+
+### Fixed
+- **ModVersionGuard Protection Banner**: Updated ModVersionGuard.java to use Knot ClassLoader resolution (Thread.currentThread().getContextClassLoader()) and display explicit pre-release protection warnings upon an API mismatch.
+
+## [1.0.23+26.2] - 2026-07-22
+
+### ⚠️ Version Guard Notice
+- Includes zero-dependency `ModVersionGuard` pre-release protection. Halts startup with an explicit warning banner if run on incompatible Minecraft drops or missing core dependencies to prevent world save corruption.
+
+### Fixed
+- **ModVersionGuard Protection Banner**: Updated `ModVersionGuard.java` to use Knot ClassLoader resolution (`Thread.currentThread().getContextClassLoader()`) and display explicit pre-release protection warnings upon an API mismatch.
+
+## [1.0.22+26.2] - 2026-07-22
+
+### Added
+- **Forward Compatibility & Version Guard**: Configured `fabric.mod.json` with `"minecraft": ">=26.2-"` for open-ended forward compatibility. Added zero-dependency `ModVersionGuard` check on startup to display human-readable guidance if an incompatible Minecraft API version is encountered.
 
 ## [1.0.21+26.2] - 2026-07-15
 
