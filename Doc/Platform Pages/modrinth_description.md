@@ -2,12 +2,12 @@
     <a href="https://modrinth.com/mod/fabric-api"><img src="https://img.shields.io/badge/Requires-Fabric_API-blue?style=for-the-badge&logo=fabric" alt="Requires Fabric API"></a>
     <img src="https://img.shields.io/badge/Language-Java-orange?style=for-the-badge&logo=java" alt="Java">
     <img src="https://img.shields.io/badge/License-GPLv3-green?style=for-the-badge" alt="License">
-    <img src="https://img.shields.io/badge/Minecraft-26.1.2+-brightgreen?style=for-the-badge" alt="Minecraft 26.1.2+">
+    <img src="https://img.shields.io/badge/Minecraft-26.2+-brightgreen?style=for-the-badge" alt="Minecraft 26.2+">
 </p>
 
 # 📦 Item Clumps (Server Only): The "Instant Gratification" Update
 
-**No Backports:** I will **NOT** backport this mod to older Minecraft versions (1.21, 1.20, etc.). Please do not ask.
+**Active Version Policy:** I build **1 JAR for 1 Version**. I only update and maintain the latest active Minecraft version (e.g. when 26.3 is released, 26.2 is retired). No backports or legacy version maintenance. Please do not ask.
 
 In vanilla Minecraft, dropped items merge, but they strictly cap at a maximum stack size of 64. If a high-efficiency mob farm, automated quarry, or massive TNT explosion drops thousands of items, the game is forced to tick and render hundreds of individual ground entities. This leads to heavy client-side frame drops, rendering lag, and severe server TPS decay.
 
@@ -50,6 +50,11 @@ To match vanilla merging rules and prevent glitches, clumping operates on a conf
 
 ## ⚙️ Config
 
+
+> [!IMPORTANT]
+> **Config vs. In-Game GameRules:**
+> The global configuration file only defines **default values for new worlds** at creation time.
+> If you have **already created/opened a world**, changing the config file will have no effect. You must change the settings in-game using the **Edit Game Rules** UI screen or the /gamerule command.
 The mod works out of the box with zero setup. All parameters are managed in-game using the **Native Minecraft Game Rules** system.
 
 * **In-Game**: Use `/gamerule item_clumps:` for core settings.
@@ -79,11 +84,15 @@ The mod works out of the box with zero setup. All parameters are managed in-game
 
 ## 🧩 Compatibility
 
-| Feature | Fabric (26.1+) |
+| Feature | Fabric (26.2+) |
 | :--- | :---: |
 | Singleplayer | ✅ |
 | Multiplayer (LAN/Server) | ✅ |
 | Empty Dimensions | ✅ |
+
+### 🎮 Version Compatibility & Support
+* **Minecraft 26.2+**: Current public release — Active & Supported.
+* **Minecraft 26.1.2**: **Discontinued**
 
 ---
 

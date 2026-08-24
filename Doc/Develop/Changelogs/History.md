@@ -4,6 +4,14 @@ All notable changes to the item clumping mod are documented below.
 
 ---
 
+## 1.0.4+26.1.2
+*Released: July 11, 2026*
+
+### Added Standardized Warning Notice
+* **What**: Switched config options to use new custom description translation keys containing the `§6Notice:§r` warning notice.
+* **Why**: To clearly warn players that changing configuration settings only defines default values for newly generated worlds, and existing worlds must be changed in-game.
+* **How**: Updated option tooltip bindings in `ClothConfigScreenHelper.java` to use option-specific description keys. Added config option descriptions with notice in `en_us.json`.
+
 ## 1.0.3+R-26.1.2
 *Released: May 23, 2026*
 

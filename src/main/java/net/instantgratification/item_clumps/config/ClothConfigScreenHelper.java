@@ -24,29 +24,25 @@ public class ClothConfigScreenHelper {
 
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
 
-        Component[] warningTooltip = new Component[]{
-            Component.translatable("config.item_clumps.warning")
-        };
-
         // --- GENERAL CATEGORY ---
         ConfigCategory general = builder.getOrCreateCategory(Component.translatable("config.item_clumps.category.general"));
         
         general.addEntry(entryBuilder.startBooleanToggle(Component.translatable("config.item_clumps.enableClumping"), config.enableClumping)
                 .setDefaultValue(true)
-                .setTooltip(warningTooltip)
+                .setTooltip(Component.translatable("config.item_clumps.enableClumping.description"))
                 .setSaveConsumer(val -> config.enableClumping = val)
                 .build());
 
         general.addEntry(entryBuilder.startIntField(Component.translatable("config.item_clumps.maxClumpSize"), config.maxClumpSize)
                 .setDefaultValue(9999)
                 .setMin(64)
-                .setTooltip(warningTooltip)
+                .setTooltip(Component.translatable("config.item_clumps.maxClumpSize.description"))
                 .setSaveConsumer(val -> config.maxClumpSize = val)
                 .build());
 
         general.addEntry(entryBuilder.startBooleanToggle(Component.translatable("config.item_clumps.renderLabels"), config.renderLabels)
                 .setDefaultValue(true)
-                .setTooltip(warningTooltip)
+                .setTooltip(Component.translatable("config.item_clumps.renderLabels.description"))
                 .setSaveConsumer(val -> config.renderLabels = val)
                 .build());
 
@@ -54,7 +50,7 @@ public class ClothConfigScreenHelper {
                 .setDefaultValue(1)
                 .setMin(1)
                 .setMax(10)
-                .setTooltip(warningTooltip)
+                .setTooltip(Component.translatable("config.item_clumps.mergeRadius.description"))
                 .setSaveConsumer(val -> config.mergeRadius = val)
                 .build());
 
