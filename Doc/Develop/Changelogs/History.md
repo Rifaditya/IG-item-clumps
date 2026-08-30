@@ -4,6 +4,22 @@ All notable changes to the item clumping mod are documented below.
 
 ---
 
+## 1.0.5+26.1.2
+*Released: August 30, 2026*
+
+### Added
+- **`label_min_count` GameRule**: Registered `item_clumps:label_min_count` with default `-1` (vanilla stack size) for MC 26.1.2, restoring cross-version world compatibility and resolving `Unknown registry key` deserialization errors.
+- **Config & GUI Option**: Added `labelMinCount` configuration entry to `ItemClumpsConfig.java` and `ClothConfigScreenHelper.java`.
+- **Mod Compatibility**: Added reflection interop with `magnet` mod (`isMagnetized`) and conditional `stack-size-adjuster` handling.
+- **ModVersionGuard**: Added knot runtime classloader validation at startup.
+
+### Performance & Polish
+- **Tick Elimination**: Removed polling from `tick()`; nameplates and holographic labels are now calculated strictly upon item mutations in `setItem()`.
+- **Fast Merge Expansion**: Switched `mergeWithNeighbours` from `@ModifyArgs` to `@Redirect` on `AABB.inflate()` to prevent unnecessary heap array allocations during collision checks.
+- **Translations**: Added full localization for `label_min_count` in `en_us.json`.
+
+---
+
 ## 1.0.4+26.1.2
 *Released: July 11, 2026*
 

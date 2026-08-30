@@ -1,9 +1,26 @@
+/*
+ * Copyright (C) 2026 Rifaditya (Dasik)
+ *
+ * This program is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ *
+ * This program is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ *
+ * You should have received a copy of the GNU General Public License
+ * along with this program.  If not, see <https://www.gnu.org/licenses/>.
+ */
 package net.instantgratification.item_clumps.mixin;
 
 import net.instantgratification.item_clumps.ItemClumpsFabric;
 import net.dasik.social.api.gamerule.DynamicGameRuleManager;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.core.component.DataComponents;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.level.Level;
@@ -15,8 +32,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
-import org.spongepowered.asm.mixin.injection.ModifyArgs;
-import org.spongepowered.asm.mixin.injection.invoke.arg.Args;
+import org.spongepowered.asm.mixin.injection.Redirect;
 import java.util.Objects;
 
 // Verified against: ItemEntity.java (26.1.2+)
@@ -43,7 +59,8 @@ public abstract class ItemEntityMixin extends Entity {
         }
 
         int count = stack.getCount();
-        int maxStack = stack.getMaxStackSize();
+        int labelMin = DynamicGameRuleManager.getInt(this.level(), ItemClumpsFabric.LABEL_MIN_COUNT);
+        int maxStack = (labelMin == -1) ? stack.getOrDefault(DataComponents.MAX_STACK_SIZE, 1) : labelMin;
         if (DynamicGameRuleManager.getBoolean(this.level(), ItemClumpsFabric.RENDER_LABELS) && count > maxStack) {
             Component name = stack.getItemName().copy().append(" x" + count);
             if (!this.hasCustomName() || !this.getCustomName().getString().equals(name.getString())) {
@@ -58,13 +75,6 @@ public abstract class ItemEntityMixin extends Entity {
         }
     }
 
-    @Inject(method = "tick", at = @At("HEAD"))
-    private void item_clumps$onTick(CallbackInfo ci) {
-        if (!this.level().isClientSide()) {
-            this.item_clumps$updateVanillaNameTag();
-        }
-    }
-
     @Inject(method = "setItem", at = @At("TAIL"))
     private void item_clumps$onSetItem(ItemStack itemStack, CallbackInfo ci) {
         if (!this.level().isClientSide()) {
@@ -75,7 +85,12 @@ public abstract class ItemEntityMixin extends Entity {
     @Inject(method = "isMergable", at = @At("HEAD"), cancellable = true)
     private void item_clumps$customIsMergable(CallbackInfoReturnable<Boolean> cir) {
         if (DynamicGameRuleManager.getBoolean(this.level(), ItemClumpsFabric.ENABLE_CLUMPING)) {
-            int maxClump = DynamicGameRuleManager.getInt(this.level(), ItemClumpsFabric.MAX_CLUMP_SIZE);
+            int maxClump;
+            if (net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("stack-size-adjuster") || ItemClumpsFabric.MAX_CLUMP_SIZE == null) {
+                maxClump = this.getItem().getMaxStackSize();
+            } else {
+                maxClump = DynamicGameRuleManager.getInt(this.level(), ItemClumpsFabric.MAX_CLUMP_SIZE);
+            }
             boolean mergable = this.isAlive() 
                 && this.pickupDelay != Short.MAX_VALUE 
                 && this.age != Short.MIN_VALUE 
@@ -85,19 +100,17 @@ public abstract class ItemEntityMixin extends Entity {
         }
     }
 
-    @ModifyArgs(method = "mergeWithNeighbours", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/phys/AABB;inflate(DDD)Lnet/minecraft/world/phys/AABB;"))
-    private void item_clumps$modifySearchRadius(Args args) {
+    @Redirect(method = "mergeWithNeighbours", at = @At(value = "INVOKE", target = "Lnet/minecraft/world/phys/AABB;inflate(DDD)Lnet/minecraft/world/phys/AABB;"))
+    private net.minecraft.world.phys.AABB item_clumps$customInflate(net.minecraft.world.phys.AABB boundingBox, double x, double y, double z) {
         if (DynamicGameRuleManager.getBoolean(this.level(), ItemClumpsFabric.ENABLE_CLUMPING)) {
             double radius = DynamicGameRuleManager.getInt(this.level(), ItemClumpsFabric.MERGE_RADIUS);
-            args.set(0, radius);
-            args.set(2, radius);
+            return boundingBox.inflate(radius, y, radius);
         }
+        return boundingBox.inflate(x, y, z);
     }
 
     @Inject(method = "tryToMerge", at = @At("HEAD"), cancellable = true)
     private void item_clumps$customMerge(ItemEntity other, CallbackInfo ci) {
-        if (!DynamicGameRuleManager.getBoolean(this.level(), ItemClumpsFabric.ENABLE_CLUMPING)) return;
-
         ItemStack thisStack = this.getItem();
         ItemStack otherStack = other.getItem();
 
@@ -105,17 +118,44 @@ public abstract class ItemEntityMixin extends Entity {
             return;
         }
 
+        if (!DynamicGameRuleManager.getBoolean(this.level(), ItemClumpsFabric.ENABLE_CLUMPING)) return;
+
+        if (net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("magnet")) {
+            try {
+                java.lang.reflect.Method isMagnetizedMethod;
+                try {
+                    isMagnetizedMethod = this.getClass().getMethod("ig_magnet$isMagnetized");
+                } catch (NoSuchMethodException e) {
+                    isMagnetizedMethod = this.getClass().getMethod("ig$isMagnetized");
+                }
+                if ((boolean) isMagnetizedMethod.invoke(this) || (boolean) isMagnetizedMethod.invoke(other)) {
+                    ci.cancel();
+                    return;
+                }
+            } catch (Throwable ignored) {}
+        }
+
         int thisCount = thisStack.getCount();
         int otherCount = otherStack.getCount();
-        int maxClump = DynamicGameRuleManager.getInt(this.level(), ItemClumpsFabric.MAX_CLUMP_SIZE);
+        int maxClump;
+        if (net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("stack-size-adjuster") || ItemClumpsFabric.MAX_CLUMP_SIZE == null) {
+            maxClump = thisStack.getMaxStackSize();
+        } else {
+            maxClump = DynamicGameRuleManager.getInt(this.level(), ItemClumpsFabric.MAX_CLUMP_SIZE);
+        }
 
-        if (thisCount + otherCount > maxClump) {
+        long sum = (long) thisCount + (long) otherCount;
+        if (sum > (long) maxClump) {
             int spaceLeft = maxClump - thisCount;
             if (spaceLeft > 0) {
-                thisStack.setCount(maxClump);
-                this.setItem(thisStack);
-                otherStack.setCount(otherCount - spaceLeft);
-                other.setItem(otherStack);
+                ItemStack thisCopy = thisStack.copyWithCount(maxClump);
+                this.setItem(thisCopy);
+                
+                ItemStack otherCopy = otherStack.copyWithCount(otherCount - spaceLeft);
+                other.setItem(otherCopy);
+
+                this.pickupDelay = Math.max(this.pickupDelay, ((ItemEntityMixin)(Object)other).pickupDelay);
+                this.age = Math.min(this.age, ((ItemEntityMixin)(Object)other).age);
             }
             ci.cancel();
             return;
@@ -123,14 +163,14 @@ public abstract class ItemEntityMixin extends Entity {
 
         // Full Merge: larger stack absorbs the smaller stack
         if (otherCount < thisCount) {
-            thisStack.setCount(thisCount + otherCount);
-            this.setItem(thisStack);
+            ItemStack thisCopy = thisStack.copyWithCount((int) sum);
+            this.setItem(thisCopy);
             this.pickupDelay = Math.max(this.pickupDelay, ((ItemEntityMixin)(Object)other).pickupDelay);
             this.age = Math.min(this.age, ((ItemEntityMixin)(Object)other).age);
             other.discard();
         } else {
-            otherStack.setCount(thisCount + otherCount);
-            other.setItem(otherStack);
+            ItemStack otherCopy = otherStack.copyWithCount((int) sum);
+            other.setItem(otherCopy);
             ((ItemEntityMixin)(Object)other).pickupDelay = Math.max(((ItemEntityMixin)(Object)other).pickupDelay, this.pickupDelay);
             ((ItemEntityMixin)(Object)other).age = Math.min(((ItemEntityMixin)(Object)other).age, this.age);
             this.discard();
@@ -145,38 +185,21 @@ public abstract class ItemEntityMixin extends Entity {
         int count = this.getItem().getCount();
         if (count <= 1) return; // Let vanilla handle normal 1-count items to avoid edge cases
 
-        ItemStack baseItem = this.getItem().copy();
-        baseItem.setCount(1); // Ensure base count is 1 for simulation
-
         if (this.pickupDelay == 0 && (this.target == null || this.target.equals(player.getUUID()))) {
+            ItemStack pickupStack = this.getItem().copy();
             int originalCount = count;
-            int maxStack = baseItem.getMaxStackSize();
-            
-            while (count > 0) {
-                int toTake = Math.min(count, maxStack);
-                ItemStack chunk = baseItem.copy();
-                chunk.setCount(toTake);
 
-                player.getInventory().add(chunk);
-                int added = toTake - chunk.getCount();
+            player.getInventory().add(pickupStack);
+            int added = originalCount - pickupStack.getCount();
 
-                if (added > 0) {
-                    count -= added;
-                    player.take(this, added);
-                    player.awardStat(net.minecraft.stats.Stats.ITEM_PICKED_UP.get(baseItem.getItem()), added);
-                }
+            if (added > 0) {
+                player.take(this, added);
+                player.awardStat(net.minecraft.stats.Stats.ITEM_PICKED_UP.get(pickupStack.getItem()), added);
 
-                if (!chunk.isEmpty()) {
-                    // Player inventory is full
-                    break;
-                }
-            }
+                ItemStack remainingStack = this.getItem().copyWithCount(pickupStack.getCount());
+                this.setItem(remainingStack);
 
-            if (count != originalCount) {
-                ItemStack stack = this.getItem();
-                stack.setCount(count);
-                this.setItem(stack);
-                if (count <= 0) {
+                if (pickupStack.getCount() <= 0) {
                     player.onItemPickup((ItemEntity) (Object) this);
                 }
             }
