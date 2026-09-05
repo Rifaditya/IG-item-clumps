@@ -22,6 +22,7 @@ import dev.isxander.yacl3.api.*;
 import dev.isxander.yacl3.api.controller.BooleanControllerBuilder;
 import dev.isxander.yacl3.api.controller.IntegerFieldControllerBuilder;
 import dev.isxander.yacl3.gui.controllers.slider.IntegerSliderController;
+import net.dasik.social.api.config.DasikSupportHelper;
 import net.minecraft.client.gui.screens.Screen;
 import net.minecraft.network.chat.Component;
 import net.fabricmc.loader.api.FabricLoader;
@@ -37,6 +38,11 @@ public class YaclScreenHelper {
 
         OptionGroup.Builder groupBuilder = OptionGroup.createBuilder()
                 .name(Component.translatable("config.item_clumps.group.options"));
+
+        Option<?> supportButton = (Option<?>) DasikSupportHelper.createYaclButton();
+        if (supportButton != null) {
+            groupBuilder.option(supportButton);
+        }
 
         // Enable Clumping
         groupBuilder.option(Option.<Boolean>createBuilder()
