@@ -3,13 +3,15 @@ package net.instantgratification.item_clumps.config;
 
 import com.terraformersmc.modmenu.api.ConfigScreenFactory;
 import com.terraformersmc.modmenu.api.ModMenuApi;
+import net.dasik.social.api.config.GuiHelper;
 
 public class ModMenuIntegration implements ModMenuApi {
     @Override
     public ConfigScreenFactory<?> getModConfigScreenFactory() {
-        if (net.fabricmc.loader.api.FabricLoader.getInstance().isModLoaded("cloth-config")) {
-            return ClothConfigScreenHelper.createFactory();
-        }
-        return parent -> null;
+        return GuiHelper.getOptionalYaclFactory(
+                "item_clumps",
+                "net.instantgratification.item_clumps.config.YaclScreenHelper",
+                "createScreen"
+        );
     }
 }
