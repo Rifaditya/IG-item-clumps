@@ -102,3 +102,72 @@ afterEvaluate {
         }
     }
 }
+
+afterEvaluate {
+    def targetJarTask = tasks.findByName('remapJar') ?: tasks.findByName('jar')
+    if (targetJarTask != null) {
+        def archiveTask = tasks.register('archiveReleaseJar') {
+            group = 'build'
+            description = 'Copies release JAR to local Archive and Central Release Hub'
+            dependsOn targetJarTask
+            doLast {
+                def jarFile = targetJarTask.archiveFile.get().asFile
+                if (jarFile.exists()) {
+                    // 1. Mod Local Archive
+                    def mcVer = project.findProperty('minecraft_version') ?: ''
+                    def localArchiveDir = file(mcVer ? "../../Archive Jar of all versions/MC ${mcVer}" : "../../Archive Jar of all versions")
+                    if (localArchiveDir.exists() || localArchiveDir.parentFile?.exists()) {
+                        localArchiveDir.mkdirs()
+                        copy {
+                            from jarFile
+                            into localArchiveDir
+                        }
+                        println "[AUTO-ARCHIVE] Successfully copied ${jarFile.name} to local Archive: ${localArchiveDir.canonicalPath}"
+                    }
+
+                    // 2. Central Release Hub Archives Sync
+                    File hubCandidate = projectDir
+                    File hubDir = null
+                    while (hubCandidate != null) {
+                        File checkDir = new File(hubCandidate, "minecraft-mod-release-hub")
+                        if (checkDir.exists()) {
+                            hubDir = checkDir
+                            break
+                        }
+                        hubCandidate = hubCandidate.parentFile
+                    }
+                    if (hubDir == null) {
+                        File fallback = new File("E:/Minecraft Project/minecraft-mod-release-hub")
+                        if (fallback.exists()) hubDir = fallback
+                    }
+                    if (hubDir != null && hubDir.exists()) {
+                        File hubConfigFile = new File(hubDir, "config/platform_projects.json")
+                        if (hubConfigFile.exists()) {
+                            try {
+                                def hubJson = new groovy.json.JsonSlurper().parse(hubConfigFile)
+                                def curPath = projectDir.canonicalPath.replace('\\', '/').toLowerCase()
+                                def matchedMod = hubJson.find { name, data ->
+                                    data.root_dir && curPath.contains(data.root_dir.replace('\\', '/').toLowerCase())
+                                }?.key
+                                if (matchedMod) {
+                                    File targetArchiveDir = new File(hubDir, "archives/${matchedMod}")
+                                    if (!targetArchiveDir.exists()) {
+                                        targetArchiveDir.mkdirs()
+                                    }
+                                    copy {
+                                        from jarFile
+                                        into targetArchiveDir
+                                    }
+                                    println "[HUB-ARCHIVE] Successfully copied ${jarFile.name} to release hub archives: ${targetArchiveDir.canonicalPath}"
+                                }
+                            } catch (Exception e) {
+                                println "[HUB-ARCHIVE] Note: Could not copy to release hub: ${e.message}"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        build.finalizedBy(archiveTask)
+    }
+}
