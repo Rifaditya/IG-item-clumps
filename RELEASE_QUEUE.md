@@ -5,6 +5,7 @@ Open this file in your editor and change `[ ]` to `[x]` when you publish a versi
 
 ## 🚀 Published & Backlog Queue
 
+- [ ] **`1.0.7+26.1.2`** (2026-09-05) - Clean up config warning wording and remove repetitive notice boilerplate from option descriptions.
 - [ ] **`1.0.6+26.1.2`** (2026-09-05) - - **YACL Migration & Ko-fi Support**: Migrated in-game configuration GUI from Cloth Config to YetAnotherConfigLib v3 (YACL) with top-pinned Ko-fi creator support button. Upgraded to DasikLibrary 1.8.38.
 - [x] **`1.0.5+26.1.2`** (2026-08-30) - - **Label Min Count GameRule**: Registered `item_clumps:label_min_count` GameRule and config option for MC 26.1.2, fixing `Unknown registry key` on world load. - - **Performance & Mod Interop Parity**: Removed entity tick overhead by updating labels on `setItem`, converted merge radius to fast `@Redirect`, added `magnet` mod reflection interop, and integrated `ModVersionGuard`.
 - [x] **`1.0.1+A`** (SUPERSEDED) (26) - - **Server-Side Compatibility**: Added dynamic compatibility checks in `ClientPacketListenerMixin` to bypass client-side count overrides when connected to a server-side only mod host (`item_clumps_server`) or vanilla host. This resolves entity display visual jittering and flickering for modded clients connecting to server-only networks.
