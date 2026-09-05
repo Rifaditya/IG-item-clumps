@@ -1,39 +1,47 @@
 {
-  "schemaVersion": 1,
-  "id": "item_clumps",
-  "version": "${version}",
-  "name": "Item Clumps",
-  "description": "Aggressive server-side ground item optimization. Combines dropped items into mega-stacks, compatible with vanilla clients.",
-  "authors": [
-    "Dasik (Rifaditya)"
-  ],
-  "contact": {
-    "homepage": "https://github.com/Dasik/Instant-Gratification-item-clumps",
-    "sources": "https://github.com/Dasik/Instant-Gratification-item-clumps"
-  },
-  "license": "GPL-3.0-or-later",
-  "icon": "assets/item_clumps/icon.png",
-  "environment": "*",
-  "entrypoints": {
-    "main": [
-      "net.instantgratification.item_clumps.ItemClumpsFabric"
+    "schemaVersion": 1,
+    "id": "item_clumps",
+    "version": "${version}",
+    "name": "Item Clumps",
+    "description": "Aggressive server-side ground item optimization. Combines dropped items into mega-stacks, compatible with vanilla clients.",
+    "authors": [
+        "Dasik (Rifaditya)"
     ],
-    "modmenu": [
-      "net.instantgratification.item_clumps.config.ModMenuIntegration"
-    ]
-  },
-  "mixins": [
-    "item-clumps.mixins.json"
-  ],
-  "depends": {
-    "fabricloader": ">=0.19.1",
-    "minecraft": ">=26.2-",
-    "java": ">=25",
-    "fabric-api": "*",
-    "dasik-library": ">=1.8.2"
-  },
-  "suggests": {
-    "yet-another-config-lib": "*",
-    "modmenu": "*"
-  }
+    "contact": {
+        "homepage": "https://github.com/Dasik/Instant-Gratification-item-clumps",
+        "sources": "https://github.com/Dasik/Instant-Gratification-item-clumps"
+    },
+    "license": "GPL-3.0-or-later",
+    "icon": "assets/item_clumps/icon.png",
+    "environment": "*",
+    "entrypoints": {
+        "main": [
+            "net.instantgratification.item_clumps.ItemClumpsFabric"
+        ],
+        "modmenu": [
+            "net.instantgratification.item_clumps.config.ModMenuIntegration"
+        ]
+    },
+    "mixins": [
+        "item-clumps.mixins.json"
+    ],
+    "depends": {
+        "fabricloader": ">=0.19.1",
+        "minecraft": ">=26.2-",
+        "java": ">=25",
+        "fabric-api": "*",
+        "dasik-library": ">=1.8.2"
+    },
+    "suggests": {
+        "yet-another-config-lib": "*",
+        "modmenu": "*"
+    },
+    "custom": {
+        "modmenu": {
+            "links": {
+                "modmenu.donate": "https://ko-fi.com/dasikigaijin",
+                "modmenu.kofi": "https://ko-fi.com/dasikigaijin"
+            }
+        }
+    }
 }
