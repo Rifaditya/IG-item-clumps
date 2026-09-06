@@ -107,26 +107,28 @@ If you enjoy the **Instant Gratification** collection, consider fueling the next
 
 ---
 
-## 📜 Credits
+## 📜 Credits & Modpack Permissions
 
-| Role | Author |
+| Property | Information |
 | :--- | :--- |
-| **Creator** | Rifaditya (Dasik) |
-| **Collection** | Instant Gratification |
-| **License** | GNU GPLv3 |
+| **Creator / Author** | **Dasik** (Rifaditya) |
+| **Collection** | Instant Gratification Collection |
+| **License** | [GNU General Public License v3.0 (GPLv3)](https://www.gnu.org/licenses/gpl-3.0.html) |
+| **Source Code** | [GitHub - Rifaditya/IG-item-clumps](https://github.com/Rifaditya/IG-item-clumps) |
+| **Issue Tracker** | [GitHub Issues](https://github.com/Rifaditya/IG-item-clumps/issues) |
+| **Documentation / Wiki** | [GitHub Wiki](https://github.com/Rifaditya/IG-item-clumps/wiki) |
 
 > [!IMPORTANT]
-> **📦 Modpack Permissions & Distribution:** You are free to include this mod in any modpack on any platform. However, the mod itself must be downloaded from its official distribution pages on **Modrinth** or **CurseForge**. Re-uploading or redistributing the mod jar file to third-party sites is strictly prohibited unless explicitly permitted by the creator.
-> 
-> **License & Forks:** Since the source code is licensed under **GNU GPLv3**, you are fully permitted to fork the repository, make modifications, build your own versions, and distribute them under the terms of the GPLv3. The prohibition on third-party redistribution applies exclusively to the official compiled releases/jars published by the original creator (Dasik/Rifaditya). Forks must be published as distinct projects, not direct re-uploads of official builds.
-
+> **📦 Modpack Permissions & Distribution:**<br>
+> You are fully welcome to include this mod in any modpack on any platform! However, the mod file must be downloaded directly through official distribution channels (**Modrinth** or **CurseForge**). Re-uploading, mirroring, or redistributing the original mod JAR to third-party mirror sites, scraper portals, or unauthorized launchers is strictly prohibited.
+> <br><br>
+> **⚖️ License & Fork Guidelines (No Zero-Change Re-uploads):**<br>
+> This project is open-source under the **GNU GPLv3**. You are fully encouraged to inspect the code, learn from it, and fork the repository to create genuine modifications, substantial feature expansions, or community ports—provided your project remains open-source under GPLv3 with proper attribution.<br>
+> **However, straight 1:1 re-uploads, clone forks with no meaningful functional changes, or re-publishing identical builds under different project names (e.g. to farm downloads or rewards) are strictly forbidden.**
 
 ---
 
-<div align="center">
-
-**Made with ❤️ for the Minecraft community**
-
-*Part of the Instant Gratification Collection*
-
-</div>
+<p align="center">
+  <strong>Made with ❤️ for the Minecraft community</strong><br>
+  <em>Part of the Instant Gratification Collection</em>
+</p>

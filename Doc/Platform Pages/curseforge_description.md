@@ -147,45 +147,54 @@ If you have <strong>already created/opened a world</strong>, changing the config
 
 <hr>
 
-<h2>📜 Credits</h2>
+<h2>📜 Credits &amp; Modpack Permissions</h2>
 
-<table border="1" cellpadding="5" cellspacing="0">
+<table>
   <thead>
     <tr>
-      <th>Role</th>
-      <th>Author</th>
+      <th>Property</th>
+      <th>Information</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td><strong>Creator</strong></td>
-      <td>Rifaditya (Dasik)</td>
+      <td><strong>Creator / Author</strong></td>
+      <td><strong>Dasik</strong> (Rifaditya)</td>
     </tr>
     <tr>
       <td><strong>Collection</strong></td>
-      <td>Instant Gratification</td>
+      <td><a href="https://www.curseforge.com/members/dasikigaijin/projects">Instant Gratification Collection</a></td>
     </tr>
     <tr>
       <td><strong>License</strong></td>
-      <td>GNU GPLv3</td>
+      <td><a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU General Public License v3.0 (GPLv3)</a></td>
+    </tr>
+    <tr>
+      <td><strong>Source Code</strong></td>
+      <td><a href="https://github.com/Rifaditya/IG-item-clumps">GitHub - Rifaditya/IG-item-clumps</a></td>
+    </tr>
+    <tr>
+      <td><strong>Issue Tracker</strong></td>
+      <td><a href="https://github.com/Rifaditya/IG-item-clumps/issues">GitHub Issues</a></td>
+    </tr>
+    <tr>
+      <td><strong>Documentation / Wiki</strong></td>
+      <td><a href="https://github.com/Rifaditya/IG-item-clumps/wiki">GitHub Wiki</a></td>
     </tr>
   </tbody>
 </table>
 
-<br>
-
 <blockquote>
-    <strong>📦 Modpack Permissions & Distribution:</strong><br>
-    You are free to include this mod in any modpack on any platform. However, the mod itself must be downloaded from its official distribution pages on <strong>Modrinth</strong> or <strong>CurseForge</strong>. Re-uploading or redistributing the mod jar file to third-party sites is strictly prohibited unless explicitly permitted by the creator.
-    <br><br>
-    <strong>License & Forks:</strong><br>
-    Since the source code is licensed under <strong>GNU GPLv3</strong>, you are fully permitted to fork the repository, make modifications, build your own versions, and distribute them under the terms of the GPLv3. The prohibition on third-party redistribution applies exclusively to the official compiled releases/jars published by the original creator (Dasik/Rifaditya). Forks must be published as distinct projects, not direct re-uploads of official builds.
+  <p><strong>📦 Modpack Permissions &amp; Distribution:</strong><br>
+  You are fully welcome to include this mod in any modpack on any platform! However, the mod file must be downloaded directly through official distribution channels (<strong>CurseForge</strong> or <strong>Modrinth</strong>). Re-uploading, mirroring, or redistributing the original mod JAR to third-party mirror sites, scraper portals, or unauthorized launchers is strictly prohibited.</p>
+  <p><strong>⚖️ License &amp; Fork Guidelines (No Zero-Change Re-uploads):</strong><br>
+  This project is open-source under the <strong>GNU GPLv3</strong>. You are fully encouraged to inspect the code, learn from it, and fork the repository to create genuine modifications, substantial feature expansions, or community ports&mdash;provided your project remains open-source under GPLv3 with proper attribution.<br>
+  <strong>However, straight 1:1 re-uploads, clone forks with no meaningful functional changes, or re-publishing identical builds under different project names (e.g. to farm downloads or rewards) are strictly forbidden.</strong></p>
 </blockquote>
-
 
 <hr>
 
-<div align="center">
-    <p><strong>Made with ❤️ for the Minecraft community</strong></p>
-    <p><em>Part of the Instant Gratification Collection</em></p>
-</div>
+<p align="center">
+  <strong>Made with ❤️ for the Minecraft community</strong><br>
+  <em>Part of the Instant Gratification Collection</em>
+</p>

@@ -5,6 +5,7 @@ Open this file in your editor and change `[ ]` to `[x]` when you publish a versi
 
 ## 🚀 Published & Backlog Queue
 
+- [ ] **`1.0.26+26.2`** (2026-09-05) - Non-invasive MixinExtras @ModifyExpressionValue & True Sandbox Freedom (MERGE_RADIUS unlocked).
 - [ ] **`1.0.25+26.2`** (2026-09-05) - Clean up config warning wording and remove repetitive notice boilerplate from option descriptions.
 - [ ] **`1.0.24+26.2`** - **In-Game Creator Support Button:** Injected top-pinned Ko-fi creator support button at index 0 of options group in YACL configuration screen via `DasikSupportHelper.createYaclButton()`.
 - [x] **`1.0.3+R-26.1.2`** (SUPERSEDED) (2026-05-23) - The production **Release** version of the **"Optional GUI Configuration"** updates. - - **Optional GUI Configuration**: Added optional integration with **Cloth Config** and **ModMenu** for clients that have these mods installed. Allows players to customize baseline defaults for new worlds via a graphical config menu. - - **Metadata Suggestions**: Updated `fabric.mod.json` to suggest `cloth-config` and `modmenu` instead of strictly requiring them.

@@ -1,3 +1,21 @@
+## [1.0.28+26.2] - 2026-09-05
+
+### Changed
+- **DasikLibrary 1.8.39 Alignment**: Upgraded to DasikLibrary 1.8.39, adopting formal `@DasikApiStatus` / `@APIDasikStatus` API governance and client side-safety architecture.
+- **License Normalization**: Standardized single-line GPLv3 headers across all source files.
+
+## [1.0.27+26.2] - 2026-09-05
+
+### Fixed
+- **Client Side-Safety Annotations**: Annotated `YaclScreenHelper` and `ModMenuIntegration` with `@Environment(EnvType.CLIENT)`, eliminating dedicated server classloading hazards and aligning with the Client Side-Safety Standard.
+
+## [1.0.26+26.2] - 2026-09-05
+
+### Changed
+- **Mixin Modernization**: Replaced invasive method `@Redirect` on `AABB.inflate(...)` in `ItemEntityMixin` with non-invasive `@ModifyExpressionValue` from MixinExtras, ensuring high compatibility with other entity/performance mods.
+- **Player Agency & True Sandbox Freedom**: Unlocked `MERGE_RADIUS` from `.range(1, 10)` to `.range(1, Integer.MAX_VALUE)` in accordance with the Player Agency & Anti-Nanny Invariant (lower bound 1 preserved to prevent fatal bounding box crashes).
+- **License Header Standardization**: Normalized headers to single-line GPLv3 format.
+
 ## [1.0.23+26.2] - 2026-07-22
 
 ### ⚠️ Version Guard Notice

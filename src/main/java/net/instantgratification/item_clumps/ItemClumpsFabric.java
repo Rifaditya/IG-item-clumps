@@ -1,19 +1,4 @@
-/*
- * Copyright (C) 2026 Rifaditya (Dasik)
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
- */
+// Copyright (C) 2026 Dasik (Rifaditya) | GNU GPLv3
 package net.instantgratification.item_clumps;
 
 // Verified against: ModInitializer.java (Fabric API)
@@ -82,7 +67,7 @@ public class ItemClumpsFabric implements ModInitializer {
         MERGE_RADIUS = DynamicGameRuleManager.integerRule(MOD_ID + ":merge_radius", CUSTOM_CATEGORY, config.mergeRadius)
             .name("Merge Radius")
             .description("The horizontal block radius items will search to merge with identical items. To match vanilla behavior, items will not merge if one is 1 block above or below the other. Default: 1")
-            .range(1, 10)
+            .range(1, Integer.MAX_VALUE)
             .register();
 
         LABEL_MIN_COUNT = DynamicGameRuleManager.integerRule(MOD_ID + ":label_min_count", CUSTOM_CATEGORY, config.labelMinCount)
