@@ -1,4 +1,5 @@
 <p align="center">
+    <a href="https://discord.gg/EV99bgAFqb" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Discord-Join_Community-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Join Discord"></a>
   <a href="https://www.curseforge.com/minecraft/mc-mods/fabric-api"><img src="https://img.shields.io/badge/Requires-Fabric_API-blue?style=for-the-badge&amp;logo=fabric" alt="Requires Fabric API"></a>
   <a href="https://www.curseforge.com/minecraft/mc-mods/dasik-libary"><img src="https://img.shields.io/badge/Requires-Dasik_Library-8A2BE2?style=for-the-badge" alt="Requires Dasik Library"></a>
   <img src="https://img.shields.io/badge/Language-Java_25-orange?style=for-the-badge&amp;logo=java" alt="Java 25">
@@ -250,7 +251,7 @@
 
 <h2>☕ Support</h2>
 
-<p>If you enjoy the <strong>Instant Gratification Collection</strong>, consider fueling future development!</p>
+<p>If you enjoy the <strong>Instant Gratification</strong> collection, consider fueling future updates!</p>
 
 <p align="center">
   <a href="https://ko-fi.com/dasikigaijin/tip"><img src="https://img.shields.io/badge/Ko--fi-Support%20Me-FF5E5B?style=for-the-badge&amp;logo=ko-fi&amp;logoColor=white" alt="Ko-fi"></a>
@@ -260,7 +261,15 @@
 
 <blockquote><p><strong>🇮🇩 Indonesian Users:</strong> SocioBuzz and Saweria support local payment methods (Gopay, OVO, Dana, etc.) if you want to support me without using PayPal/Ko-fi!</p></blockquote>
 
-<blockquote><p><strong>💡 Dedicated Server Hosting Partner:</strong> Looking for a reliable server to play with friends? Check out <strong>BisectHosting</strong> for 1-click modpack installations, automated backups, and 24/7 dedicated customer support.</p></blockquote>
+<blockquote><p><strong>Dedicated Server Hosting Partner:</strong><br>Looking for a high-performance server to host your community or play with friends? Check out <strong>BisectHosting</strong> for 1-click modpack installations, automated backups, and 24/7 dedicated customer support. Use promo code <strong><code>Dasik</code></strong> for 25% off your first month!</p></blockquote>
+
+<h3>💬 Join the Community &amp; Get Support</h3>
+<p>Looking for help, want to test early beta builds, or vote on upcoming features? Join our official Discord community!</p>
+<p align="center">
+  <a href="https://discord.gg/EV99bgAFqb" target="_blank" rel="noopener">
+    <img src="https://img.shields.io/badge/Discord-Join_Community-5865F2?style=for-the-badge&amp;logo=discord&amp;logoColor=white" alt="Join Official Discord">
+  </a>
+</p>
 
 <hr>
 
@@ -279,8 +288,12 @@
       <td><strong>Dasik</strong> (Rifaditya)</td>
     </tr>
     <tr>
+      <td><strong>Community</strong></td>
+      <td><a href="https://discord.gg/EV99bgAFqb" target="_blank" rel="noopener">Official Discord</a></td>
+    </tr>
+    <tr>
       <td><strong>Collection</strong></td>
-      <td><a href="https://www.curseforge.com/members/dasikigaijin/projects">Instant Gratification Collection</a></td>
+      <td><a href="https://www.curseforge.com/members/dasikigaijin/projects">Instant Gratification</a></td>
     </tr>
     <tr>
       <td><strong>License</strong></td>
