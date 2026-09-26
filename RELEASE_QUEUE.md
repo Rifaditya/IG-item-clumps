@@ -5,6 +5,7 @@ Open this file in your editor and change `[ ]` to `[x]` when you publish a versi
 
 ## 🚀 Published & Backlog Queue
 
+- [ ] **`1.0.29+26.3`** (2026-09-26) - Official Minecraft 26.3 stable release port, toolchain modernization, and DasikLibrary 1.9.2 integration.
 - [x] **`1.0.26+26.2`** (2026-09-05) - Non-invasive MixinExtras @ModifyExpressionValue & True Sandbox Freedom (MERGE_RADIUS unlocked).
 - [x] **`1.0.25+26.2`** (2026-09-05) - Clean up config warning wording and remove repetitive notice boilerplate from option descriptions.
 - [x] **`1.0.24+26.2`** - **In-Game Creator Support Button:** Injected top-pinned Ko-fi creator support button at index 0 of options group in YACL configuration screen via `DasikSupportHelper.createYaclButton()`.

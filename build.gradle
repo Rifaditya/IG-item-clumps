@@ -1,7 +1,6 @@
 plugins {
-    id 'net.fabricmc.fabric-loom' version '1.15-SNAPSHOT'
+    id 'net.fabricmc.fabric-loom' version '1.15.2'
     id 'maven-publish'
-    id "me.modmuss50.mod-publish-plugin" version "0.5.1"
 }
 
 version = project.mod_version
@@ -27,7 +26,9 @@ dependencies {
     implementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
     
     // Standalone Library (No JiJ)
-    implementation "net.dasik.social:dasik-library:${project.dasik_library_version}"
+    implementation("net.dasik.social:dasik-library:${project.dasik_library_version}") {
+        exclude group: "net.fabricmc.fabric-api"
+    }
 
     // Optional GUI Integration
     compileOnly "dev.isxander:yet-another-config-lib:3.9.5+26.2-fabric"
@@ -87,39 +88,6 @@ jar {
     }
 }
 
-// Mod Publish Plugin Block (Only triggers if tokens are present and user asks to publish)
-afterEvaluate {
-    publishMods {
-        file = file("build/libs/${project.archives_base_name}-${project.mod_version}.jar")
-        type = STABLE
-        modLoaders.add("fabric")
-
-        modrinth {
-            accessToken = providers.environmentVariable("MODRINTH_TOKEN")
-            projectId = "item-clumps"
-            minecraftVersions.add("26.1.2")
-            requires {
-                slug = "fabric-api"
-            }
-            requires {
-                slug = "dasik-library"
-            }
-        }
-
-        curseforge {
-            accessToken = providers.environmentVariable("CURSEFORGE_TOKEN")
-            projectId = "item-clumps"
-            minecraftVersions.add("26.1.2")
-            requires {
-                slug = "fabric-api"
-            }
-            requires {
-                slug = "dasik-library"
-            }
-        }
-    }
-}
-
 afterEvaluate {
     def targetJarTask = tasks.findByName('remapJar') ?: tasks.findByName('jar')
     if (targetJarTask != null) {
@@ -132,14 +100,19 @@ afterEvaluate {
                 if (jarFile.exists()) {
                     // 1. Mod Local Archive
                     def mcVer = project.findProperty('minecraft_version') ?: ''
-                    def localArchiveDir = file(mcVer ? "../../Archive Jar of all versions/MC ${mcVer}" : "../../Archive Jar of all versions")
-                    if (localArchiveDir.exists() || localArchiveDir.parentFile?.exists()) {
-                        localArchiveDir.mkdirs()
-                        copy {
-                            from jarFile
-                            into localArchiveDir
+                    def localArchiveCandidates = [
+                        file(mcVer ? "../Archive Jar of all versions/MC ${mcVer}" : "../Archive Jar of all versions"),
+                        file(mcVer ? "../../Archive Jar of all versions/MC ${mcVer}" : "../../Archive Jar of all versions")
+                    ]
+                    localArchiveCandidates.each { candidate ->
+                        if (candidate.exists() || candidate.parentFile?.exists()) {
+                            candidate.mkdirs()
+                            copy {
+                                from jarFile
+                                into candidate
+                            }
+                            println "[AUTO-ARCHIVE] Successfully copied ${jarFile.name} to local Archive: ${candidate.canonicalPath}"
                         }
-                        println "[AUTO-ARCHIVE] Successfully copied ${jarFile.name} to local Archive: ${localArchiveDir.canonicalPath}"
                     }
 
                     // 2. Central Release Hub Archives Sync

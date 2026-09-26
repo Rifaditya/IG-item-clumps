@@ -20,7 +20,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import java.util.Objects;
 
-// Verified against: ItemEntity.java (26.1.2+)
+// Verified against: ItemEntity.java (26.3+)
 @Mixin(ItemEntity.class)
 public abstract class ItemEntityMixin extends Entity {
 

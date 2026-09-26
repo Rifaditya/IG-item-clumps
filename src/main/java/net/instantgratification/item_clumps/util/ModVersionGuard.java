@@ -28,7 +28,7 @@ public final class ModVersionGuard {
                     " Execution halted to prevent unreleased/incompatible build deployment\n" +
                     " or broken world state save corruption.\n\n" +
                     " Troubleshooting Steps:\n" +
-                    " 1. Verify target Minecraft version (26.2+ release drop).\n" +
+                    " 1. Verify target Minecraft version (26.3+ release drop).\n" +
                     " 2. Ensure all required dependencies (Fabric API, DasikLibrary) are loaded.\n" +
                     " 3. Build/Download a verified matching release JAR from Modrinth/CurseForge.\n" +
                     "=====================================================================");

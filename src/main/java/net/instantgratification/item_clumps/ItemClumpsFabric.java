@@ -2,8 +2,8 @@
 package net.instantgratification.item_clumps;
 
 // Verified against: ModInitializer.java (Fabric API)
-// Verified against: GameRules.java (26.1.2 Release)
-// Verified against: DynamicGameRuleManager.java (DasikLibrary 1.6.9)
+// Verified against: GameRules.java (26.3+)
+// Verified against: DynamicGameRuleManager.java (DasikLibrary 1.9.2)
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.loader.api.FabricLoader;
