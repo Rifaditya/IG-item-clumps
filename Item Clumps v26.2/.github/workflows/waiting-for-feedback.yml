@@ -1,0 +1,114 @@
+name: Issue Feedback Automation
+
+on:
+  issues:
+    types: [reopened]
+  issue_comment:
+    types: [created]
+  schedule:
+    - cron: '0 0 * * *' # Daily midnight UTC check
+  workflow_dispatch:
+
+permissions:
+  issues: write
+  pull-requests: write
+
+jobs:
+  handle_issue_activity:
+    if: (!github.event.issue.pull_request) && (github.event_name == 'issues' || github.event_name == 'issue_comment')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Handle issue reopen or author reply
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const issue = context.payload.issue;
+            const eventName = context.eventName;
+            const action = context.payload.action;
+            const comment = context.payload.comment;
+            const isBot = comment ? comment.user.type === 'Bot' : context.payload.sender.type === 'Bot';
+            
+            if (isBot) return;
+
+            const isAuthor = comment ? (comment.user.login === issue.user.login) : (context.payload.sender.login === issue.user.login);
+            const labels = issue.labels.map(l => l.name.toLowerCase());
+            const hasStale = labels.includes('stale');
+            const hasWaitingLabel = labels.some(l => 
+              l === 'waiting for feedback' || 
+              l === 'needs-info' || 
+              l === 'waiting-for-feedback'
+            );
+
+            // Helper to strip labels
+            const removeLabelsByName = async (namesToRemove) => {
+              for (const l of issue.labels) {
+                if (namesToRemove.includes(l.name.toLowerCase())) {
+                  try {
+                    await github.rest.issues.removeLabel({
+                      owner: context.repo.owner,
+                      repo: context.repo.repo,
+                      issue_number: issue.number,
+                      name: l.name
+                    });
+                    console.log(`Removed label '${l.name}' from #${issue.number}`);
+                  } catch (err) {
+                    console.warn(`Could not remove label '${l.name}':`, err);
+                  }
+                }
+              }
+            };
+
+            // 1. Explicit Reopen Event (User or Maintainer clicks "Reopen issue")
+            if (eventName === 'issues' && action === 'reopened') {
+              console.log(`Issue #${issue.number} reopened. Resetting to clean slate.`);
+              // Strip stale and waiting labels so it behaves like a clean brand new issue
+              await removeLabelsByName(['stale', 'waiting for feedback', 'needs-info', 'waiting-for-feedback']);
+              return;
+            }
+
+            // 2. Author Comment Event
+            if (eventName === 'issue_comment' && isAuthor) {
+              // If issue was closed and marked stale, auto-reopen to clean slate
+              if (issue.state === 'closed' && hasStale) {
+                console.log(`Author replied on stale closed issue #${issue.number}. Reopening automatically.`);
+                try {
+                  await github.rest.issues.update({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: issue.number,
+                    state: 'open'
+                  });
+                  await github.rest.issues.createComment({
+                    owner: context.repo.owner,
+                    repo: context.repo.repo,
+                    issue_number: issue.number,
+                    body: `Issue automatically reopened following reply from @${comment.user.login}.`
+                  });
+                } catch (err) {
+                  console.warn('Could not reopen issue:', err);
+                }
+              }
+
+              // When author replies, always strip 'stale' and 'waiting for feedback'
+              if (hasStale || hasWaitingLabel) {
+                console.log(`Author replied on #${issue.number}. Resetting labels.`);
+                await removeLabelsByName(['stale', 'waiting for feedback', 'needs-info', 'waiting-for-feedback']);
+              }
+            }
+
+  stale_feedback_check:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Handle Stale Feedback
+        uses: actions/stale@v9
+        with:
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          any-of-issue-labels: 'waiting for feedback,needs-info,waiting-for-feedback'
+          days-before-issue-stale: 10
+          days-before-issue-close: 4
+          stale-issue-message: 'This issue is waiting for additional feedback/logs and has had no activity for 10 days. It will be automatically closed in 4 days if no response is received.'
+          close-issue-message: 'Closing this issue due to inactivity because requested feedback was not provided. If you still encounter this issue, feel free to reply with the details and the issue can be reopened.'
+          stale-issue-label: 'stale'
+          remove-stale-when-updated: true
+          exempt-issue-labels: 'pinned,security,in progress,todo'
