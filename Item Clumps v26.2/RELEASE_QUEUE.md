@@ -4,18 +4,20 @@ This file tracks release candidates for Minecraft 26.2.
 
 ## 🚀 Published & Backlog Queue
 
-- [ ] **`1.0.26+26.2`** (2026-09-05) - Non-invasive MixinExtras @ModifyExpressionValue & True Sandbox Freedom (MERGE_RADIUS unlocked).
-- [ ] **`1.0.25+26.2`** (2026-09-05) - Clean up config warning wording and remove repetitive notice boilerplate from option descriptions.
-- [ ] **`1.0.24+26.2`** - **In-Game Creator Support Button:** Injected top-pinned Ko-fi creator support button at index 0 of options group in YACL configuration screen via `DasikSupportHelper.createYaclButton()`.
-- [ ] **`1.0.23+26.2`** (2026-07-22) - ModVersionGuard Knot ClassLoader Fix.
-- [ ] **`1.0.22+26.2`** (2026-07-22) - Forward Compatibility & Version Guard.
-- [ ] **`1.0.21+26.2`** (2026-07-15) - Magnet Mod Compatibility & Partial Merge Delay Fix.
-- [ ] **`1.0.20+26.2`** (2026-07-14) - ModMenu YACL screen factory fix.
+- [ ] **`1.0.28+26.2`** (2026-09-05) - DasikLibrary 1.8.39 alignment, @DasikApiStatus governance, and license normalization.
+- [ ] **`1.0.27+26.2`** (2026-09-05) - Client Side-Safety Annotations (@Environment on YaclScreenHelper and ModMenuIntegration).
+- [x] **`1.0.26+26.2`** (2026-09-05) - Non-invasive MixinExtras @ModifyExpressionValue & True Sandbox Freedom (MERGE_RADIUS unlocked).
+- [x] **`1.0.25+26.2`** (2026-09-05) - Clean up config warning wording and remove repetitive notice boilerplate from option descriptions.
+- [x] **`1.0.24+26.2`** - **In-Game Creator Support Button:** Injected top-pinned Ko-fi creator support button at index 0 of options group in YACL configuration screen via `DasikSupportHelper.createYaclButton()`.
+- [x] **`1.0.23+26.2`** (2026-07-22) - ModVersionGuard Knot ClassLoader Fix.
+- [x] **`1.0.22+26.2`** (2026-07-22) - Forward Compatibility & Version Guard.
+- [x] **`1.0.21+26.2`** (2026-07-15) - Magnet Mod Compatibility & Partial Merge Delay Fix.
+- [x] **`1.0.20+26.2`** (2026-07-14) - ModMenu YACL screen factory fix.
 - [x] **`1.0.19+26.2`** (SUPERSEDED) (2026-07-11) - Remove Live Config Sync.
 - [x] **`1.0.18+26.2`** (2026-07-07) - YACL Migration & Dynamic Limit Sync.
-- [ ] **`1.0.17+26.2`** (2026-07-07) - Fixed merge integer overflow.
-- [ ] **`1.0.16+26.2`** (2026-07-06) - Added label_min_count threshold control.
-- [ ] **`1.0.15+26.2`** (2026-07-06) - Compatibility fix.
+- [x] **`1.0.17+26.2`** (2026-07-07) - Fixed merge integer overflow.
+- [x] **`1.0.16+26.2`** (2026-07-06) - Added label_min_count threshold control.
+- [x] **`1.0.15+26.2`** (2026-07-06) - Compatibility fix.
 - [x] **`1.0.14+R-26.2`** (2026-06-06) - Production Release refactoring optional GUI loading.
 - [x] **`1.0.12+R-26.2`** (2026-06-04) - Production Release enabling multi-version compatibility.
 - [x] **`1.0.11+A-26.2`** (SUPERSEDED) (2026-05-30) - tryToMerge Fast-Path Checks.

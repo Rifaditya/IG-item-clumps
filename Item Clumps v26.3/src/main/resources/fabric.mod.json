@@ -8,8 +8,9 @@
         "Dasik (Rifaditya)"
     ],
     "contact": {
-        "homepage": "https://github.com/Dasik/Instant-Gratification-item-clumps",
-        "sources": "https://github.com/Dasik/Instant-Gratification-item-clumps"
+        "homepage": "https://modrinth.com/mod/ig-item-clumps",
+        "sources": "https://github.com/Rifaditya/IG-item-clumps",
+        "issues": "https://github.com/Rifaditya/IG-item-clumps/issues"
     },
     "license": "GPL-3.0-or-later",
     "icon": "assets/item_clumps/icon.png",
@@ -37,6 +38,10 @@
         "modmenu": "*"
     },
     "custom": {
+        "modrinth": {
+            "projectId": "lJiPHgum",
+            "slug": "ig-item-clumps"
+        },
         "modmenu": {
             "links": {
                 "modmenu.donate": "https://ko-fi.com/dasikigaijin",
