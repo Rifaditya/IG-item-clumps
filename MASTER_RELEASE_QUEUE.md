@@ -14,6 +14,8 @@
 | **MC 26.1.2** | Modern Sovereign | `1.0.7+26.1.2` | `1.0.28+26.1.2` | 🟢 **Ready to Publish** | Modern sovereign anchor parity port with DasikLibrary 1.8.39 alignment. |
 | **MC 1.21.11** | Older Anchor | *(Unreleased)* | `1.0.0+1.21.11` | 🟢 **Ready to Publish** | Older anchor port for Minecraft 1.21.11 with DasikLibrary 1.1.0 alignment. |
 | **MC 1.21.1** | Older Anchor | *(Unreleased)* | `1.0.0+1.21.1` | 🟢 **Ready to Publish** | Older anchor port for Minecraft 1.21.1 with DasikLibrary 1.1.0 alignment. |
+| **MC 1.20.1** | Legacy Anchor | *(Unreleased)* | `1.0.0+1.20.1` | 🟢 **Ready to Publish** | Legacy anchor port for Minecraft 1.20.1 with DasikLibrary 1.0.0 alignment. |
+
 
 ---
 

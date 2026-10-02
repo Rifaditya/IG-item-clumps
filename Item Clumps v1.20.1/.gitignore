@@ -1,0 +1,39 @@
+# Gradle
+.gradle
+build/
+!gradle/wrapper/gradle-wrapper.jar
+
+# IDEA
+.idea
+*.iml
+*.iws
+out/
+
+# VS Code
+.vscode/
+
+# Minecraft/Fabric
+run/
+.fabric/
+*-refmap.json
+
+# Java
+*.class
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Marketing
+Doc/Marketing/
+hype_*.md
+
+
+bin/
+Archive/
+Archive Jar of all versions/
+*.jar
+# Platform Publisher API Token Security Vault
+*platform_tokens.json
+.agents/config/platform_tokens.json
