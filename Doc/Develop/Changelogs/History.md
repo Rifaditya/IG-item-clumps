@@ -4,6 +4,14 @@ All notable changes to the item clumping mod are documented below.
 
 ---
 
+## Docs-Only Maintenance (No Build)
+*Recorded: October 4, 2026*
+
+### [BL-CLUMP-020] BACKLOG.md Control-Character Corruption Repair
+* **What**: Restored 7 corrupted bytes (5× TAB `0x09`, 2× NUL `0x00`) across tickets BL-CLUMP-001, -010, -011, -015 and wrapped the BL-CLUMP-001 scaling formula in `$$` delimiters.
+* **Why**: A prior write pipeline converted backslash-t / backslash-0 sequences into control characters, corrupting specs (`true` → TAB+`rue`, `0.1x` → NUL+`.1x`). NUL bytes made Git classify `BACKLOG.md` as binary, hiding all diffs from review.
+* **How**: Byte-level PowerShell repair with exact-once match asserts, UTF-8 no-BOM write, CRLF preserved. Verified zero control chars remain; workspace-wide scan of 117 `.md` files found no other occurrences. First text commit triggers one-time `core.autocrlf` line-ending normalization of this file. No SemVer bump, no JAR, no release queue impact.
+
 ## 1.0.21+26.2
 *Released: July 15, 2026*
 
