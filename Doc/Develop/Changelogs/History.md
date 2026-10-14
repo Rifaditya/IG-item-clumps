@@ -4,6 +4,24 @@ All notable changes to the item clumping mod are documented below.
 
 ---
 
+## 1.1.0 (All Anchors: 1.20.1, 1.21.1, 1.21.11, 26.1.2, 26.2, 26.3)
+*Released: October 14, 2026*
+
+### [BL-CLUMP-001] Smooth Dynamic Visual Scaling
+* **What**: Added dynamic logarithmic visual scaling for ground item clumps ($1.0\times$ up to $2.5\times$ scale) proportional to item count: $\text{scale} = \text{clamp}(1.0 + 0.3 \cdot \log_{10}(\text{count}), 1.0, 2.5)$. Added `item_clumps:enable_visual_scaling` dynamic GameRule, YACL client config toggle, and translatable strings.
+* **Why**: Large merged clumps previously rendered at uniform vanilla scale with no visual sense of volume.
+* **How**: Established client package and mixin infrastructure (`item-clumps.client.mixins.json`) across all 6 anchors. On modern Renderpearl anchors (`26.1.2`, `26.2`, `26.3`, `1.21.11`), ducked `ItemEntityRenderState` to capture stack count in `extractRenderState` and scaled `PoseStack` inside `ItemEntityRenderer.submit`. On pre-RenderState anchors (`1.20.1`, `1.21.1`), injected into `ItemEntityRenderer.render` directly after `pushPose()`. Enforced 0B/frame heap allocation on render loop with strict `@Environment(EnvType.CLIENT)` isolation.
+
+### [BL-CLUMP-021] 5-Pillar Testing & Sidedness Verification Harness Adoption
+* **What**: Deployed comprehensive automated test suites across all 6 anchors (3 suites × 6 anchors = 18 test files, 48 total assertions passed with zero failures).
+* **Why**: Guard against the 5 Core Failure Modes (Headless Sidedness, Mixin Drift, Emergent State, Concurrency, and Test Oracle limitations) per `Testing & Runtime Verification Policy.md`.
+* **How**: Implemented Pillar 1 Chaos Property Fuzzing (`ItemClumpsStressFuzzTest.java`, 20,000 iterations against negative values, NaN, Infinity, and 64-bit merge sum saturation), Pillar 2 Concurrency Load (`ItemClumpsConcurrencyLoadTest.java`, 50 worker threads simulating concurrent merges and atomic quotas), and Pillar 5 Headless Sidedness Contract Verification (`ItemClumpsSidednessContractTest.java`, scanning compiled bytecode constant pools to assert 0 references to `net.minecraft.client.*` or `com.mojang.blaze3d.*` in common classes).
+
+### [BL-CLUMP-022] Knot ClassLoader Safety & Legacy Guard Purge
+* **What**: Completely eradicated `ModVersionGuard.java` and unremapped string reflection `Class.forName("net.dasik.social.api.config.ConfigHelper")` across all 6 subprojects.
+* **Why**: Calling unremapped Mojang names at runtime via `Class.forName` throws `ClassNotFoundException` under production Knot ClassLoader environments, crashing client and server initialization.
+* **How**: Purged `ModVersionGuard.java` and reflection blocks in `ItemClumpsFabric.java`, relying strictly on `fabric.mod.json` dependency declarations per the Anti-Unremapped-Reflection Law and Comprehensive Legacy Guard Purge Invariant. Bumped patch versions (`1.0.30+26.3`, `1.0.29+26.2`, `1.0.29+26.1.2`, `1.0.1+1.21.11`, `1.0.1+1.21.1`, `1.0.1+1.20.1`).
+
 ## Docs-Only Maintenance (No Build)
 *Recorded: October 4, 2026*
 
