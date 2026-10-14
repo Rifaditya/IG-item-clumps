@@ -28,6 +28,7 @@ public class ItemClumpsFabric implements ModInitializer {
     public static GameRule<Boolean> RENDER_LABELS;
     public static GameRule<Integer> MERGE_RADIUS;
     public static GameRule<Integer> LABEL_MIN_COUNT;
+    public static GameRule<Boolean> ENABLE_VISUAL_SCALING;
     
     @Override
     public void onInitialize() {
@@ -65,6 +66,11 @@ public class ItemClumpsFabric implements ModInitializer {
             .name("Label Min Count")
             .description("Minimum item count before the clump label displays. Set to -1 to use the default vanilla stack limit. Default: -1")
             .range(-1, Integer.MAX_VALUE)
+            .register();
+
+        ENABLE_VISUAL_SCALING = DynamicGameRuleManager.booleanRule(MOD_ID + ":enable_visual_scaling", CUSTOM_CATEGORY, config.enableVisualScaling)
+            .name("Enable Visual Scaling")
+            .description("When true, item clumps scale in size logarithmically from 1.0x to 2.5x based on the item count. Default: true")
             .register();
     }
 }
