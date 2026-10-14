@@ -28,7 +28,7 @@ This file tracks planned features, technical refinements, performance optimizati
 | [BL-CLUMP-017] | [FEATURE] | Jade / WTHIT / The One Probe Clump Provider Integration | [MEDIUM] | All Anchors | 📌 DEFERRED |
 | **[BL-CLUMP-019]** | `[TECH_DEBT]` | Downstream Ecosystem & Toolchain Alignment | `[HIGH]` | All Anchors | `✅ RESOLVED` |
 | `[BL-CLUMP-020]` | `[TECH_DEBT]` | BACKLOG.md Control-Character Corruption Repair & Formula Rendering | `[MEDIUM]` | Docs (No Anchor) | `✅ RESOLVED` |
-| `[BL-CLUMP-021]` | `[TECH_DEBT]` | Adopt 5-Pillar Testing & Sidedness Verification Harness | `[MEDIUM]` | All Anchors | 📌 DEFERRED |
+| [BL-CLUMP-021] | [TECH_DEBT] | Adopt 5-Pillar Testing & Sidedness Verification Harness | [MEDIUM] | All Anchors | ✅ RESOLVED |
 | `[BL-CLUMP-022]` | `[TECH_DEBT]` | Purge ModVersionGuard Reflection & String Reflection Runtime Hazards Across All Anchors | `[HIGH]` | `All Anchors` | `✅ RESOLVED` |
 
 ---
