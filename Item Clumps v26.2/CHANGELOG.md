@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.29+26.2] - 2026-10-14
+
+### Fixed
+- **Knot ClassLoader Safety**: Purged legacy `ModVersionGuard` and string reflection runtime hazards (`Class.forName(...)`), preventing classloader crashes in production client and dedicated server environments.
+
 ## [1.0.28+26.2] - 2026-09-05
 
 ### Changed

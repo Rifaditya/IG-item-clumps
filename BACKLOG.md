@@ -28,6 +28,8 @@ This file tracks planned features, technical refinements, performance optimizati
 | [BL-CLUMP-017] | [FEATURE] | Jade / WTHIT / The One Probe Clump Provider Integration | [MEDIUM] | All Anchors | 📌 DEFERRED |
 | **[BL-CLUMP-019]** | `[TECH_DEBT]` | Downstream Ecosystem & Toolchain Alignment | `[HIGH]` | All Anchors | `✅ RESOLVED` |
 | `[BL-CLUMP-020]` | `[TECH_DEBT]` | BACKLOG.md Control-Character Corruption Repair & Formula Rendering | `[MEDIUM]` | Docs (No Anchor) | `✅ RESOLVED` |
+| `[BL-CLUMP-021]` | `[TECH_DEBT]` | Adopt 5-Pillar Testing & Sidedness Verification Harness | `[MEDIUM]` | All Anchors | 📌 DEFERRED |
+| `[BL-CLUMP-022]` | `[TECH_DEBT]` | Purge ModVersionGuard Reflection & String Reflection Runtime Hazards Across All Anchors | `[HIGH]` | `All Anchors` | `✅ RESOLVED` |
 
 ---
 
@@ -521,3 +523,49 @@ Replace corrupted characters with backtick-wrapped literals (spec meaning unchan
 - [x] `[BL-CLUMP-001]` formula renders as math in Markdown preview.
 - [x] `MASTER_BACKLOG_BOARD.md` re-synced.
 - [x] Workspace-wide sweep: other `BACKLOG.md` files scanned for the same corruption; any hits spawn companion tickets in their own project backlogs. *(117 `.md` files scanned 2026-10-03 — zero other hits, no companion tickets needed.)*
+
+---
+
+### [BL-CLUMP-021] Adopt 5-Pillar Testing & Sidedness Verification Harness
+- **Category**: `[TECH_DEBT]`
+- **Priority**: `[MEDIUM]`
+- **Status**: `📌 DEFERRED`
+- **Target Version**: `All Anchors`
+
+#### ❓ Problem / Context
+Citing `Testing & Runtime Verification Policy.md` and `gradle-tester/SKILL.md`, existing tests do not fully guard against the 5 Core Failure Modes (Headless Sidedness, Dynamic Mixin Transformation Drift, Emergent State, Concurrency, and Test Oracle limitations).
+
+#### 💡 Proposed Solution
+1. **Pillar 1**: Implement `ItemClumpsStressFuzzTest.java` (chaos property fuzzing with 10k-50k iterations, NaN/Infinity bounds).
+2. **Pillar 2**: Implement `ItemClumpsConcurrencyLoadTest.java` (50+ worker threads, atomic quotas).
+3. **Pillar 3**: Implement `ItemClumpsCommandTest.java` (Brigadier command tree syntax and permission checks).
+4. **Pillar 4**: Implement `ItemClumpsGameTest.java` (Mojang headless in-engine world ticking).
+5. **Pillar 5**: Implement `ItemClumpsSidednessContractTest.java` (bytecode scan verifying zero `net.minecraft.client.*` imports in common packages).
+
+#### 🧪 Verification & Acceptance Criteria
+- [ ] 5-Pillar test suite passes on `./gradlew test --no-daemon`.
+- [ ] Zero client class references in common code.
+- [ ] Clean build and deploy across all targeted anchors.
+
+---
+
+### [BL-CLUMP-022] Purge ModVersionGuard Reflection & String Reflection Runtime Hazards Across All Anchors
+- **Category**: `[TECH_DEBT]`
+- **Priority**: `[HIGH]`
+- **Status**: `✅ RESOLVED`
+- **Target Version**: `All Anchors` (`1.20.1`, `1.21.1`, `1.21.11`, `26.1.2`, `26.2`, `26.3`)
+- **Target Component(s)**: `ItemClumpsFabric.java`, `ModVersionGuard.java` across all 6 subprojects
+- **Date Added**: 2026-10-14
+
+#### ❓ Problem / Context
+In `ItemClumpsFabric.java`, `ModVersionGuard.checkClass("Item Clumps", "net.minecraft.world.entity.item.ItemEntity")` and `Class.forName("net.dasik.social.api.config.ConfigHelper")` execute unremapped string reflection at runtime. Under production Knot ClassLoader environments, unremapped class names throw `ClassNotFoundException`, crashing client and server initializers. Citing the **Anti-Unremapped-Reflection Law** and **Comprehensive Legacy Guard Purge Invariant**, `ModVersionGuard.java` and all runtime reflection checks must be eradicated across all anchors.
+
+#### 💡 Proposed Solution & Technical Specifications
+1. Purge `net.instantgratification.item_clumps.util.ModVersionGuard.java` completely from all 6 subprojects.
+2. Remove `ModVersionGuard.checkClass(...)` and `Class.forName(...)` invocations from `ItemClumpsFabric.java`.
+3. Rely strictly on `fabric.mod.json` dependency declarations for runtime version gating.
+
+#### 🧪 Verification & Acceptance Criteria
+- [x] `ModVersionGuard.java` deleted from all 6 subprojects.
+- [x] `ItemClumpsFabric.java` initializes cleanly without string reflection.
+- [x] `./gradlew test --console=plain` passes cleanly across all 6 anchors.

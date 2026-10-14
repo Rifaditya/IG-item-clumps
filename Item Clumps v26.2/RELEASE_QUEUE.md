@@ -4,6 +4,7 @@ This file tracks release candidates for Minecraft 26.2.
 
 ## 🚀 Published & Backlog Queue
 
+- [ ] **`1.0.29+26.2`** (2026-10-14) - Purged legacy ModVersionGuard string reflection runtime crash under Knot ClassLoader.
 - [ ] **`1.0.28+26.2`** (2026-09-05) - DasikLibrary 1.8.39 alignment, @DasikApiStatus governance, and license normalization.
 - [ ] **`1.0.27+26.2`** (2026-09-05) - Client Side-Safety Annotations (@Environment on YaclScreenHelper and ModMenuIntegration).
 - [x] **`1.0.26+26.2`** (2026-09-05) - Non-invasive MixinExtras @ModifyExpressionValue & True Sandbox Freedom (MERGE_RADIUS unlocked).
