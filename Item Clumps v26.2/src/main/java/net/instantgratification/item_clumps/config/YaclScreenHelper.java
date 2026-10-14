@@ -99,6 +99,18 @@ public class YaclScreenHelper {
                 )
                 .build());
 
+        // Enable Visual Scaling
+        groupBuilder.option(Option.<Boolean>createBuilder()
+                .name(Component.translatable("config.item_clumps.enableVisualScaling"))
+                .description(OptionDescription.of(Component.translatable("config.item_clumps.enableVisualScaling.description")))
+                .binding(
+                        true,
+                        () -> config.enableVisualScaling,
+                        val -> config.enableVisualScaling = val
+                )
+                .controller(BooleanControllerBuilder::create)
+                .build());
+
         return YetAnotherConfigLib.createBuilder()
                 .title(Component.translatable("config.item_clumps.title"))
                 .category(ConfigCategory.createBuilder()

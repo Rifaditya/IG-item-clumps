@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.1.0+26.1.2] - 2026-10-14
+
+### Added
+- Smooth dynamic visual scaling for merged item clumps: volume expands logarithmically from 1.0x up to 2.5x based on clump item count.
+- Dynamic GameRule `item_clumps:enable_visual_scaling`.
+
 ## [1.0.29+26.1.2] - 2026-10-14
 
 ### Fixed

@@ -132,7 +132,7 @@ afterEvaluate {
                 if (jarFile.exists()) {
                     // 1. Mod Local Archive
                     def mcVer = project.findProperty('minecraft_version') ?: ''
-                    def localArchiveDir = file(mcVer ? "../../Archive Jar of all versions/MC ${mcVer}" : "../../Archive Jar of all versions")
+                    def localArchiveDir = file(mcVer ? "../Archive Jar of all versions/MC ${mcVer}" : "../Archive Jar of all versions")
                     if (localArchiveDir.exists() || localArchiveDir.parentFile?.exists()) {
                         localArchiveDir.mkdirs()
                         copy {

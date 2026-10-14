@@ -10,6 +10,8 @@
   "gamerule.item_clumps.merge_radius.description": "The horizontal block radius items will search to merge with identical items. To match vanilla behavior, items will not merge if one is 1 block above or below the other. Default: 1",
   "gamerule.item_clumps.label_min_count": "Label Min Count",
   "gamerule.item_clumps.label_min_count.description": "Minimum item count before the clump label displays. Set to -1 to use the default vanilla stack limit. Default: -1",
+  "gamerule.item_clumps.enable_visual_scaling": "Enable Visual Scaling",
+  "gamerule.item_clumps.enable_visual_scaling.description": "When true, item clumps scale in size logarithmically from 1.0x to 2.5x based on the item count. Default: true",
   "config.item_clumps.title": "Item Clumps Configuration",
   "config.item_clumps.warning": "Configure global default settings. Active worlds can be adjusted in-game via Game Rules.",
   "config.item_clumps.category.general": "General Settings",
@@ -22,5 +24,7 @@
   "config.item_clumps.mergeRadius": "Merge Radius",
   "config.item_clumps.mergeRadius.description": "The horizontal block radius items will search to merge with identical items. To match vanilla behavior, items will not merge if one is 1 block above or below the other. Default: 1",
   "config.item_clumps.labelMinCount": "Label Min Count",
-  "config.item_clumps.labelMinCount.description": "Minimum item count before the clump label displays. Set to -1 to use the default vanilla stack limit. Default: -1"
+  "config.item_clumps.labelMinCount.description": "Minimum item count before the clump label displays. Set to -1 to use the default vanilla stack limit. Default: -1",
+  "config.item_clumps.enableVisualScaling": "Enable Visual Scaling",
+  "config.item_clumps.enableVisualScaling.description": "When true, item clumps expand in physical scale up to 2.5x as item count increases."
 }
