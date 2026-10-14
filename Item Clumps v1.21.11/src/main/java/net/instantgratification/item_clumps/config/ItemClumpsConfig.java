@@ -30,6 +30,7 @@ public class ItemClumpsConfig {
     public boolean renderLabels = true;
     public int mergeRadius = 1;
     public int labelMinCount = -1;
+    public boolean enableVisualScaling = true;
 
     public static ItemClumpsConfig get() {
         return INSTANCE;

@@ -1,0 +1,11 @@
+{
+  "required": true,
+  "package": "net.instantgratification.item_clumps.client.mixin",
+  "compatibilityLevel": "JAVA_17",
+  "client": [
+    "ItemEntityRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}
