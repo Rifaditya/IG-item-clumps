@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0+26.2] - 2026-10-18
+
+### Added
+- Explosion Drop Pre-Clumping: Pre-aggregates block drops during massive explosions (TNT, Wither) to reduce entity allocations by up to 90% and eliminate server tick freeze.
+- Dynamic GameRule `item_clumps:pre_clump_explosions` (default: `true`) to toggle explosion drop pre-clumping in-game.
+- Added Pre-Clump Explosions toggle in YACL client configuration screen.
+
 ## [1.1.0+26.2] - 2026-10-14
 
 ### Added
