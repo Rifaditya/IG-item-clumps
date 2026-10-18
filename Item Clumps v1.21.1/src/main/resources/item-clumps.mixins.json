@@ -4,6 +4,7 @@
   "package": "net.instantgratification.item_clumps.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "ExplosionMixin",
     "HopperBlockEntityMixin",
     "ItemEntityMixin"
   ],

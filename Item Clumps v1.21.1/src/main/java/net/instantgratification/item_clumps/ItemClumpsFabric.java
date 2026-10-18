@@ -29,6 +29,7 @@ public class ItemClumpsFabric implements ModInitializer {
     public static GameRules.Key<GameRules.IntegerValue> MERGE_RADIUS;
     public static GameRules.Key<GameRules.IntegerValue> LABEL_MIN_COUNT;
     public static GameRules.Key<GameRules.BooleanValue> ENABLE_VISUAL_SCALING;
+    public static GameRules.Key<GameRules.BooleanValue> ENABLE_EXPLOSION_PRE_CLUMPING;
     
     @Override
     public void onInitialize() {
@@ -76,6 +77,11 @@ public class ItemClumpsFabric implements ModInitializer {
         ENABLE_VISUAL_SCALING = DynamicGameRuleManager.booleanRule(MOD_ID + ":enable_visual_scaling", CUSTOM_CATEGORY, config.enableVisualScaling)
             .name("Enable Visual Scaling")
             .description("When true, item clumps scale in size logarithmically from 1.0x to 2.5x based on the item count. Default: true")
+            .register();
+
+        ENABLE_EXPLOSION_PRE_CLUMPING = DynamicGameRuleManager.booleanRule(MOD_ID + ":pre_clump_explosions", CUSTOM_CATEGORY, config.preClumpExplosions)
+            .name("Pre-Clump Explosions")
+            .description("When true, explosion block drops are consolidated before spawning to eliminate tick lag during massive blasts. Default: true")
             .register();
     }
 }
