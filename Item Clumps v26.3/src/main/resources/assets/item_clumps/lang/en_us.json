@@ -26,5 +26,9 @@
   "config.item_clumps.labelMinCount": "Label Min Count",
   "config.item_clumps.labelMinCount.description": "Minimum item count before the clump label displays. Set to -1 to use the default vanilla stack limit. Default: -1",
   "config.item_clumps.enableVisualScaling": "Enable Visual Scaling",
-  "config.item_clumps.enableVisualScaling.description": "When true, item clumps expand in physical scale up to 2.5x as item count increases."
+  "config.item_clumps.enableVisualScaling.description": "When true, item clumps expand in physical scale up to 2.5x as item count increases.",
+  "config.item_clumps.preClumpExplosions": "Pre-Clump Explosions",
+  "config.item_clumps.preClumpExplosions.description": "When true, explosion block drops are consolidated before spawning to eliminate tick lag during massive blasts.",
+  "gamerule.item_clumps.pre_clump_explosions": "Pre-Clump Explosions",
+  "gamerule.item_clumps.pre_clump_explosions.description": "When true, explosion block drops are consolidated before spawning to eliminate tick lag during massive blasts. Default: true"
 }

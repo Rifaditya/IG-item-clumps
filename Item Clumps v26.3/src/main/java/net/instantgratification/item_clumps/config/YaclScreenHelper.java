@@ -111,6 +111,18 @@ public class YaclScreenHelper {
                 .controller(BooleanControllerBuilder::create)
                 .build());
 
+        // Pre-Clump Explosions
+        groupBuilder.option(Option.<Boolean>createBuilder()
+                .name(Component.translatable("config.item_clumps.preClumpExplosions"))
+                .description(OptionDescription.of(Component.translatable("config.item_clumps.preClumpExplosions.description")))
+                .binding(
+                        true,
+                        () -> config.preClumpExplosions,
+                        val -> config.preClumpExplosions = val
+                )
+                .controller(BooleanControllerBuilder::create)
+                .build());
+
         return YetAnotherConfigLib.createBuilder()
                 .title(Component.translatable("config.item_clumps.title"))
                 .category(ConfigCategory.createBuilder()
