@@ -21,7 +21,7 @@ This file tracks planned features, technical refinements, performance optimizati
 | [`BL-CLUMP-007`](tickets/BL-CLUMP-007.md) | [FEATURE] | Server Admin Command Suite (/clumps stats, /clumps purge, /clumps reload) | [HIGH] | All Anchors | 📌 DEFERRED | [View Ticket](tickets/BL-CLUMP-007.md) |
 | [`BL-CLUMP-008`](tickets/BL-CLUMP-008.md) | [REFINEMENT] | Debug Clump Label Mode (Target Max Display e.g. 1,500/9,999) | [LOW] | All Anchors | 📌 DEFERRED | [View Ticket](tickets/BL-CLUMP-008.md) |
 | [`BL-CLUMP-009`](tickets/BL-CLUMP-009.md) | [REFINEMENT] | Merge Particle Burst on Large Fusions (64+ items) | [LOW] | All Anchors | 📌 DEFERRED | [View Ticket](tickets/BL-CLUMP-009.md) |
-| [`BL-CLUMP-010`](tickets/BL-CLUMP-010.md) | [PERF] | Explosion Drop Pre-Clumping on High Chunk Entity Density | [HIGH] | All Anchors | 📌 DEFERRED | [View Ticket](tickets/BL-CLUMP-010.md) |
+| [`BL-CLUMP-010`](tickets/BL-CLUMP-010.md) | [PERF] | Explosion Drop Pre-Clumping on High Chunk Entity Density | [HIGH] | All Anchors | ✅ RESOLVED | [View Ticket](tickets/BL-CLUMP-010.md) |
 | [`BL-CLUMP-011`](tickets/BL-CLUMP-011.md) | [FEATURE] | Configurable Blacklist & Datapack Tag (#c:unclumpable) | [HIGH] | All Anchors | 📌 DEFERRED | [View Ticket](tickets/BL-CLUMP-011.md) |
 | [`BL-CLUMP-012`](tickets/BL-CLUMP-012.md) | [REFINEMENT] | Client-Side Glowing Outline Accessibility Toggle (YACL, default off) | [LOW] | All Anchors | 📌 DEFERRED | [View Ticket](tickets/BL-CLUMP-012.md) |
 | [`BL-CLUMP-013`](tickets/BL-CLUMP-013.md) | [PERF] | Chunk Item Entity Density Console Warning Alert | [MEDIUM] | All Anchors | 📌 DEFERRED | [View Ticket](tickets/BL-CLUMP-013.md) |

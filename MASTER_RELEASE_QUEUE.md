@@ -1,7 +1,7 @@
 # 🎛️ Master Release Queue: Instant Gratification — Item Clumps
 
 > **Mod Project Master Ground-Truth Document**  
-> **Modrinth ID**: `lJiPHgum` | **CurseForge ID**: `1548645` | **Lead SemVer**: `1.0.29`
+> **Modrinth ID**: `lJiPHgum` | **CurseForge ID**: `1548645` | **Lead SemVer**: `1.2.0`
 
 ---
 
@@ -9,12 +9,12 @@
 
 | Target MC | Generational Era | Live on Platforms | Next Queued Version | Status & Cadence Action | Feature Highlights / Notes |
 | :--- | :--- | :--- | :--- | :--- | :--- |
-| **MC 26.3** | Modern Lead | *(Unreleased)* | `1.0.29+26.3` | 🟢 **Ready to Publish** | Official MC 26.3 stable port with Fabric Loader 0.19.5 and DasikLibrary 1.9.2. |
-| **MC 26.2** | Modern Predecessor | `1.0.26+26.2` | `1.0.27+26.2` | 🟢 **Ready to Publish** | Client side-safety annotations (`1.0.28+26.2` queued next). |
-| **MC 26.1.2** | Modern Sovereign | `1.0.7+26.1.2` | `1.0.28+26.1.2` | 🟢 **Ready to Publish** | Modern sovereign anchor parity port with DasikLibrary 1.8.39 alignment. |
-| **MC 1.21.11** | Older Anchor | *(Unreleased)* | `1.0.0+1.21.11` | 🟢 **Ready to Publish** | Older anchor port for Minecraft 1.21.11 with DasikLibrary 1.1.0 alignment. |
-| **MC 1.21.1** | Older Anchor | *(Unreleased)* | `1.0.0+1.21.1` | 🟢 **Ready to Publish** | Older anchor port for Minecraft 1.21.1 with DasikLibrary 1.1.0 alignment. |
-| **MC 1.20.1** | Legacy Anchor | *(Unreleased)* | `1.0.0+1.20.1` | 🟢 **Ready to Publish** | Legacy anchor port for Minecraft 1.20.1 with DasikLibrary 1.0.0 alignment. |
+| **MC 26.3** | Modern Lead | `1.0.29+26.3` | `1.0.30+26.3` ➔ `1.1.0+26.3` ➔ `1.2.0+26.3` | 🟢 **Ready to Publish** | Knot safety fix (`1.0.30`), dynamic visual scaling (`1.1.0`), and explosion drop pre-clumping (`1.2.0`). |
+| **MC 26.2** | Modern Predecessor | `1.0.26+26.2` | `1.0.27+26.2` ➔ `1.0.28+26.2` ➔ `1.0.29+26.2` ➔ `1.1.0+26.2` ➔ `1.2.0+26.2` | ⏸️ **On Parity Hold** | Side safety (`1.0.27`), DasikLib 1.8.39 (`1.0.28`), Knot safety (`1.0.29`), visual scaling (`1.1.0`), explosion pre-clump (`1.2.0`). |
+| **MC 26.1.2** | Modern Sovereign | `1.0.7+26.1.2` | `1.0.28+26.1.2` ➔ `1.0.29+26.1.2` ➔ `1.1.0+26.1.2` ➔ `1.2.0+26.1.2` | ⏸️ **On Parity Hold** | Sovereign parity (`1.0.28`), Knot safety (`1.0.29`), visual scaling (`1.1.0`), explosion pre-clump (`1.2.0`). |
+| **MC 1.21.11** | Older Anchor | `1.0.1+1.21.11` | `1.1.0+1.21.11` ➔ `1.2.0+1.21.11` | 🟢 **Ready to Publish** | Dynamic visual scaling (`1.1.0`) and explosion drop pre-clumping (`1.2.0`). |
+| **MC 1.21.1** | Older Anchor | `1.0.1+1.21.1` | `1.1.0+1.21.1` ➔ `1.2.0+1.21.1` | 🟢 **Ready to Publish** | Dynamic visual scaling (`1.1.0`) and explosion drop pre-clumping (`1.2.0`). |
+| **MC 1.20.1** | Legacy Anchor | `1.0.1+1.20.1` | `1.1.0+1.20.1` ➔ `1.2.0+1.20.1` | 🟢 **Ready to Publish** | Dynamic visual scaling (`1.1.0`) and explosion drop pre-clumping (`1.2.0`). |
 
 
 ---
