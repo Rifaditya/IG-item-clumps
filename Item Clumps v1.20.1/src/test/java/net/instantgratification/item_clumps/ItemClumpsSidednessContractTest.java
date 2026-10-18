@@ -116,6 +116,8 @@ public class ItemClumpsSidednessContractTest {
                 "Common mixin ItemEntityMixin must be registered in common mixins");
         assertTrue(commonJson.contains("HopperBlockEntityMixin"),
                 "Common mixin HopperBlockEntityMixin must be registered in common mixins");
+        assertTrue(commonJson.contains("ExplosionMixin"),
+                "Common mixin ExplosionMixin must be registered in common mixins");
 
         assertTrue(clientJson.contains("ItemEntityRendererMixin"),
                 "Client mixin ItemEntityRendererMixin must be registered in client mixins");

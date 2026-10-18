@@ -16,6 +16,7 @@ public class ItemClumpsConfigTest {
         assertEquals(1, config.mergeRadius, "mergeRadius should default to 1");
         assertEquals(-1, config.labelMinCount, "labelMinCount should default to -1");
         assertTrue(config.enableVisualScaling, "enableVisualScaling should default to true");
+        assertTrue(config.preClumpExplosions, "preClumpExplosions should default to true");
         assertEquals(ItemClumpsConfig.VERSION, config.configVersion, "configVersion should match VERSION");
     }
 }
