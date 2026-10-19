@@ -32,6 +32,7 @@ public class ItemClumpsConfig {
     public int labelMinCount = -1;
     public boolean enableVisualScaling = true;
     public boolean preClumpExplosions = true;
+    public boolean cullOccludedLabels = true;
 
     public static ItemClumpsConfig get() {
         return INSTANCE;

@@ -1,16 +1,22 @@
 // Copyright (C) 2026 Dasik (Rifaditya) | GNU GPLv3
 package net.instantgratification.item_clumps.client.mixin;
 
+import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
+import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.dasik.social.api.gamerule.DynamicGameRuleManager;
 import net.instantgratification.item_clumps.ItemClumpsFabric;
 import net.instantgratification.item_clumps.client.duck.ItemEntityRenderStateDuck;
+import net.instantgratification.item_clumps.client.render.ClumpOcclusionCuller;
 import net.instantgratification.item_clumps.client.util.VisualScalingHelper;
 import net.instantgratification.item_clumps.config.ItemClumpsConfig;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.SubmitNodeCollector;
+import net.minecraft.client.renderer.entity.EntityRenderer;
 import net.minecraft.client.renderer.entity.ItemEntityRenderer;
+import net.minecraft.client.renderer.entity.state.EntityRenderState;
 import net.minecraft.client.renderer.entity.state.ItemEntityRenderState;
 import net.minecraft.client.renderer.state.CameraRenderState;
 import net.minecraft.world.entity.item.ItemEntity;
@@ -43,5 +49,21 @@ public class ItemEntityRendererMixin {
                 poseStack.scale(scale, scale, scale);
             }
         }
+    }
+
+    @WrapOperation(
+        method = "submit(Lnet/minecraft/client/renderer/entity/state/ItemEntityRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;Lnet/minecraft/client/renderer/state/CameraRenderState;)V",
+        at = @At(
+            value = "INVOKE",
+            target = "Lnet/minecraft/client/renderer/entity/EntityRenderer;submit(Lnet/minecraft/client/renderer/entity/state/EntityRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;Lnet/minecraft/client/renderer/state/CameraRenderState;)V"
+        )
+    )
+    private void item_clumps$cullOccludedLabel(EntityRenderer instance, EntityRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, CameraRenderState camera, Operation<Void> original) {
+        if (state.nameTag != null && Minecraft.getInstance().level != null && camera != null && camera.pos != null) {
+            if (ClumpOcclusionCuller.isLabelOccluded(Minecraft.getInstance().level, camera.pos, state.x, state.y + 0.75, state.z)) {
+                return;
+            }
+        }
+        original.call(instance, state, poseStack, submitNodeCollector, camera);
     }
 }
