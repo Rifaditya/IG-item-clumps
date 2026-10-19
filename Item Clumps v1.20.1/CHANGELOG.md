@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0+1.20.1] - 2026-10-19
+
+### Added
+- Holographic label wall-occlusion culling: hides clump labels behind solid opaque blocks to reduce visual clutter and GPU draw calls.
+- Dynamic GameRule `item_clumps:cull_occluded_labels` (default: true).
+- Config toggle in Mod Menu / YACL settings.
+
 ## [1.2.0+1.20.1] - 2026-10-18
 
 ### Added

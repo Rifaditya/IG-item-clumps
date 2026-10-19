@@ -123,6 +123,18 @@ public class YaclScreenHelper {
                 .controller(BooleanControllerBuilder::create)
                 .build());
 
+        // Cull Occluded Labels
+        groupBuilder.option(Option.<Boolean>createBuilder()
+                .name(Component.translatable("config.item_clumps.cullOccludedLabels"))
+                .description(OptionDescription.of(Component.translatable("config.item_clumps.cullOccludedLabels.description")))
+                .binding(
+                        true,
+                        () -> config.cullOccludedLabels,
+                        val -> config.cullOccludedLabels = val
+                )
+                .controller(BooleanControllerBuilder::create)
+                .build());
+
         return YetAnotherConfigLib.createBuilder()
                 .title(Component.translatable("config.item_clumps.title"))
                 .category(ConfigCategory.createBuilder()

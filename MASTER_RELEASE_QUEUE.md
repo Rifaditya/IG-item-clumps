@@ -14,7 +14,7 @@
 | **MC 26.1.2** | Modern Sovereign | `1.0.7+26.1.2` | `1.0.28+26.1.2` ➔ `1.0.29+26.1.2` ➔ `1.1.0+26.1.2` ➔ `1.2.0+26.1.2` ➔ `1.3.0+26.1.2` | ⏸️ **On Parity Hold** | Sovereign parity (`1.0.28`), Knot safety (`1.0.29`), visual scaling (`1.1.0`), explosion pre-clump (`1.2.0`), label wall culling (`1.3.0`). |
 | **MC 1.21.11** | Older Anchor | `1.0.1+1.21.11` | `1.1.0+1.21.11` ➔ `1.2.0+1.21.11` ➔ `1.3.0+1.21.11` | 🟢 **Ready to Publish** | Dynamic visual scaling (`1.1.0`), explosion drop pre-clumping (`1.2.0`), label wall culling (`1.3.0`). |
 | **MC 1.21.1** | Older Anchor | `1.0.1+1.21.1` | `1.1.0+1.21.1` ➔ `1.2.0+1.21.1` ➔ `1.3.0+1.21.1` | 🟢 **Ready to Publish** | Dynamic visual scaling (`1.1.0`), explosion drop pre-clumping (`1.2.0`), label wall culling (`1.3.0`). |
-| **MC 1.20.1** | Legacy Anchor | `1.0.1+1.20.1` | `1.1.0+1.20.1` ➔ `1.2.0+1.20.1` | 🟢 **Ready to Publish** | Dynamic visual scaling (`1.1.0`) and explosion drop pre-clumping (`1.2.0`). |
+| **MC 1.20.1** | Legacy Anchor | `1.0.1+1.20.1` | `1.1.0+1.20.1` ➔ `1.2.0+1.20.1` ➔ `1.3.0+1.20.1` | 🟢 **Ready to Publish** | Dynamic visual scaling (`1.1.0`), explosion drop pre-clumping (`1.2.0`), label wall culling (`1.3.0`). |
 
 
 ---
