@@ -29,6 +29,10 @@
   "config.item_clumps.enableVisualScaling.description": "When true, item clumps expand in physical scale up to 2.5x as item count increases.",
   "config.item_clumps.preClumpExplosions": "Pre-Clump Explosions",
   "config.item_clumps.preClumpExplosions.description": "When true, explosion block drops are consolidated before spawning to eliminate tick lag during massive blasts.",
+  "config.item_clumps.cullOccludedLabels": "Cull Occluded Labels",
+  "config.item_clumps.cullOccludedLabels.description": "When true, floating clump labels behind solid opaque blocks are culled from rendering to eliminate visual clutter and save GPU draw calls.",
   "gamerule.item_clumps.pre_clump_explosions": "Pre-Clump Explosions",
-  "gamerule.item_clumps.pre_clump_explosions.description": "When true, explosion block drops are consolidated before spawning to eliminate tick lag during massive blasts. Default: true"
+  "gamerule.item_clumps.pre_clump_explosions.description": "When true, explosion block drops are consolidated before spawning to eliminate tick lag during massive blasts. Default: true",
+  "gamerule.item_clumps.cull_occluded_labels": "Cull Occluded Labels",
+  "gamerule.item_clumps.cull_occluded_labels.description": "When true, floating clump labels behind solid opaque blocks are culled from rendering to eliminate visual clutter and save GPU draw calls. Default: true"
 }
