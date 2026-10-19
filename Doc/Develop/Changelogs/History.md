@@ -2,6 +2,25 @@
 
 All notable changes to the item clumping mod are documented below.
 
+## [BL-CLUMP-015] Holographic Label Wall-Occlusion Culling Toggle (2026-10-19)
+*Released: October 19, 2026 (All Anchors: 1.20.1, 1.21.1, 1.21.11, 26.1.2, 26.2, 26.3)*
+
+### Summary
+Culls floating holographic item clump name labels from rendering when completely occluded by solid opaque blocks along the client camera line-of-sight. Eliminates visual clutter in mob farms and underground item collections while saving GPU draw calls.
+
+### Anchors
+`1.20.1`, `1.21.1`, `1.21.11`, `26.1.2`, `26.2`, `26.3` (All bumped to `1.3.0+<MC>`).
+
+### Technical Architecture
+- **Occlusion Raycaster**: `ClumpOcclusionCuller.java` performs fast client-side line-of-sight raycasting (`ClipContext.Block.COLLIDER`, `ClipContext.Fluid.NONE`) from camera to label offset ($y + 0.75$). Enforces a 1.5m proximity safety bubble ($d^2 \le 2.25$) to prevent accidental culling when near walls. Validates occluders via `state.canOcclude() && state.isSolidRender()` so glass, water, and leaves never occlude.
+- **Era-Tailored Mixin Interception**:
+  - `26.3`, `26.2`, `26.1.2`, and `1.21.11`: MixinExtras `@WrapOperation` around `EntityRenderer.submit` within `ItemEntityRenderer.submit` using generic erasure `EntityRenderState`.
+  - `1.21.1` and `1.20.1`: MixinExtras `@WrapOperation` around `EntityRenderer.render` within `ItemEntityRenderer.render`.
+- **Dynamic Configuration & GameRules**: Dynamic GameRule `item_clumps:cull_occluded_labels` (boolean, default true) synchronized with config `cullOccludedLabels = true` and optional YACL client configuration screen toggle.
+- **Verification & Test Harness**: 5-Pillar automated testing suite with `ClumpOcclusionCullerTest.java` verifying boundary distances, null defense, and config overrides across all 6 anchors.
+
+---
+
 ## [BL-CLUMP-010] Explosion Drop Pre-Clumping Across All Anchors (2026-10-18)
 *Released: October 18, 2026 (All Anchors: 1.20.1, 1.21.1, 1.21.11, 26.1.2, 26.2, 26.3)*
 

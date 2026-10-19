@@ -26,7 +26,7 @@ This file tracks planned features, technical refinements, performance optimizati
 | [`BL-CLUMP-012`](tickets/BL-CLUMP-012.md) | [REFINEMENT] | Client-Side Glowing Outline Accessibility Toggle (YACL, default off) | [LOW] | All Anchors | 📌 DEFERRED | [View Ticket](tickets/BL-CLUMP-012.md) |
 | [`BL-CLUMP-013`](tickets/BL-CLUMP-013.md) | [PERF] | Chunk Item Entity Density Console Warning Alert | [MEDIUM] | All Anchors | 📌 DEFERRED | [View Ticket](tickets/BL-CLUMP-013.md) |
 | [`BL-CLUMP-014`](tickets/BL-CLUMP-014.md) | [REFINEMENT] | Crosshair / F3 Targeted Clump Stack Size Display | [LOW] | All Anchors | 📌 DEFERRED | [View Ticket](tickets/BL-CLUMP-014.md) |
-| [`BL-CLUMP-015`](tickets/BL-CLUMP-015.md) | [PERF] | Holographic Label Wall-Occlusion Culling Toggle | [HIGH] | All Anchors | 📌 DEFERRED | [View Ticket](tickets/BL-CLUMP-015.md) |
+| [`BL-CLUMP-015`](tickets/BL-CLUMP-015.md) | [PERF] | Holographic Label Wall-Occlusion Culling Toggle | [HIGH] | All Anchors | ✅ RESOLVED | [View Ticket](tickets/BL-CLUMP-015.md) |
 | [`BL-CLUMP-016`](tickets/BL-CLUMP-016.md) | [REFINEMENT] | Spectator Mode Clump Hover HUD Readout | [LOW] | All Anchors | 📌 DEFERRED | [View Ticket](tickets/BL-CLUMP-016.md) |
 | [`BL-CLUMP-017`](tickets/BL-CLUMP-017.md) | [FEATURE] | Jade / WTHIT / The One Probe Clump Provider Integration | [MEDIUM] | All Anchors | 📌 DEFERRED | [View Ticket](tickets/BL-CLUMP-017.md) |
 | [`BL-CLUMP-019`](tickets/BL-CLUMP-019.md) | `[TECH_DEBT]` | Downstream Ecosystem & Toolchain Alignment | `[HIGH]` | All Anchors | `✅ RESOLVED` | [View Ticket](tickets/BL-CLUMP-019.md) |
