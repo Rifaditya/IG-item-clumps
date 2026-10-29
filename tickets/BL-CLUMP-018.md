@@ -5,7 +5,7 @@
 - **Status**: `✅ RESOLVED`
 - **Target Component(s)**: Multi-subproject directories, `ItemEntityMixin.java`, `ClumpMergeHandler.java`, `ClumpRenderer.java`, `ClumpConfig.java`, `build.gradle`, `fabric.mod.json`, `RELEASE_QUEUE.md`
 - **Date Added**: 2026-09-25
-- **Roadmap Tracker**: [`item_clumps_multi_era_porting_roadmap.md`](file:///C:/Users/fmrif/.gemini/antigravity/brain/cdc9efa4-763b-4a89-9682-450c0e8ea2ac/item_clumps_multi_era_porting_roadmap.md) (6 Atomic Steps)
+- **Historical Roadmap**: 6 Atomic Steps executed across Modern & Older Anchors (100% verified in History.md)
 
 #### ❓ Problem / Context
 Existing versions: `26.2` (established baseline at root). Missing anchors: Modern `26.1 / 26.1.2`, `26.3`; Older `1.21.11`, `1.21.1`, `1.20.1`.
