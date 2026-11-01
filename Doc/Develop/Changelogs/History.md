@@ -2,6 +2,25 @@
 
 All notable changes to the item clumping mod are documented below.
 
+## [BL-CLUMP-005] Optional Batch Hopper Siphoning (2026-11-01)
+*Released: November 01, 2026 (All Anchors: 1.20.1, 1.21.1, 1.21.11, 26.1.2, 26.2, 26.3)*
+
+### Summary
+Introduces an opt-in, redstone-safe batch siphoning mechanism for hoppers underneath mega-clumps (>= 64 items). Eliminates farm hopper draining bottlenecks by transferring configurable batch sizes (default 16 items per 8 ticks) in single-slot saturated bursts while strictly preserving vanilla redstone parity on smaller item drops (< 64 items).
+
+### Anchors
+1.20.1, 1.21.1, 1.21.11, 26.1.2, 26.2, 26.3 (All bumped to 1.4.0+<MC>).
+
+### Technical Architecture
+- **Threshold-Guarded Siphoning Engine**: HopperBatchHelper.java computes target slot capacity via getFirstSlotCapacity and executes saturated extraction with siphonFromStack. When enabled (item_clumps:batch_hopper_siphoning = true) and stack count >= atch_siphon_min_threshold (default 64), hoppers siphon up to hopper_batch_size (default 16) into the first matching or empty slot. Any drops < 64 items fall back to strict 1-by-1 vanilla transfer, protecting player shops, hopper clocks, and casino payment sorters.
+- **Era-Tailored Siphoning Syntax**:
+  - 26.3, 26.2, 26.1.2, 1.21.11, and 1.21.1: Modern DataComponents using copyWithCount(batch) and component equality comparison.
+  - 1.20.1: Java 17 LTS syntax using stack.copy(); toInsert.setCount(batch); and legacy NBT equality comparison (ItemStack.isSameItemSameTags).
+- **Dynamic Configuration & GameRules**: Dynamic GameRules item_clumps:batch_hopper_siphoning (default false), item_clumps:hopper_batch_size (default 16, uncapped range), and item_clumps:batch_siphon_min_threshold (default 64) paired with ItemClumpsConfig.java and YACL in-game client screens.
+- **Verification & Test Harness**: 6-invariant Negative Parity unit test suite (HopperBatchSiphoningTest.java) executed across all 6 anchors (60/60 tests passing), asserting single drops, 63-item drops, non-stackable items, and disabled GameRule behavior remain 100% vanilla.
+
+---
+
 ## [BL-CLUMP-015] Holographic Label Wall-Occlusion Culling Toggle (2026-10-19)
 *Released: October 19, 2026 (All Anchors: 1.20.1, 1.21.1, 1.21.11, 26.1.2, 26.2, 26.3)*
 
