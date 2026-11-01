@@ -135,6 +135,48 @@ public class YaclScreenHelper {
                 .controller(BooleanControllerBuilder::create)
                 .build());
 
+        // Batch Hopper Siphoning
+        groupBuilder.option(Option.<Boolean>createBuilder()
+                .name(Component.translatable("config.item_clumps.batchHopperSiphoning"))
+                .description(OptionDescription.of(Component.translatable("config.item_clumps.batchHopperSiphoning.description")))
+                .binding(
+                        false,
+                        () -> config.batchHopperSiphoning,
+                        val -> config.batchHopperSiphoning = val
+                )
+                .controller(BooleanControllerBuilder::create)
+                .build());
+
+        // Hopper Batch Size
+        groupBuilder.option(Option.<Integer>createBuilder()
+                .name(Component.translatable("config.item_clumps.hopperBatchSize"))
+                .description(OptionDescription.of(Component.translatable("config.item_clumps.hopperBatchSize.description")))
+                .binding(
+                        16,
+                        () -> config.hopperBatchSize,
+                        val -> config.hopperBatchSize = val
+                )
+                .controller(opt -> IntegerFieldControllerBuilder.create(opt)
+                        .min(1)
+                        .max(Integer.MAX_VALUE)
+                )
+                .build());
+
+        // Batch Siphon Min Threshold
+        groupBuilder.option(Option.<Integer>createBuilder()
+                .name(Component.translatable("config.item_clumps.batchSiphonMinThreshold"))
+                .description(OptionDescription.of(Component.translatable("config.item_clumps.batchSiphonMinThreshold.description")))
+                .binding(
+                        64,
+                        () -> config.batchSiphonMinThreshold,
+                        val -> config.batchSiphonMinThreshold = val
+                )
+                .controller(opt -> IntegerFieldControllerBuilder.create(opt)
+                        .min(1)
+                        .max(Integer.MAX_VALUE)
+                )
+                .build());
+
         return YetAnotherConfigLib.createBuilder()
                 .title(Component.translatable("config.item_clumps.title"))
                 .category(ConfigCategory.createBuilder()

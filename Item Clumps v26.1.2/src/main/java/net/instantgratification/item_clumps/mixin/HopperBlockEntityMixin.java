@@ -1,6 +1,10 @@
 // Copyright (C) 2026 Dasik (Rifaditya) | GNU GPLv3
 package net.instantgratification.item_clumps.mixin;
 
+import net.dasik.social.api.gamerule.DynamicGameRuleManager;
+import net.instantgratification.item_clumps.ItemClumpsFabric;
+import net.instantgratification.item_clumps.config.ItemClumpsConfig;
+import net.instantgratification.item_clumps.hopper.HopperBatchHelper;
 import net.minecraft.world.Container;
 import net.minecraft.world.entity.item.ItemEntity;
 import net.minecraft.world.item.ItemStack;
@@ -16,23 +20,43 @@ public abstract class HopperBlockEntityMixin {
 
     @Inject(method = "addItem(Lnet/minecraft/world/Container;Lnet/minecraft/world/entity/item/ItemEntity;)Z", at = @At("HEAD"), cancellable = true)
     private static void item_clumps$customHopperExtract(Container container, ItemEntity entity, CallbackInfoReturnable<Boolean> cir) {
+        if (entity == null || container == null) {
+            return;
+        }
+
         ItemStack itemStack = entity.getItem();
-        int count = itemStack.getCount();
-        if (count > 1) {
-            // Entity is a clump. Extract exactly 1 item.
-            ItemStack baseItem = itemStack.copyWithCount(1);
-            
-            ItemStack result = HopperBlockEntity.addItem(null, container, baseItem, null);
-            if (result.isEmpty()) {
-                // Hopper successfully absorbed the 1 item. Shrink entity stack.
-                ItemStack originalStack = entity.getItem().copy();
-                originalStack.shrink(1);
-                entity.setItem(originalStack); // Updates standard item tracker and custom name
-                cir.setReturnValue(true);
+        if (itemStack == null || itemStack.isEmpty() || itemStack.getCount() <= 0) {
+            return;
+        }
+
+        boolean batchEnabled;
+        int batchSize;
+        int minThreshold;
+
+        if (entity.level() != null) {
+            batchEnabled = DynamicGameRuleManager.getBoolean(entity.level(), ItemClumpsFabric.BATCH_HOPPER_SIPHONING);
+            batchSize = DynamicGameRuleManager.getInt(entity.level(), ItemClumpsFabric.HOPPER_BATCH_SIZE);
+            minThreshold = DynamicGameRuleManager.getInt(entity.level(), ItemClumpsFabric.BATCH_SIPHON_MIN_THRESHOLD);
+        } else {
+            ItemClumpsConfig config = ItemClumpsConfig.get();
+            batchEnabled = config.batchHopperSiphoning;
+            batchSize = config.hopperBatchSize;
+            minThreshold = config.batchSiphonMinThreshold;
+        }
+
+        ItemStack originalStack = itemStack.copy();
+        int inserted = HopperBatchHelper.siphonFromStack(container, originalStack, batchEnabled, batchSize, minThreshold);
+
+        if (inserted > 0) {
+            if (originalStack.isEmpty()) {
+                entity.setItem(ItemStack.EMPTY);
+                entity.discard();
             } else {
-                // Hopper was full or couldn't take it
-                cir.setReturnValue(false);
+                entity.setItem(originalStack);
             }
+            cir.setReturnValue(true);
+        } else {
+            cir.setReturnValue(false);
         }
     }
 }

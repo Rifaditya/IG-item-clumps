@@ -31,6 +31,9 @@ public class ItemClumpsFabric implements ModInitializer {
     public static GameRule<Boolean> ENABLE_VISUAL_SCALING;
     public static GameRule<Boolean> ENABLE_EXPLOSION_PRE_CLUMPING;
     public static GameRule<Boolean> CULL_OCCLUDED_LABELS;
+    public static GameRule<Boolean> BATCH_HOPPER_SIPHONING;
+    public static GameRule<Integer> HOPPER_BATCH_SIZE;
+    public static GameRule<Integer> BATCH_SIPHON_MIN_THRESHOLD;
     
     @Override
     public void onInitialize() {
@@ -83,6 +86,23 @@ public class ItemClumpsFabric implements ModInitializer {
         CULL_OCCLUDED_LABELS = DynamicGameRuleManager.booleanRule(MOD_ID + ":cull_occluded_labels", CUSTOM_CATEGORY, config.cullOccludedLabels)
             .name("Cull Occluded Labels")
             .description("When true, floating clump labels behind solid opaque blocks are culled from rendering to eliminate visual clutter and save GPU draw calls. Default: true")
+            .register();
+
+        BATCH_HOPPER_SIPHONING = DynamicGameRuleManager.booleanRule(MOD_ID + ":batch_hopper_siphoning", CUSTOM_CATEGORY, config.batchHopperSiphoning)
+            .name("Batch Hopper Siphoning")
+            .description("When true, hoppers siphon items in configurable batches from oversized item clumps instead of 1 item per pull. Default: false")
+            .register();
+
+        HOPPER_BATCH_SIZE = DynamicGameRuleManager.integerRule(MOD_ID + ":hopper_batch_size", CUSTOM_CATEGORY, config.hopperBatchSize)
+            .name("Hopper Batch Size")
+            .description("Maximum number of items extracted per hopper pull when batch siphoning is active. Saturated by available slot capacity. Default: 16")
+            .range(1, Integer.MAX_VALUE)
+            .register();
+
+        BATCH_SIPHON_MIN_THRESHOLD = DynamicGameRuleManager.integerRule(MOD_ID + ":batch_siphon_min_threshold", CUSTOM_CATEGORY, config.batchSiphonMinThreshold)
+            .name("Batch Siphon Min Threshold")
+            .description("Minimum item count in a clump required to trigger batch siphoning. Clumps below this threshold siphon at vanilla rate (1 item). Default: 64")
+            .range(1, Integer.MAX_VALUE)
             .register();
     }
 }
