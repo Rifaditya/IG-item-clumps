@@ -15,7 +15,7 @@ This file tracks planned features, technical refinements, performance optimizati
 | [`BL-CLUMP-002`](tickets/BL-CLUMP-002.md) | [REFINEMENT] | Clump Despawn Warning Effect (Final 30-60s visual indicator) | [MEDIUM] | All Anchors | 📌 DEFERRED | [View Ticket](tickets/BL-CLUMP-002.md) |
 | [`BL-CLUMP-003`](tickets/BL-CLUMP-003.md) | [REFINEMENT] | Customizable Hex Color for Holographic Labels | [LOW] | All Anchors | 📌 DEFERRED | [View Ticket](tickets/BL-CLUMP-003.md) |
 | [`BL-CLUMP-004`](tickets/BL-CLUMP-004.md) | [FEATURE] | Count-Scaled Pickup Audio Feedback (with In-Game Audio Settings toggle) | [MEDIUM] | All Anchors | 📌 DEFERRED | [View Ticket](tickets/BL-CLUMP-004.md) |
-| [`BL-CLUMP-005`](tickets/BL-CLUMP-005.md) | [FEATURE] | Optional Batch Hopper Siphoning (1 to 64 items, default vanilla) | [HIGH] | All Anchors | 📌 DEFERRED | [View Ticket](tickets/BL-CLUMP-005.md) |
+| [BL-CLUMP-005](tickets/BL-CLUMP-005.md) | [REFINEMENT] | Optional Batch Hopper Siphoning (with Redstone Threshold Guard) | [MEDIUM] | All Anchors | ✅ RESOLVED | [View Ticket](tickets/BL-CLUMP-005.md) |
 | [`BL-CLUMP-006`](tickets/BL-CLUMP-006.md) | [FEATURE] | Third-Party Modded Item Entity Auto-Detection & Merging | [MEDIUM] | All Anchors | 📌 DEFERRED | [View Ticket](tickets/BL-CLUMP-006.md) |
 | [`BL-CLUMP-007`](tickets/BL-CLUMP-007.md) | [FEATURE] | Server Admin Command Suite (/clumps stats, /clumps purge, /clumps reload) | [HIGH] | All Anchors | 📌 DEFERRED | [View Ticket](tickets/BL-CLUMP-007.md) |
 | [`BL-CLUMP-008`](tickets/BL-CLUMP-008.md) | [REFINEMENT] | Debug Clump Label Mode (Target Max Display e.g. 1,500/9,999) | [LOW] | All Anchors | 📌 DEFERRED | [View Ticket](tickets/BL-CLUMP-008.md) |
