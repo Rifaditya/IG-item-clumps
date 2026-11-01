@@ -58,7 +58,7 @@ public class ItemEntityRendererMixin {
             target = "Lnet/minecraft/client/renderer/entity/EntityRenderer;submit(Lnet/minecraft/client/renderer/entity/state/EntityRenderState;Lcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/SubmitNodeCollector;Lnet/minecraft/client/renderer/state/level/CameraRenderState;)V"
         )
     )
-    private void item_clumps$cullOccludedLabel(EntityRenderer instance, EntityRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, CameraRenderState camera, Operation<Void> original) {
+    private void item_clumps$cullOccludedLabel(ItemEntityRenderer instance, EntityRenderState state, PoseStack poseStack, SubmitNodeCollector submitNodeCollector, CameraRenderState camera, Operation<Void> original) {
         if (state.nameTag != null && Minecraft.getInstance().level != null && camera != null && camera.pos != null) {
             if (ClumpOcclusionCuller.isLabelOccluded(Minecraft.getInstance().level, camera.pos, state.x, state.y + 0.75, state.z)) {
                 return;

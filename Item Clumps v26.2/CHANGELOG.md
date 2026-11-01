@@ -56,7 +56,7 @@
 ## [1.0.21+26.2] - 2026-07-15
 
 ### Fixed
-- Fixed compatibility mismatch with Magnet mod version 26.2. The reflection helper now queries for the new `ig_magnet$isMagnetized` method signature first, falling back to the 26.1 `ig$isMagnetized` signature, preventing items from clumping while in magnet flight.
+- Fixed compatibility mismatch with Magnet mod version 26.2. The reflection helper now queries for the new `ig_magnetisMagnetized` method signature first, falling back to the 26.1 `igisMagnetized` signature, preventing items from clumping while in magnet flight.
 - Fixed properties synchronization during partial merges. The target item entity now inherits `pickupDelay` and `age` from the merged entity, preventing items from bypassing pickup delays or despawning prematurely.
 
 ## [1.0.20+26.2] - 2026-07-14

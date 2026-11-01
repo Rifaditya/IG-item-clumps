@@ -1,7 +1,7 @@
 # 📌 Item Clumps Backlog
 
-<!-- Highest Historical ID: BL-CLUMP-022 (Next Ticket Must Start at BL-CLUMP-023) -->
-> **Next Available Ticket ID**: `[BL-CLUMP-023]`
+<!-- Highest Historical ID: BL-CLUMP-025 (Next Ticket Must Start at BL-CLUMP-026) -->
+> **Next Available Ticket ID**: `[BL-CLUMP-026]`
 
 This file tracks planned features, technical refinements, performance optimizations, and deferred improvements for **Item Clumps**.
 
@@ -11,6 +11,7 @@ This file tracks planned features, technical refinements, performance optimizati
 
 | ID | Category | Title | Priority | Target Version | Status | Specification |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| [`BL-CLUMP-024`](tickets/BL-CLUMP-024.md) | `[TECH_DEBT]` | Scaffold Anchor 7: Item Clumps v26.x (rolling 26.3+) | `[MEDIUM]` | Multi-Version Parity | `📌 DEFERRED` | [View Ticket](tickets/BL-CLUMP-024.md) |
 | [`BL-CLUMP-002`](tickets/BL-CLUMP-002.md) | [REFINEMENT] | Clump Despawn Warning Effect (Final 30-60s visual indicator) | [MEDIUM] | All Anchors | 📌 DEFERRED | [View Ticket](tickets/BL-CLUMP-002.md) |
 | [`BL-CLUMP-003`](tickets/BL-CLUMP-003.md) | [REFINEMENT] | Customizable Hex Color for Holographic Labels | [LOW] | All Anchors | 📌 DEFERRED | [View Ticket](tickets/BL-CLUMP-003.md) |
 | [`BL-CLUMP-004`](tickets/BL-CLUMP-004.md) | [FEATURE] | Count-Scaled Pickup Audio Feedback (with In-Game Audio Settings toggle) | [MEDIUM] | All Anchors | 📌 DEFERRED | [View Ticket](tickets/BL-CLUMP-004.md) |
@@ -25,6 +26,8 @@ This file tracks planned features, technical refinements, performance optimizati
 | [`BL-CLUMP-014`](tickets/BL-CLUMP-014.md) | [REFINEMENT] | Crosshair / F3 Targeted Clump Stack Size Display | [LOW] | All Anchors | 📌 DEFERRED | [View Ticket](tickets/BL-CLUMP-014.md) |
 | [`BL-CLUMP-016`](tickets/BL-CLUMP-016.md) | [REFINEMENT] | Spectator Mode Clump Hover HUD Readout | [LOW] | All Anchors | 📌 DEFERRED | [View Ticket](tickets/BL-CLUMP-016.md) |
 | [`BL-CLUMP-017`](tickets/BL-CLUMP-017.md) | [FEATURE] | Jade / WTHIT / The One Probe Clump Provider Integration | [MEDIUM] | All Anchors | 📌 DEFERRED | [View Ticket](tickets/BL-CLUMP-017.md) |
+| [`BL-CLUMP-023`](tickets/BL-CLUMP-023.md) | `[GOVERNANCE]` | Storefront Reconciliation: Align Mod Pages with Current Public Release | `[HIGH]` | `Platform Pages` | `📌 DEFERRED` | [View Ticket](tickets/BL-CLUMP-023.md) |
+| [`BL-CLUMP-025`](tickets/BL-CLUMP-025.md) | `[TECH_DEBT]` | Wiki Audit & Update to Latest Version: item-clumps | `[MEDIUM]` | `All Anchors` | `📌 DEFERRED` | [View Ticket](tickets/BL-CLUMP-025.md) |
 
 ---
 
