@@ -18,6 +18,9 @@ public class ItemClumpsConfigTest {
         assertTrue(config.enableVisualScaling, "enableVisualScaling should default to true");
         assertTrue(config.preClumpExplosions, "preClumpExplosions should default to true");
         assertTrue(config.cullOccludedLabels, "cullOccludedLabels should default to true");
+        assertFalse(config.batchHopperSiphoning, "batchHopperSiphoning should default to false");
+        assertEquals(16, config.hopperBatchSize, "hopperBatchSize should default to 16");
+        assertEquals(64, config.batchSiphonMinThreshold, "batchSiphonMinThreshold should default to 64");
         assertEquals(ItemClumpsConfig.VERSION, config.configVersion, "configVersion should match VERSION");
     }
 }
