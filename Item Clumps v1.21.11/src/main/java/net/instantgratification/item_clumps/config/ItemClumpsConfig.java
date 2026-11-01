@@ -33,6 +33,9 @@ public class ItemClumpsConfig {
     public boolean enableVisualScaling = true;
     public boolean preClumpExplosions = true;
     public boolean cullOccludedLabels = true;
+    public boolean batchHopperSiphoning = false;
+    public int hopperBatchSize = 16;
+    public int batchSiphonMinThreshold = 64;
 
     public static ItemClumpsConfig get() {
         return INSTANCE;

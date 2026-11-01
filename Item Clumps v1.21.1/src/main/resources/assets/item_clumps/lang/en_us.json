@@ -1,4 +1,5 @@
 {
+  "gamerule.category.item_clumps": "Item Clumps",
   "gamerule.category.item_clumps.item_clumps": "Item Clumps",
   "gamerule.item_clumps.enable_clumping": "Enable Clumping",
   "gamerule.item_clumps.enable_clumping.description": "When true, ground items will aggressively merge into mega-stacks to reduce entity lag. Default: true",
@@ -31,8 +32,20 @@
   "config.item_clumps.preClumpExplosions.description": "When true, explosion block drops are consolidated before spawning to eliminate tick lag during massive blasts.",
   "config.item_clumps.cullOccludedLabels": "Cull Occluded Labels",
   "config.item_clumps.cullOccludedLabels.description": "When true, floating clump labels behind solid opaque blocks are culled from rendering to eliminate visual clutter and save GPU draw calls.",
+  "config.item_clumps.batchHopperSiphoning": "Batch Hopper Siphoning",
+  "config.item_clumps.batchHopperSiphoning.description": "When true, hoppers siphon items in configurable batches from oversized item clumps instead of 1 item per pull.",
+  "config.item_clumps.hopperBatchSize": "Hopper Batch Size",
+  "config.item_clumps.hopperBatchSize.description": "Maximum number of items extracted per hopper pull when batch siphoning is active. Saturated by available slot capacity.",
+  "config.item_clumps.batchSiphonMinThreshold": "Batch Siphon Min Threshold",
+  "config.item_clumps.batchSiphonMinThreshold.description": "Minimum item count in a clump required to trigger batch siphoning. Clumps below this threshold siphon at vanilla rate (1 item).",
   "gamerule.item_clumps.pre_clump_explosions": "Pre-Clump Explosions",
   "gamerule.item_clumps.pre_clump_explosions.description": "When true, explosion block drops are consolidated before spawning to eliminate tick lag during massive blasts. Default: true",
   "gamerule.item_clumps.cull_occluded_labels": "Cull Occluded Labels",
-  "gamerule.item_clumps.cull_occluded_labels.description": "When true, floating clump labels behind solid opaque blocks are culled from rendering to eliminate visual clutter and save GPU draw calls. Default: true"
+  "gamerule.item_clumps.cull_occluded_labels.description": "When true, floating clump labels behind solid opaque blocks are culled from rendering to eliminate visual clutter and save GPU draw calls. Default: true",
+  "gamerule.item_clumps.batch_hopper_siphoning": "Batch Hopper Siphoning",
+  "gamerule.item_clumps.batch_hopper_siphoning.description": "When true, hoppers siphon items in configurable batches from oversized item clumps instead of 1 item per pull. Default: false",
+  "gamerule.item_clumps.hopper_batch_size": "Hopper Batch Size",
+  "gamerule.item_clumps.hopper_batch_size.description": "Maximum number of items extracted per hopper pull when batch siphoning is active. Saturated by available slot capacity. Default: 16",
+  "gamerule.item_clumps.batch_siphon_min_threshold": "Batch Siphon Min Threshold",
+  "gamerule.item_clumps.batch_siphon_min_threshold.description": "Minimum item count in a clump required to trigger batch siphoning. Clumps below this threshold siphon at vanilla rate (1 item). Default: 64"
 }
