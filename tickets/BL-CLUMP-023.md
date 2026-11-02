@@ -4,7 +4,7 @@
 - **Category**: `[GOVERNANCE]`
 - **Priority**: `[HIGH]`
 - **Scope**: `Platform Documentation & Metadata`
-- **Status**: `📌 DEFERRED`
+- **Status**: `✅ RESOLVED`
 - **Target Repository / Root**: `Instant Gratification Collection/item-clumps`
 
 ---
@@ -20,10 +20,10 @@
    - ❌ Do not use corporate "we" voice in platform documentation; enforce the Solo Indie Voice ("I") invariant.
    - ❌ Do not modify Java source code or bump SemVer within this ticket.
 4. **✅ Definition of Done (Binary Verification Checklist)**:
-   - [ ] Modrinth description (`Doc/Platform Pages/Modrinth/description.md`) aligned with public version.
-   - [ ] CurseForge markdown (`Doc/Platform Pages/CurseForge/description.md`) aligned with public version.
-   - [ ] CurseForge semantic HTML (`Doc/Platform Pages/CurseForge/description.html`) updated with valid semantic tags.
-   - [ ] Zero unreleased or hallucinated mechanics claimed in storefronts.
+   - [x] Modrinth description (`Doc/Platform Pages/Modrinth/description.md`) aligned with public version.
+   - [x] CurseForge markdown (`Doc/Platform Pages/CurseForge/description.md`) aligned with public version.
+   - [x] CurseForge semantic HTML (`Doc/Platform Pages/CurseForge/description.html`) updated with valid semantic tags.
+   - [x] Zero unreleased or hallucinated mechanics claimed in storefronts.
 
 ---
 
@@ -77,8 +77,8 @@ Item 1.25 of the Studio Constitution (*Storefront Factual Accuracy & Anti-Halluc
 
 ## 🏁 7. 5-Pillar Verification Checklist
 
-- [ ] **Pillar 1 (Source & Binary Parity)**: 100% of features claimed in platform descriptions exist in public release binaries.
-- [ ] **Pillar 2 (Zero-Hallucination Guard)**: Zero unreleased, early-access, or phantom mechanics remain across storefront docs.
-- [ ] **Pillar 3 (Brigadier AST Alignment)**: Documented command syntax matches the public release binary.
-- [ ] **Pillar 4 (GameTest & Config Parity)**: Documented GameRule keys and default values match the public release binary.
-- [ ] **Pillar 5 (Sidedness & Platform Hygiene)**: Solo indie voice ("I") verified across all documents; CurseForge HTML valid semantic markup.
+- [x] **Pillar 1 (Source & Binary Parity)**: 100% of features claimed in platform descriptions exist in public release binaries.
+- [x] **Pillar 2 (Zero-Hallucination Guard)**: Zero unreleased, early-access, or phantom mechanics remain across storefront docs.
+- [x] **Pillar 3 (Brigadier AST Alignment)**: Documented command syntax matches the public release binary.
+- [x] **Pillar 4 (GameTest & Config Parity)**: Documented GameRule keys and default values match the public release binary.
+- [x] **Pillar 5 (Sidedness & Platform Hygiene)**: Solo indie voice ("I") verified across all documents; CurseForge HTML valid semantic markup.

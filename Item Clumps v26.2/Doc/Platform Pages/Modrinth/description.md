@@ -1,10 +1,13 @@
 <p align="center">
-    <a href="https://discord.gg/EV99bgAFqb"><img src="https://img.shields.io/badge/Discord-Join_Community-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Join Discord"></a>
+  <img src="https://raw.githubusercontent.com/Rifaditya/IG-item-clumps/main/Doc/Media/icon.png" alt="Item Clumps Mod Icon" width="180">
+</p>
+<p align="center">
+  <a href="https://discord.gg/EV99bgAFqb"><img src="https://img.shields.io/badge/Discord-Join_Community-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Join Discord"></a>
   <a href="https://modrinth.com/mod/fabric-api"><img src="https://img.shields.io/badge/Requires-Fabric_API-blue?style=for-the-badge&logo=fabric" alt="Requires Fabric API"></a>
   <a href="https://modrinth.com/mod/dasik-library"><img src="https://img.shields.io/badge/Requires-Dasik_Library-8A2BE2?style=for-the-badge" alt="Requires Dasik Library"></a>
-  <img src="https://img.shields.io/badge/Language-Java_25-orange?style=for-the-badge&logo=java" alt="Java 25">
+  <img src="https://img.shields.io/badge/Language-Java-orange?style=for-the-badge&logo=openjdk" alt="Java">
   <img src="https://img.shields.io/badge/License-GPLv3-green?style=for-the-badge" alt="License GPLv3">
-  <img src="https://img.shields.io/badge/Minecraft-26.2+-brightgreen?style=for-the-badge" alt="Minecraft 26.2+">
+  <img src="https://img.shields.io/badge/Minecraft-1.20.1_--_26.3+-brightgreen?style=for-the-badge" alt="Minecraft 1.20.1 -- 26.3+">
 </p>
 
 # 📦 Item Clumps
@@ -12,13 +15,13 @@
 > **"Stop Ground Item Lag. Merge Endless Drops into Ultra-Smooth Clumps."**
 
 > [!NOTE]
-> **1 Jar 1 Version Policy:** I build **1 dedicated JAR for each Minecraft version** (e.g. MC 26.2, MC 26.3). Please download the exact build that matches your Minecraft installation.
+> **1 Jar 1 Version Policy:** I build **1 dedicated JAR for each Minecraft version** (e.g. MC 1.20.1, MC 1.21.1, MC 1.21.11, MC 26.1.2, MC 26.2, MC 26.3). Please download the exact build that matches your Minecraft installation.
 > <br><br>
-> **Dependency Requirement:** For modern Minecraft 26.x releases (26.1.2, 26.2, 26.3+), this mod requires both **Fabric API** and **Dasik Library** (`v1.7.4+`).
+> **Dependency Requirement:** This mod requires both **Fabric API** and **Dasik Library** (`v1.0.0+` on 1.20.1, `v1.2.0+` on 1.21.x, `v1.7.4+` on 26.x).
 
 In vanilla Minecraft, dropped items merge, but they strictly cap out at a standard stack size of 64. When an automated mob farm, quarry, tree harvester, or massive TNT explosion spills thousands of items onto the ground, your game is forced to tick, track, and render dozens—or even hundreds—of individual 3D item entities. The result? Severe client-side frame stuttering, rendering bottlenecks, and catastrophic server TPS drops.
 
-**Item Clumps** shatters the 64-item ground entity barrier server-side. It aggressively merges identical dropped items into single, ultra-lightweight virtual mega-stacks of up to **9,999 items by default** (or up to **2,147,483,647**). Floating holographic count labels render cleanly above clumps, hoppers drip-feed items smoothly without jamming, and vanilla clients can connect to servers without installing any client mod!
+**Item Clumps** shatters the 64-item ground entity barrier server-side. It aggressively merges identical dropped items into single, ultra-lightweight virtual mega-stacks of up to **9,999 items by default** (or up to **2,147,483,647**). Floating holographic count labels render cleanly above clumps, hoppers drip-feed items smoothly without jamming, dynamic visual scaling provides instant visual feedback, and vanilla clients can connect to servers without installing any client mod!
 
 Part of the **Instant Gratification Collection** — mods that respect the player's time.
 
@@ -50,6 +53,9 @@ Bypasses the vanilla 64-item ground entity ceiling entirely. Identical dropped i
 ### 🏷️ Dynamic Holographic Count Labels
 Renders a custom floating nameplate (e.g. `Cobblestone x1450` or `Rotten Flesh x420`) above clumps whenever the entity count exceeds a normal stack. Uses Minecraft's native entity nametag rendering (`setCustomName` and `setCustomNameVisible`) on the server so that vanilla clients see the label without needing any client-side mod installed.
 
+### 🔍 Dynamic Logarithmic Visual Scaling
+Item clumps dynamically grow in 3D scale based on their internal item count! Scaling follows a smooth logarithmic curve from **1.0x up to 2.5x** (`1.0 + 0.3 * log10(count)`), giving giant mounds of cobblestone or iron ingots tangible physical presence without overwhelming player sightlines. Fully toggleable via GameRule (`item_clumps:enable_visual_scaling`).
+
 ### ⏱️ Vanilla Despawn Timer Preservation
 To protect your hard-earned resources, merged clumps inherit the age of the **youngest** constituent item in the merge (`Math.min(this.age, other.age)`). This ensures combining newly dropped items with older items never causes premature despawning.
 
@@ -80,12 +86,13 @@ Merges identical items within a configurable horizontal radius (`item_clumps:mer
 
 ## 📊 Quick Reference & Mechanics Matrix
 
-| Gameplay Aspect | Vanilla Minecraft | Item Clumps (Modern 26.2+) |
+| Gameplay Aspect | Vanilla Minecraft | Item Clumps (Fabric) |
 | :--- | :---: | :---: |
 | **Max Ground Stack Size** | 64 items (16 for pearls/eggs, 1 for tools) | **9,999 items** (Configurable up to 2.14 Billion) |
 | **Entity Count for 5,000 Items** | 79 separate 3D entity models | **1 single unified entity** |
 | **Frame Rate & Tick Impact** | Severe stuttering, FPS drops, TPS decay | **Smooth 60 FPS**, zero entity tick lag |
 | **Holographic Count Label** | ❌ None (Indistinguishable pile) | ✅ **Live 3D nametag** (`Item Name xCount`) |
+| **Visual Size Scaling** | ❌ Fixed single item scale | ✅ **Dynamic logarithmic scale (1.0x to 2.5x)** |
 | **Despawn Timer Logic** | Merges reset to oldest item age | ✅ **Inherits youngest age** (Maximum lifespan) |
 | **Hopper Extraction** | 1 item pulled per cycle | ✅ **Safe 1-item drip feed** (No redstone breakage) |
 | **Magnet Flight Behavior** | Glitchy mid-air merging | ✅ **Aerodynamic flight lock** (No sudden snapping) |
@@ -103,6 +110,7 @@ Adjust ground clumping rules live in your active world without restarting using 
 /gamerule item_clumps:render_labels true
 /gamerule item_clumps:label_min_count -1
 /gamerule item_clumps:merge_radius 1
+/gamerule item_clumps:enable_visual_scaling true
 ```
 
 All modifications made via `/gamerule` take effect immediately and synchronize across all connected players.
@@ -121,6 +129,7 @@ All modifications made via `/gamerule` take effect immediately and synchronize a
 | `item_clumps:render_labels` | `Boolean` | `true` | `true / false` | Renders a 3D holographic count label above clumps larger than a normal stack. |
 | `item_clumps:label_min_count` | `Integer` | `-1` | `-1` to `2,147,483,647` | Minimum count required before displaying holographic label. Set to `-1` to use vanilla max stack limit. |
 | `item_clumps:merge_radius` | `Integer` | `1` | `1` to `10` | Horizontal block radius items will search to find and merge with identical ground items. |
+| `item_clumps:enable_visual_scaling` | `Boolean` | `true` | `true / false` | Scales the 3D ground item entity logarithmically (1.0x to 2.5x) based on clump count. |
 
 ---
 
@@ -161,7 +170,7 @@ If you enjoy **Item Clumps**, these companion mods from the **Instant Gratificat
 ---
 
 ### 💬 Join the Community & Get Support
-Looking for help, want to test early beta builds, or vote on upcoming features? Join our official Discord community!
+Looking for help, want to test early beta builds, or vote on upcoming features? Join my official Discord community!
 <p align="center">
   <a href="https://discord.gg/EV99bgAFqb">
     <img src="https://img.shields.io/badge/💬_Discord-Join_Community-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Join Official Discord">

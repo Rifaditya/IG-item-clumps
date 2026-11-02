@@ -1,31 +1,37 @@
 <p align="center">
-    <a href="https://discord.gg/EV99bgAFqb" target="_blank" rel="noopener"><img src="https://img.shields.io/badge/Discord-Join_Community-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Join Discord"></a>
+  <img src="https://raw.githubusercontent.com/Rifaditya/IG-item-clumps/main/Doc/Media/icon.png" alt="Item Clumps Mod Icon" width="180">
+</p>
+<p align="center">
+  <a href="https://discord.gg/EV99bgAFqb"><img src="https://img.shields.io/badge/Discord-Join_Community-5865F2?style=for-the-badge&amp;logo=discord&amp;logoColor=white" alt="Join Discord"></a>
   <a href="https://www.curseforge.com/minecraft/mc-mods/fabric-api"><img src="https://img.shields.io/badge/Requires-Fabric_API-blue?style=for-the-badge&amp;logo=fabric" alt="Requires Fabric API"></a>
-  <a href="https://www.curseforge.com/minecraft/mc-mods/dasik-libary"><img src="https://img.shields.io/badge/Requires-Dasik_Library-8A2BE2?style=for-the-badge" alt="Requires Dasik Library"></a>
-  <img src="https://img.shields.io/badge/Language-Java_25-orange?style=for-the-badge&amp;logo=java" alt="Java 25">
+  <a href="https://www.curseforge.com/minecraft/mc-mods/dasik-library"><img src="https://img.shields.io/badge/Requires-Dasik_Library-8A2BE2?style=for-the-badge" alt="Requires Dasik Library"></a>
+  <img src="https://img.shields.io/badge/Language-Java-orange?style=for-the-badge&amp;logo=openjdk" alt="Java">
   <img src="https://img.shields.io/badge/License-GPLv3-green?style=for-the-badge" alt="License GPLv3">
-  <img src="https://img.shields.io/badge/Minecraft-26.2+-brightgreen?style=for-the-badge" alt="Minecraft 26.2+">
+  <img src="https://img.shields.io/badge/Minecraft-1.20.1_--_26.3+-brightgreen?style=for-the-badge" alt="Minecraft 1.20.1 -- 26.3+">
 </p>
 
 <h2>📦 Item Clumps</h2>
 
-<blockquote><p><strong>&ldquo;Stop Ground Item Lag. Merge Endless Drops into Ultra-Smooth Clumps.&rdquo;</strong></p></blockquote>
+<blockquote><p><strong>"Stop Ground Item Lag. Merge Endless Drops into Ultra-Smooth Clumps."</strong></p></blockquote>
 
-<blockquote><p><strong>1 Jar 1 Version Policy:</strong> I build <strong>1 dedicated JAR for each Minecraft version</strong> (e.g. MC 26.2, MC 26.3). Please download the exact build that matches your Minecraft installation.<br><br><strong>Dependency Requirement:</strong> For modern Minecraft 26.x releases (26.1.2, 26.2, 26.3+), this mod requires both <strong>Fabric API</strong> and <strong>Dasik Library</strong> (<code>v1.7.4+</code>).</p></blockquote>
+<blockquote><p><strong>1 Jar 1 Version Policy:</strong> I build <strong>1 dedicated JAR for each Minecraft version</strong> (e.g. MC 1.20.1, MC 1.21.1, MC 1.21.11, MC 26.1.2, MC 26.2, MC 26.3). Please download the exact build that matches your Minecraft installation.<br><br>
+<strong>Dependency Requirement:</strong> This mod requires both <strong>Fabric API</strong> and <strong>Dasik Library</strong> (<code>v1.0.0+</code> on 1.20.1, <code>v1.2.0+</code> on 1.21.x, <code>v1.7.4+</code> on 26.x).</p></blockquote>
 
-<p>In vanilla Minecraft, dropped items merge, but they strictly cap out at a standard stack size of 64. When an automated mob farm, quarry, tree harvester, or massive TNT explosion spills thousands of items onto the ground, your game is forced to tick, track, and render dozens&mdash;or even hundreds&mdash;of individual 3D item entities. The result? Severe client-side frame stuttering, rendering bottlenecks, and catastrophic server TPS drops.</p>
+<p>In vanilla Minecraft, dropped items merge, but they strictly cap out at a standard stack size of 64. When an automated mob farm, quarry, tree harvester, or massive TNT explosion spills thousands of items onto the ground, your game is forced to tick, track, and render dozens—or even hundreds—of individual 3D item entities. The result? Severe client-side frame stuttering, rendering bottlenecks, and catastrophic server TPS drops.</p>
 
-<p><strong>Item Clumps</strong> shatters the 64-item ground entity barrier server-side. It aggressively merges identical dropped items into single, ultra-lightweight virtual mega-stacks of up to <strong>9,999 items by default</strong> (or up to <strong>2,147,483,647</strong>). Floating holographic count labels render cleanly above clumps, hoppers drip-feed items smoothly without jamming, and vanilla clients can connect to servers without installing any client mod!</p>
+<p><strong>Item Clumps</strong> shatters the 64-item ground entity barrier server-side. It aggressively merges identical dropped items into single, ultra-lightweight virtual mega-stacks of up to <strong>9,999 items by default</strong> (or up to <strong>2,147,483,647</strong>). Floating holographic count labels render cleanly above clumps, hoppers drip-feed items smoothly without jamming, dynamic visual scaling provides instant visual feedback, and vanilla clients can connect to servers without installing any client mod!</p>
 
-<p>Part of the <strong>Instant Gratification Collection</strong> &mdash; mods that respect the player's time.</p>
+<p>Part of the <strong>Instant Gratification Collection</strong> — mods that respect the player's time.</p>
 
 <hr>
 
+<h2>🎬 Video Showcase</h2>
+
 <p align="center">
   <strong>🎬 Video Showcase: Item Clumps in Action</strong><br>
-  <em>Click the thumbnail or button below to watch the live demonstration on YouTube</em><br><br>
+  <em>Click the video thumbnail or button below to watch the live demonstration on YouTube:</em><br><br>
   <a href="https://youtu.be/2e9tHTHidfo" target="_blank" rel="noopener">
-    <iframe src="https://www.youtube.com/embed/2e9tHTHidfo?feature=youtu" width="560" height="314" allowfullscreen="allowfullscreen"></iframe>
+    <img src="https://img.youtube.com/vi/2e9tHTHidfo/maxresdefault.jpg" alt="▶️ Click to Watch Video Showcase on YouTube" width="85%">
   </a><br><br>
   <a href="https://youtu.be/2e9tHTHidfo" target="_blank" rel="noopener">
     <img src="https://img.shields.io/badge/▶️_Watch_Video-Play_on_YouTube-FF0000?style=for-the-badge&amp;logo=youtube&amp;logoColor=white" alt="▶️ Play Video on YouTube">
@@ -39,10 +45,13 @@
 <h3>🚀 Server-Side Stack Aggregation &amp; Virtualization</h3>
 <p>Bypasses the vanilla 64-item ground entity ceiling entirely. Identical dropped items (sharing matching item types, DataComponents, and targeting) merge into single unified entities containing up to <strong>9,999 items</strong> by default, fully configurable up to <strong>2,147,483,647</strong> (<code>Integer.MAX_VALUE</code>).</p>
 
-<blockquote><p><strong>💡 Virtual Count Storage:</strong> The full virtual item count is stored directly in the standard vanilla <code>ItemStack</code> count. Because modern Minecraft serializes stack counts using dynamic VarInts rather than legacy bytes, vanilla clients natively receive, synchronize, and display these counts on ground entities.</p></blockquote>
+<blockquote><p><strong>Virtual Count Storage:</strong> The full virtual item count is stored directly in the standard vanilla <code>ItemStack</code> count. Because modern Minecraft serializes stack counts using dynamic VarInts rather than legacy bytes, vanilla clients natively receive, synchronize, and display these counts on ground entities.</p></blockquote>
 
 <h3>🏷️ Dynamic Holographic Count Labels</h3>
 <p>Renders a custom floating nameplate (e.g. <code>Cobblestone x1450</code> or <code>Rotten Flesh x420</code>) above clumps whenever the entity count exceeds a normal stack. Uses Minecraft's native entity nametag rendering (<code>setCustomName</code> and <code>setCustomNameVisible</code>) on the server so that vanilla clients see the label without needing any client-side mod installed.</p>
+
+<h3>🔍 Dynamic Logarithmic Visual Scaling</h3>
+<p>Item clumps dynamically grow in 3D scale based on their internal item count! Scaling follows a smooth logarithmic curve from <strong>1.0x up to 2.5x</strong> (<code>1.0 + 0.3 * log10(count)</code>), giving giant mounds of cobblestone or iron ingots tangible physical presence without overwhelming player sightlines. Fully toggleable via GameRule (<code>item_clumps:enable_visual_scaling</code>).</p>
 
 <h3>⏱️ Vanilla Despawn Timer Preservation</h3>
 <p>To protect your hard-earned resources, merged clumps inherit the age of the <strong>youngest</strong> constituent item in the merge (<code>Math.min(this.age, other.age)</code>). This ensures combining newly dropped items with older items never causes premature despawning.</p>
@@ -58,15 +67,15 @@
 
 <h3>🧲 Companion Mod Synergy (Stack Size Adjuster &amp; Magnet)</h3>
 <ul>
-  <li><strong>Stack Size Adjuster Integration:</strong> When <strong>Stack Size Adjuster</strong> is present, Item Clumps automatically defers ground entity caps to your custom configured stack sizes, cleanly hiding the redundant <code>max_clump_size</code> GameRule from the settings menu.</li>
-  <li><strong>Magnet Flight Compatibility:</strong> Built-in reflection hooks detect items actively traveling through the air towards players via <strong>Magnet</strong>, temporarily exempting them from clumping until flight completes for smooth, fluid motion trajectories.</li>
+  <li><strong>Stack Size Adjuster Integration</strong>: When <strong>Stack Size Adjuster</strong> is present, Item Clumps automatically defers ground entity caps to your custom configured stack sizes, cleanly hiding the redundant <code>max_clump_size</code> GameRule from the settings menu.</li>
+  <li><strong>Magnet Flight Compatibility</strong>: Built-in reflection hooks detect items actively traveling through the air towards players via <strong>Magnet</strong>, temporarily exempting them from clumping until flight completes for smooth, fluid motion trajectories.</li>
 </ul>
 
 <h3>🧩 Compatibility &amp; HUD Integration</h3>
 <ul>
-  <li><strong>100% Server-Side Compatible:</strong> Runs entirely on the server. Vanilla clients can join modded dedicated servers without downloading anything.</li>
-  <li><strong>YetAnotherConfigLib (YACL) &amp; ModMenu:</strong> Optional graphical configuration screen in singleplayer to easily customize world defaults.</li>
-  <li><strong>Zero NBT Pollution:</strong> In-memory damage and entity interception guarantees your world saves remain 100% vanilla safe.</li>
+  <li><strong>100% Server-Side Compatible</strong>: Runs entirely on the server. Vanilla clients can join modded dedicated servers without downloading anything.</li>
+  <li><strong>YetAnotherConfigLib (YACL) &amp; ModMenu</strong>: Optional graphical configuration screen in singleplayer to easily customize world defaults.</li>
+  <li><strong>Zero NBT Pollution</strong>: In-memory damage and entity interception guarantees your world saves remain 100% vanilla safe.</li>
 </ul>
 
 <p align="center">
@@ -83,7 +92,7 @@
     <tr>
       <th>Gameplay Aspect</th>
       <th>Vanilla Minecraft</th>
-      <th>Item Clumps (Modern 26.2+)</th>
+      <th>Item Clumps (Fabric)</th>
     </tr>
   </thead>
   <tbody>
@@ -106,6 +115,11 @@
       <td><strong>Holographic Count Label</strong></td>
       <td>❌ None (Indistinguishable pile)</td>
       <td>✅ <strong>Live 3D nametag</strong> (<code>Item Name xCount</code>)</td>
+    </tr>
+    <tr>
+      <td><strong>Visual Size Scaling</strong></td>
+      <td>❌ Fixed single item scale</td>
+      <td>✅ <strong>Dynamic logarithmic scale (1.0x to 2.5x)</strong></td>
     </tr>
     <tr>
       <td><strong>Despawn Timer Logic</strong></td>
@@ -140,7 +154,8 @@
 /gamerule item_clumps:max_clump_size 9999
 /gamerule item_clumps:render_labels true
 /gamerule item_clumps:label_min_count -1
-/gamerule item_clumps:merge_radius 1</code></pre>
+/gamerule item_clumps:merge_radius 1
+/gamerule item_clumps:enable_visual_scaling true</code></pre>
 
 <p>All modifications made via <code>/gamerule</code> take effect immediately and synchronize across all connected players.</p>
 
@@ -163,38 +178,45 @@
   <tbody>
     <tr>
       <td><code>item_clumps:enable_clumping</code></td>
-      <td>Boolean</td>
+      <td><code>Boolean</code></td>
       <td><code>true</code></td>
       <td><code>true / false</code></td>
       <td>Toggles the item clumping mechanic on or off. When disabled, vanilla merging applies.</td>
     </tr>
     <tr>
       <td><code>item_clumps:max_clump_size</code></td>
-      <td>Integer</td>
+      <td><code>Integer</code></td>
       <td><code>9999</code></td>
       <td><code>64</code> to <code>2,147,483,647</code></td>
       <td>Maximum number of items a single clump can hold. <em>(Hidden when Stack Size Adjuster is loaded)</em>.</td>
     </tr>
     <tr>
       <td><code>item_clumps:render_labels</code></td>
-      <td>Boolean</td>
+      <td><code>Boolean</code></td>
       <td><code>true</code></td>
       <td><code>true / false</code></td>
       <td>Renders a 3D holographic count label above clumps larger than a normal stack.</td>
     </tr>
     <tr>
       <td><code>item_clumps:label_min_count</code></td>
-      <td>Integer</td>
+      <td><code>Integer</code></td>
       <td><code>-1</code></td>
       <td><code>-1</code> to <code>2,147,483,647</code></td>
       <td>Minimum count required before displaying holographic label. Set to <code>-1</code> to use vanilla max stack limit.</td>
     </tr>
     <tr>
       <td><code>item_clumps:merge_radius</code></td>
-      <td>Integer</td>
+      <td><code>Integer</code></td>
       <td><code>1</code></td>
       <td><code>1</code> to <code>10</code></td>
       <td>Horizontal block radius items will search to find and merge with identical ground items.</td>
+    </tr>
+    <tr>
+      <td><code>item_clumps:enable_visual_scaling</code></td>
+      <td><code>Boolean</code></td>
+      <td><code>true</code></td>
+      <td><code>true / false</code></td>
+      <td>Scales the 3D ground item entity logarithmically (1.0x to 2.5x) based on clump count.</td>
     </tr>
   </tbody>
 </table>
@@ -211,8 +233,8 @@
 
 <h3>2. Live In-Game Tuning vs. Global Template</h3>
 <ul>
-  <li><strong>For New Worlds:</strong> Configure your desired settings in <code>config/item_clumps.json</code> or via ModMenu + YACL on the title screen. New worlds copy these values into world GameRules upon creation.</li>
-  <li><strong>For Existing Worlds:</strong> Open the pause menu &rarr; <strong>Edit Game Rules</strong> &rarr; scroll to the <strong>Item Clumps</strong> section, or use <code>/gamerule item_clumps:&lang;rule&rang; &lang;value&rang;</code> in chat.</li>
+  <li><strong>For New Worlds</strong>: Configure your desired settings in <code>config/item_clumps.json</code> or via ModMenu + YACL on the title screen. New worlds copy these values into world GameRules upon creation.</li>
+  <li><strong>For Existing Worlds</strong>: Open the pause menu &rarr; <strong>Edit Game Rules</strong> &rarr; scroll to the <strong>Item Clumps</strong> section, or use <code>/gamerule item_clumps:&lt;rule&gt; &lt;value&gt;</code> in chat.</li>
 </ul>
 
 <h3>3. Industrial Farm Optimization (Mob Farms &amp; Quarries)</h3>
@@ -229,8 +251,8 @@
 
 <h3>5. Troubleshooting &amp; Crash Prevention</h3>
 <ul>
-  <li><strong>Classloader Guard:</strong> Item Clumps contains Knot ClassLoader startup checks to ensure compatibility across Minecraft versions.</li>
-  <li><strong>Overflow Prevention:</strong> Clump sum calculations utilize 64-bit arithmetic to ensure total item counts never overflow into negative values.</li>
+  <li><strong>Classloader Guard</strong>: Item Clumps contains Knot ClassLoader startup checks to ensure compatibility across Minecraft versions.</li>
+  <li><strong>Overflow Prevention</strong>: Clump sum calculations utilize 64-bit arithmetic to ensure total item counts never overflow into negative values.</li>
 </ul>
 
 <hr>
@@ -240,18 +262,28 @@
 <p>If you enjoy <strong>Item Clumps</strong>, these companion mods from the <strong>Instant Gratification Collection</strong> plug in seamlessly:</p>
 
 <ul>
-  <li>📦 <a href="https://www.curseforge.com/minecraft/mc-mods/ig-stack-size-adjuster"><strong>Stack Size Adjuster</strong></a>: Scale inventory slot and container limits from 64 up to 2.14 Billion, perfectly aligning your storage chests with ground clump thresholds.</li>
-  <li>🧲 <a href="https://www.curseforge.com/minecraft/mc-mods/instant-gratification-magnet"><strong>Magnet</strong></a>: Automatically vacuum massive item clumps and XP orbs straight into your inventory from up to 64 blocks away.</li>
-  <li>⛏️ <a href="https://www.curseforge.com/minecraft/mc-mods/instant-gratification-ore-amplifier"><strong>Ore Amplifier</strong></a>: Multiply vanilla and modded ore generation in newly generated chunks to feed your high-capacity storage systems.</li>
+  <li>📦 <a href="https://modrinth.com/mod/ig-stack-size-adjuster" target="_blank" rel="noopener"><strong>Stack Size Adjuster</strong></a>: Scale inventory slot and container limits from 64 up to 2.14 Billion, perfectly aligning your storage chests with ground clump thresholds.</li>
+  <li>🧲 <a href="https://modrinth.com/mod/instant-gratification-magnet,-let-me-get-that!" target="_blank" rel="noopener"><strong>Magnet (Let Me Get That!)</strong></a>: Automatically vacuum massive item clumps and XP orbs straight into your inventory from up to 64 blocks away.</li>
+  <li>⛏️ <a href="https://modrinth.com/mod/instant-gratification-ore-amplifier" target="_blank" rel="noopener"><strong>Ore Amplifier</strong></a>: Multiply vanilla and modded ore generation in newly generated chunks to feed your high-capacity storage systems.</li>
 </ul>
 
-<p><em>Explore the full <a href="https://www.curseforge.com/members/dasikigaijin/projects"><strong>Instant Gratification Collection</strong></a> for more high-convenience enhancements.</em></p>
+<blockquote><p>🌟 <em>Explore the full <a href="https://modrinth.com/collection/instant-gratification" target="_blank" rel="noopener"><strong>Instant Gratification Collection</strong></a> for more high-convenience enhancements.</em></p></blockquote>
+
+<hr>
+
+<h3>💬 Join the Community &amp; Get Support</h3>
+<p>Looking for help, want to test early beta builds, or vote on upcoming features? Join my official Discord community!</p>
+<p align="center">
+  <a href="https://discord.gg/EV99bgAFqb">
+    <img src="https://img.shields.io/badge/💬_Discord-Join_Community-5865F2?style=for-the-badge&amp;logo=discord&amp;logoColor=white" alt="Join Official Discord">
+  </a>
+</p>
 
 <hr>
 
 <h2>☕ Support</h2>
 
-<p>If you enjoy the <strong>Instant Gratification</strong> collection, consider fueling future updates!</p>
+<p>If you enjoy the <strong>Instant Gratification Collection</strong>, consider fueling future updates!</p>
 
 <p align="center">
   <a href="https://ko-fi.com/dasikigaijin/tip"><img src="https://img.shields.io/badge/Ko--fi-Support%20Me-FF5E5B?style=for-the-badge&amp;logo=ko-fi&amp;logoColor=white" alt="Ko-fi"></a>
@@ -261,15 +293,6 @@
 
 <blockquote><p><strong>🇮🇩 Indonesian Users:</strong> SocioBuzz and Saweria support local payment methods (Gopay, OVO, Dana, etc.) if you want to support me without using PayPal/Ko-fi!</p></blockquote>
 
-
-<h3>💬 Join the Community &amp; Get Support</h3>
-<p>Looking for help, want to test early beta builds, or vote on upcoming features? Join our official Discord community!</p>
-<p align="center">
-  <a href="https://discord.gg/EV99bgAFqb" target="_blank" rel="noopener">
-    <img src="https://img.shields.io/badge/Discord-Join_Community-5865F2?style=for-the-badge&amp;logo=discord&amp;logoColor=white" alt="Join Official Discord">
-  </a>
-</p>
-
 <hr>
 
 <h2>📜 Credits &amp; Modpack Permissions</h2>
@@ -277,8 +300,8 @@
 <table>
   <thead>
     <tr>
-      <th>Property</th>
-      <th>Information</th>
+      <th>Role / Property</th>
+      <th>Author / Link</th>
     </tr>
   </thead>
   <tbody>
@@ -292,38 +315,37 @@
     </tr>
     <tr>
       <td><strong>Collection</strong></td>
-      <td><a href="https://www.curseforge.com/members/dasikigaijin/projects">Instant Gratification</a></td>
+      <td>Instant Gratification</td>
     </tr>
     <tr>
       <td><strong>License</strong></td>
-      <td><a href="https://www.gnu.org/licenses/gpl-3.0.html">GNU General Public License v3.0 (GPLv3)</a></td>
+      <td><a href="https://www.gnu.org/licenses/gpl-3.0.html" target="_blank" rel="noopener">GNU General Public License v3.0 (GPLv3)</a></td>
     </tr>
     <tr>
       <td><strong>Source Code</strong></td>
-      <td><a href="https://github.com/Rifaditya/IG-item-clumps">GitHub - Rifaditya/IG-item-clumps</a></td>
+      <td><a href="https://github.com/Rifaditya/IG-item-clumps" target="_blank" rel="noopener">GitHub - Rifaditya/IG-item-clumps</a></td>
     </tr>
     <tr>
       <td><strong>Issue Tracker</strong></td>
-      <td><a href="https://github.com/Rifaditya/IG-item-clumps/issues">GitHub Issues</a></td>
+      <td><a href="https://github.com/Rifaditya/IG-item-clumps/issues" target="_blank" rel="noopener">GitHub Issues</a></td>
     </tr>
     <tr>
       <td><strong>Documentation / Wiki</strong></td>
-      <td><a href="https://github.com/Rifaditya/IG-item-clumps/wiki">GitHub Wiki</a></td>
+      <td><a href="https://github.com/Rifaditya/IG-item-clumps/wiki" target="_blank" rel="noopener">GitHub Wiki</a></td>
     </tr>
   </tbody>
 </table>
 
-<blockquote>
-  <p><strong>📦 Modpack Permissions &amp; Distribution:</strong><br>
-  You are fully welcome to include this mod in any modpack on any platform! However, the mod file must be downloaded directly through official distribution channels (<strong>CurseForge</strong> or <strong>Modrinth</strong>). Re-uploading, mirroring, or redistributing the original mod JAR to third-party mirror sites, scraper portals, or unauthorized launchers is strictly prohibited.</p>
-  <p><strong>⚖️ License &amp; Fork Guidelines (No Zero-Change Re-uploads):</strong><br>
-  This project is open-source under the <strong>GNU GPLv3</strong>. You are fully encouraged to inspect the code, learn from it, and fork the repository to create genuine modifications, substantial feature expansions, or community ports&mdash;provided your project remains open-source under GPLv3 with proper attribution.<br>
-  <strong>However, straight 1:1 re-uploads, clone forks with no meaningful functional changes, or re-publishing identical builds under different project names (e.g. to farm downloads or rewards) are strictly forbidden.</strong></p>
-</blockquote>
+<blockquote><p><strong>📦 Modpack Permissions &amp; Distribution:</strong><br>
+You are fully welcome to include this mod in any modpack on any platform! However, the mod file must be downloaded directly through official distribution channels (<strong>Modrinth</strong> or <strong>CurseForge</strong>). Re-uploading, mirroring, or redistributing the original mod JAR to third-party mirror sites, scraper portals, or unauthorized launchers is strictly prohibited.
+<br><br>
+<strong>⚖️ License &amp; Fork Guidelines (No Zero-Change Re-uploads):</strong><br>
+This project is open-source under the <strong>GNU GPLv3</strong>. You are fully encouraged to inspect the code, learn from it, and fork the repository to create genuine modifications, substantial feature expansions, or community ports—provided your project remains open-source under GPLv3 with proper attribution.<br>
+<strong>However, straight 1:1 re-uploads, clone forks with no meaningful functional changes, or re-publishing identical builds under different project names (e.g. to farm downloads or rewards) are strictly forbidden.</strong></p></blockquote>
 
 <hr>
 
-<p align="center">
-  <strong>Made with ❤️ for the Minecraft community</strong><br>
-  <em>Part of the Instant Gratification Collection</em>
-</p>
+<div align="center">
+  <p><strong>Made with ❤️ for the Minecraft community</strong></p>
+  <p><em>Part of the Instant Gratification Collection</em></p>
+</div>
