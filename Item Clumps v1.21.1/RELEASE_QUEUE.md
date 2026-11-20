@@ -4,7 +4,8 @@ This file tracks release candidates for Minecraft 1.21.1.
 
 ## 🚀 Published & Backlog Queue
 
-- [ ] **1.4.0+1.21.1** (2026-11-01) - Optional batch hopper siphoning (BL-CLUMP-005) with dynamic GameRules and YACL GUI.
+- [ ] **1.4.1+1.21.1** (2026-11-20) - Fix ItemEntityRendererMixin @WrapOperation receiver signature crash under Knot (BL-CLUMP-026).
+- [SUPERSEDED] **1.4.0+1.21.1** (2026-11-01) - Optional batch hopper siphoning (BL-CLUMP-005) with dynamic GameRules and YACL GUI.
 - [ ] **1.3.0+1.21.1** (2026-10-19) - Holographic label wall-occlusion culling and cull_occluded_labels dynamic GameRule.
 - [ ] **`1.2.0+1.21.1`** (2026-10-18) - Explosion drop pre-clumping and pre_clump_explosions dynamic GameRule.
 - [x] **`1.1.0+1.21.1`** (2026-10-14) - Dynamic visual scaling for item clumps (1.0x-2.5x logarithmic) and dynamic GameRule support.

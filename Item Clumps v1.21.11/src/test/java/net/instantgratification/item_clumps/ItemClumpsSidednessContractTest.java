@@ -19,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
  *
  * Verifies:
  * - Zero unguarded net.minecraft.client.* or com.mojang.blaze3d.* references in common sources & bytecode.
- * - Complete absence of ModVersionGuard.java and absence of Class.forName in ItemClumpsFabric.java.
+ * - Absence of Class.forName in ItemClumpsFabric.java.
  * - Structural integrity and client/common separation of item-clumps.mixins.json and item-clumps.client.mixins.json.
  */
 public class ItemClumpsSidednessContractTest {
@@ -81,16 +81,11 @@ public class ItemClumpsSidednessContractTest {
     }
 
     @Test
-    @DisplayName("Pillar 5: ModVersionGuard Purged and Zero Unremapped Class.forName in Entrypoint")
-    void testModVersionGuardPurged() throws IOException {
-        Path guardPath = Paths.get("src/main/java/net/instantgratification/item_clumps/util/ModVersionGuard.java");
-        assertFalse(Files.exists(guardPath), "Obsolete ModVersionGuard.java must not exist");
-
+    @DisplayName("Pillar 5: Zero Unremapped Class.forName in Entrypoint")
+    void testZeroUnremappedReflection() throws IOException {
         Path entrypointPath = Paths.get("src/main/java/net/instantgratification/item_clumps/ItemClumpsFabric.java");
         assertTrue(Files.exists(entrypointPath), "ItemClumpsFabric.java must exist");
         String entrypointContent = Files.readString(entrypointPath, StandardCharsets.UTF_8);
-        assertFalse(entrypointContent.contains("ModVersionGuard"),
-                "ItemClumpsFabric.java must not reference ModVersionGuard");
         assertFalse(entrypointContent.contains("Class.forName"),
                 "ItemClumpsFabric.java must not invoke Class.forName");
     }

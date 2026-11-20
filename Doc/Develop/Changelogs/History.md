@@ -2,6 +2,21 @@
 
 All notable changes to the item clumping mod are documented below.
 
+## [BL-CLUMP-026] Fix ItemEntityRendererMixin @WrapOperation Receiver Signature Crash in Legacy & Transitional Anchors (2026-11-20)
+*Released: November 20, 2026 (Anchors: 1.20.1 - 1.4.1+1.20.1, 1.21.1 - 1.4.1+1.21.1)*
+
+### Summary
+Resolves a fatal client Mixin transformation crash (`InvalidInjectionException` / `NullPointerException`) in `ItemEntityRendererMixin.java` under Knot ClassLoader when rendering floating item entities in Minecraft 1.20.1 and 1.21.1.
+
+### Anchors
+1.20.1 (Bumped to 1.4.1+1.20.1), 1.21.1 (Bumped to 1.4.1+1.21.1).
+
+### Technical Architecture
+- **Operand Stack Type Alignment**: `ItemEntityRendererMixin.java` `@WrapOperation` target wraps `EntityRenderer.render` inside `ItemEntityRenderer.render`. Because this is an `invokespecial` call on `this`, the receiver on the JVM operand stack is `ItemEntityRenderer`. MixinExtras strictly requires the first parameter to match this receiver type. Updated parameter signature from `EntityRenderer instance` to `ItemEntityRenderer instance`, satisfying MixinExtras verification and preventing `InvalidInjectionException` and subsequent missing entity renderer NPEs.
+- **Side Safety**: Client-only injection retained under `@Environment(EnvType.CLIENT)` with zero server leaks.
+
+---
+
 ## [BL-CLUMP-005] Optional Batch Hopper Siphoning (2026-11-01)
 *Released: November 01, 2026 (All Anchors: 1.20.1, 1.21.1, 1.21.11, 26.1.2, 26.2, 26.3)*
 

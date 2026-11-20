@@ -8,6 +8,7 @@ This directory contains dedicated atomic ticket files for **Item Clumps** under 
 
 | Ticket ID | Category | Title | Status | File Link |
 | :--- | :--- | :--- | :--- | :--- |
+| `[BL-CLUMP-026]` | `[BUGFIX]` | Fix ItemEntityRendererMixin @WrapOperation Receiver Signature Crash in Legacy Anchors | `✅ RESOLVED` | [`BL-CLUMP-026.md`](BL-CLUMP-026.md) |
 | `[BL-CLUMP-024]` | `[TECH_DEBT]` | Scaffold Anchor 7: Item Clumps v26.x (rolling 26.3+) | `📌 DEFERRED` | [`BL-CLUMP-024.md`](BL-CLUMP-024.md) |
 | `[BL-CLUMP-001]` | `[FEATURE]` | Smooth Dynamic Visual Scaling | `✅ RESOLVED` | [`BL-CLUMP-001.md`](BL-CLUMP-001.md) |
 | `[BL-CLUMP-002]` | `[REFINEMENT]` | Clump Despawn Warning Effect | `📌 DEFERRED` | [`BL-CLUMP-002.md`](BL-CLUMP-002.md) |

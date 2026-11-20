@@ -55,7 +55,7 @@ public final class PreClumpDropHelper {
         if (deque != null && !deque.isEmpty()) {
             PreClumpContext context = deque.pop();
             context.flush(level);
-            if (deque.isEmpty()) {
+            if (deque.size() == 0) {
                 CONTEXT_STACK.remove();
             }
         }

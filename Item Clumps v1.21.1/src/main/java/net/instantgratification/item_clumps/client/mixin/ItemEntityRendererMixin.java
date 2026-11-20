@@ -62,7 +62,7 @@ public class ItemEntityRendererMixin {
             target = "Lnet/minecraft/client/renderer/entity/EntityRenderer;render(Lnet/minecraft/world/entity/Entity;FFLcom/mojang/blaze3d/vertex/PoseStack;Lnet/minecraft/client/renderer/MultiBufferSource;I)V"
         )
     )
-    private void item_clumps$cullOccludedLabel(EntityRenderer instance, Entity entity, float yaw, float tick, PoseStack stack, MultiBufferSource buffer, int light, Operation<Void> original) {
+    private void item_clumps$cullOccludedLabel(ItemEntityRenderer instance, Entity entity, float yaw, float tick, PoseStack stack, MultiBufferSource buffer, int light, Operation<Void> original) {
         if (Minecraft.getInstance().gameRenderer != null && Minecraft.getInstance().gameRenderer.getMainCamera() != null && entity.level() != null) {
             Vec3 camPos = Minecraft.getInstance().gameRenderer.getMainCamera().getPosition();
             if (ClumpOcclusionCuller.isLabelOccluded(entity.level(), camPos, entity.getX(), entity.getY() + 0.75, entity.getZ())) {

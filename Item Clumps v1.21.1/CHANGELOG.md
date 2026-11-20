@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.4.1+1.21.1] - 2026-11-20
+
+### Fixed
+- **Knot ClassLoader / Mixin Extras Safety (BL-CLUMP-026)**: Fixed fatal client transformation crash (`InvalidInjectionException` / `NullPointerException`) in `ItemEntityRendererMixin` by aligning the `@WrapOperation` receiver parameter type from `EntityRenderer` to `ItemEntityRenderer`, matching the operand stack type for `invokespecial` super calls under Knot ClassLoader.
+
 ## [1.4.0+1.21.1] - 2026-11-01
 
 ### Added

@@ -1,7 +1,7 @@
 # 📌 Item Clumps Backlog
 
-<!-- Highest Historical ID: BL-CLUMP-025 (Next Ticket Must Start at BL-CLUMP-026) -->
-> **Next Available Ticket ID**: `[BL-CLUMP-026]`
+<!-- Highest Historical ID: BL-CLUMP-026 (Next Ticket Must Start at BL-CLUMP-027) -->
+> **Next Available Ticket ID**: `[BL-CLUMP-027]`
 
 This file tracks planned features, technical refinements, performance optimizations, and deferred improvements for **Item Clumps**.
 
@@ -11,6 +11,7 @@ This file tracks planned features, technical refinements, performance optimizati
 
 | ID | Category | Title | Priority | Target Version | Status | Specification |
 | :--- | :--- | :--- | :--- | :--- | :--- | :--- |
+| [`BL-CLUMP-026`](tickets/BL-CLUMP-026.md) | `[BUGFIX]` | Fix ItemEntityRendererMixin @WrapOperation Receiver Signature Crash in Legacy Anchors | `[CRITICAL]` | `1.20.1, 1.21.1` | `✅ RESOLVED` | [View Ticket](tickets/BL-CLUMP-026.md) |
 | [`BL-CLUMP-024`](tickets/BL-CLUMP-024.md) | `[TECH_DEBT]` | Scaffold Anchor 7: Item Clumps v26.x (rolling 26.3+) | `[MEDIUM]` | Multi-Version Parity | `📌 DEFERRED` | [View Ticket](tickets/BL-CLUMP-024.md) |
 | [`BL-CLUMP-002`](tickets/BL-CLUMP-002.md) | [REFINEMENT] | Clump Despawn Warning Effect (Final 30-60s visual indicator) | [MEDIUM] | All Anchors | 📌 DEFERRED | [View Ticket](tickets/BL-CLUMP-002.md) |
 | [`BL-CLUMP-003`](tickets/BL-CLUMP-003.md) | [REFINEMENT] | Customizable Hex Color for Holographic Labels | [LOW] | All Anchors | 📌 DEFERRED | [View Ticket](tickets/BL-CLUMP-003.md) |
