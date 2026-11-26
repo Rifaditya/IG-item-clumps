@@ -9,7 +9,7 @@ This file tracks release candidates for Minecraft 26.2.
 - [ ] **`1.2.0+26.2`** (2026-10-18) - Explosion drop pre-clumping and pre_clump_explosions dynamic GameRule.
 - [ ] **`1.1.0+26.2`** (2026-10-14) - Dynamic visual scaling for item clumps (1.0x-2.5x logarithmic) and dynamic GameRule support.
 - [ ] **`1.0.29+26.2`** (2026-10-14) - Purged legacy ModVersionGuard string reflection runtime crash under Knot ClassLoader.
-- [ ] **`1.0.28+26.2`** (2026-09-05) - DasikLibrary 1.8.39 alignment, @DasikApiStatus governance, and license normalization.
+- [x] **`1.0.28+26.2`** (2026-09-05) - DasikLibrary 1.8.39 alignment, @DasikApiStatus governance, and license normalization.
 - [x] **`1.0.27+26.2`** (2026-09-05) - Client Side-Safety Annotations (@Environment on YaclScreenHelper and ModMenuIntegration).
 - [x] **`1.0.26+26.2`** (2026-09-05) - Non-invasive MixinExtras @ModifyExpressionValue & True Sandbox Freedom (MERGE_RADIUS unlocked).
 - [x] **`1.0.25+26.2`** (2026-09-05) - Clean up config warning wording and remove repetitive notice boilerplate from option descriptions.
